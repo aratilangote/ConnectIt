@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_premium"
+            android:icon="@drawable/ic_premium"
+            android:title="Upgrade to Premium"/>
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Home"/>
+        <item
+            android:id="@+id/nav_business_info"
+            android:icon="@drawable/ic_business_info"
+            android:title="Business Information"/>
+        <item
+            android:id="@+id/nav_wp_msg"
+            android:icon="@drawable/ic_whatsapp"
+            android:title="Whatsapp Message"/>
+        <item
+            android:id="@+id/nav_sms_schedule"
+            android:icon="@drawable/ic_sms_schedule"
+            android:title="Birthday/SMS Schedule"/>
+        <item
+            android:id="@+id/nav_bulk_sms"
+            android:icon="@drawable/ic_bulk_sms"
+            android:title="Bulk Whatsapp Message"/>
+
+        <item android:title="Communicate">
+            <menu>
+                <item
+                    android:id="@+id/nav_settings"
+                    android:icon="@drawable/ic_settings"
+                    android:title="App Settings"/>
+                <item
+                    android:id="@+id/nav_permission"
+                    android:icon="@drawable/ic_permission"
+                    android:title="App Permission"/>
+                <item
+                    android:id="@+id/nav_aboutUs"
+                    android:icon="@drawable/ic_about_us"
+                    android:title="About Us"/>
+                <item
+                    android:id="@+id/nav_help"
+                    android:icon="@drawable/ic_help"
+                    android:title="Help"/>
+            </menu>
+        </item>
+
+        <item android:title="Refer a friend">
+            <menu>
+                <item
+                    android:id="@+id/nav_referFriend"
+                    android:icon="@drawable/ic_share"
+                    android:title="Refer a friend"/>
+            </menu>
+        </item>
+
+        <item android:title="Offline">
+            <menu>
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/ic_logout"
+                    android:title="Logout"/>
+            </menu>
+        </item>
+    </group>
+</menu>
