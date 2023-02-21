@@ -17,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Intent for switch to home activity
         nextPage = findViewById(R.id.next_page);
-
         nextPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

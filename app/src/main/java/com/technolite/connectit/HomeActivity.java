@@ -7,8 +7,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -19,16 +22,29 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     Toolbar toolbar;
 
-    @SuppressLint("ResourceAsColor")
+    Button btnAllbuttons;
+
+    @SuppressLint({"ResourceAsColor", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        //All buttons activity
+        btnAllbuttons = findViewById(R.id.goto_allbuttons);
+        btnAllbuttons.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, AllButtonsActivity.class));
+            }
+        });
+
+        //tootbar settings
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("ConnectIt");
         setSupportActionBar(toolbar);
 
+        //drawerlayout setiings
         drawerLayout = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -36,8 +52,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
 
+        //navigationview settings
         navigationView = findViewById(R.id.navigation);
         navigationView.setNavigationItemSelectedListener(this);
+
+
     }
 
     @Override
@@ -63,7 +82,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 Toast.makeText(this, "Bulk msgs", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_settings:
-                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
                 break;
             case R.id.nav_permission:
                 Toast.makeText(this, "Permission", Toast.LENGTH_SHORT).show();
