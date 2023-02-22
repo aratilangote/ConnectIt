@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".apppermissionActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="590dp"
+        android:padding="30dp"
+        android:layout_marginTop="80dp"
+        >
+
+    <Button
+        android:layout_width="360dp"
+        android:layout_height="55dp"
+        android:id="@+id/acc_whatsapp"
+        android:layout_marginTop="30dp"
+        android:text="Accessibility to auto send whatsapp"/>
+
+    <Button
+        android:layout_width="360dp"
+        android:layout_height="55dp"
+        android:id="@+id/autostartbackwork"
+        android:layout_marginTop="100dp"
+        android:text="auto start and background work"/>
+
+    <Button
+        android:layout_width="360dp"
+        android:layout_height="55dp"
+        android:id="@+id/otherapps"
+        android:layout_marginTop="170dp"
+        android:text="draw over other apps"/>
+
+    <Button
+        android:layout_width="360dp"
+        android:layout_height="55dp"
+        android:id="@+id/notifyautopilot"
+        android:layout_marginTop="240dp"
+        android:text="notification listener for auto pilot"/>
+
+    <Button
+        android:layout_width="360dp"
+        android:layout_height="55dp"
+        android:id="@+id/app_per_window"
+        android:layout_marginTop="310dp"
+        android:text="App permission window"/>
+
+    <Button
+        android:layout_width="360dp"
+        android:layout_height="55dp"
+        android:id="@+id/battery_permission"
+        android:layout_marginTop="380dp"
+        android:text="Battery permission"/>
+
+    <Button
+        android:layout_width="360dp"
+        android:layout_height="55dp"
+        android:id="@+id/other_per"
+        android:layout_marginTop="450dp"
+        android:text="other permission window"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

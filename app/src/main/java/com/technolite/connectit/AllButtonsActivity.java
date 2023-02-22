@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class AllButtonsActivity extends AppCompatActivity {
 
-    Button BtnBithday, BtnSettings, BtnPermission, BtnView, BtnWhatsapp;
+    Button BtnBithday, BtnSettings, BtnPermission, BtnView,BtnBulkWhatsapp, BtnWhatsapp;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -23,11 +23,14 @@ public class AllButtonsActivity extends AppCompatActivity {
         BtnPermission = findViewById(R.id.btn_permissions);
         BtnView = findViewById(R.id.btn_view);
         BtnWhatsapp = findViewById(R.id.btn_whatsapp);
+        BtnBulkWhatsapp = findViewById(R.id.btn_bulkwhatsapp);
 
 
         BtnBithday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(AllButtonsActivity.this,Birthday_Reminder_Activity.class);
+                startActivity(i);
             }
         });
 
@@ -41,6 +44,8 @@ public class AllButtonsActivity extends AppCompatActivity {
         BtnPermission.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(AllButtonsActivity.this,apppermissionActivity.class);
+                startActivity(i);
             }
         });
 
@@ -54,6 +59,14 @@ public class AllButtonsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AllButtonsActivity.this, WhatsappActivity.class));
+            }
+        });
+
+        BtnBulkWhatsapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(AllButtonsActivity.this,Bulk_whatsapp_msg_Activity.class);
+                startActivity(i);
             }
         });
     }
