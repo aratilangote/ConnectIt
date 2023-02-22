@@ -18,7 +18,7 @@ public class AllButtonsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_buttons);
 
-        BtnBithday = findViewById(R.id.btn_birthday);
+        BtnBithday = findViewById(R.id.btn_birthday_remainder);
         BtnSettings = findViewById(R.id.btn_settings);
         BtnPermission = findViewById(R.id.btn_permissions);
         BtnView = findViewById(R.id.btn_view);

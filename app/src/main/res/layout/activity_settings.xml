@@ -31,6 +31,7 @@
                     android:textColor="@color/black"
                     android:layout_marginHorizontal="5dp"/>
                 <Spinner
+                    android:id="@+id/select_sim"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"/>
