@@ -27,14 +27,14 @@
         android:layout_marginTop="100dp"
         android:text="auto start and background work"/>
 
-    <Button
-        android:layout_width="360dp"
-        android:layout_height="55dp"
-        android:id="@+id/otherapps"
-        android:layout_marginTop="170dp"
-        android:text="draw over other apps"/>
+        <Button
+            android:id="@+id/otherapps"
+            android:layout_width="360dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="170dp"
+            android:text="draw over other apps" />
 
-    <Button
+        <Button
         android:layout_width="360dp"
         android:layout_height="55dp"
         android:id="@+id/notifyautopilot"

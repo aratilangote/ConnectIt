@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class AllButtonsActivity extends AppCompatActivity {
 
-    Button BtnBithday, BtnSettings, BtnPermission, BtnView,BtnBulkWhatsapp, BtnWhatsapp;
+    Button BtnPremium, BtnHome, BtnBusinessInfo, BtnNetworkSMS, BtnBithday, BtnSettings, BtnPermission, BtnView,BtnBulkWhatsapp, BtnWhatsapp;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -18,6 +18,7 @@ public class AllButtonsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_buttons);
 
+        BtnNetworkSMS = findViewById(R.id.btn_network_sms);
         BtnBithday = findViewById(R.id.btn_birthday_remainder);
         BtnSettings = findViewById(R.id.btn_settings);
         BtnPermission = findViewById(R.id.btn_permissions);
@@ -25,6 +26,12 @@ public class AllButtonsActivity extends AppCompatActivity {
         BtnWhatsapp = findViewById(R.id.btn_whatsapp);
         BtnBulkWhatsapp = findViewById(R.id.btn_bulkwhatsapp);
 
+        BtnNetworkSMS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AllButtonsActivity.this, NetworkSMSActivity.class));
+            }
+        });
 
         BtnBithday.setOnClickListener(new View.OnClickListener() {
             @Override
