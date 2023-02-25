@@ -88,32 +88,6 @@
                     android:layout_height="match_parent"
                     android:gravity="center">
                     <ImageView
-                        android:id="@+id/img_business_info"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/ic_business_info"/>
-                    <Button
-                        android:id="@+id/btn_business_info"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Business Info"
-                        android:layout_centerInParent="true"
-                        android:layout_below="@id/img_business_info"/>
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                app:cardCornerRadius="10dp"
-                android:padding="2dp"
-                android:layout_marginStart="20dp">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center">
-                    <ImageView
                         android:id="@+id/img_network_sms"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
@@ -129,41 +103,41 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                app:cardCornerRadius="10dp"
+                android:padding="2dp"
+                android:layout_marginStart="20dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/img_whatsapp"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/whatsapp" />
+                    <Button
+                        android:id="@+id/btn_whatsapp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Whatsapp"
+                        android:layout_centerInParent="true"
+                        android:layout_below="@id/img_whatsapp"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="30dp"
-            android:gravity="center">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="10dp"
-                android:padding="2dp">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center">
-                    <ImageView
-                        android:id="@+id/img5"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/whatsapp"/>
-                    <Button
-                        android:id="@+id/btn_whatsapp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Whatsapp"
-                        android:gravity="center"
-                        android:layout_centerInParent="true"
-                        android:layout_below="@id/img5"/>
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
+            android:gravity="center"
+            android:layout_marginTop="30dp">
             <androidx.cardview.widget.CardView
                 android:layout_width="170dp"
                 android:layout_height="170dp"
@@ -177,25 +151,17 @@
                         android:id="@+id/img_birthday_remainder"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
+                        android:layout_centerInParent="true"
                         android:src="@drawable/ic_sms_schedule"/>
                     <Button
                         android:id="@+id/btn_birthday_remainder"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Set Bithday Remainder"
-                        android:layout_gravity="center"
-                        android:layout_below="@id/img_birthday_remainder"/>
+                        android:layout_centerInParent="true"
+                        android:layout_below="@id/img_birthday_remainder" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginTop="30dp">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="170dp"
@@ -225,13 +191,19 @@
                         android:layout_below="@id/img_bulk_msg"/>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="30dp">
             <androidx.cardview.widget.CardView
                 android:layout_width="170dp"
                 android:layout_height="170dp"
                 app:cardCornerRadius="10dp"
-                android:padding="2dp"
-                android:layout_marginStart="20dp">
+                android:padding="2dp">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -252,19 +224,12 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginTop="30dp">
             <androidx.cardview.widget.CardView
                 android:layout_width="170dp"
                 android:layout_height="170dp"
                 app:cardCornerRadius="10dp"
-                android:padding="2dp">
+                android:padding="2dp"
+                android:layout_marginStart="20dp">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -284,33 +249,6 @@
                         android:layout_below="@id/img_set_permission" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                app:cardCornerRadius="10dp"
-                android:padding="2dp"
-                android:layout_marginStart="20dp">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center">
-                    <ImageView
-                        android:id="@+id/img4"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/view"/>
-                    <Button
-                        android:id="@+id/btn_view"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="View"
-                        android:layout_centerInParent="true"
-                        android:layout_below="@id/img4"/>
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
         </LinearLayout>
 
         <LinearLayout
@@ -341,6 +279,33 @@
                         android:text="Eazy Post"
                         android:layout_centerInParent="true"
                         android:layout_below="@id/img_eazypost" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                app:cardCornerRadius="10dp"
+                android:padding="2dp"
+                android:layout_marginStart="20dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/img_downloads"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/downloads" />
+                    <Button
+                        android:id="@+id/btn_downloads"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Downloads"
+                        android:layout_centerInParent="true"
+                        android:layout_below="@id/img_downloads" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 

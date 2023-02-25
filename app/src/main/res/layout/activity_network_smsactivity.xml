@@ -8,65 +8,41 @@
     android:orientation="vertical"
     tools:context=".NetworkSMSActivity">
 
-<!--    <Button-->
+<!--    <androidx.cardview.widget.CardView-->
 <!--        android:id="@+id/missedbtn"-->
-<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:layout_margin="80dp"-->
-<!--        android:text="Missed Call"/>-->
-
-<!--    <Button-->
-<!--        android:id="@+id/incomingbtn"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Incoming Call"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:layout_margin="30dp"/>-->
-<!--    <Button-->
-<!--        android:id="@+id/outgoingbtn"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Outgoing Call"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:layout_margin="30dp"/>-->
-
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/missedbtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="1dp"
-        android:layout_margin="10dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:padding="15dp">
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/ic_missed_call"/>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginStart="10dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Missed Call"
-                    android:textSize="17sp"
-                    android:textColor="@color/black"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Message templates you want to set for missed calls."
-                    android:textSize="16sp"/>
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+<!--        app:cardCornerRadius="1dp"-->
+<!--        android:layout_margin="10dp">-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:gravity="center"-->
+<!--            android:padding="15dp">-->
+<!--            <ImageView-->
+<!--                android:layout_width="60dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:src="@drawable/ic_missed_call"/>-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_marginStart="10dp">-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Missed Call"-->
+<!--                    android:textSize="17sp"-->
+<!--                    android:textColor="@color/black"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Message templates you want to set for missed calls."-->
+<!--                    android:textSize="16sp"/>-->
+<!--            </LinearLayout>-->
+<!--        </LinearLayout>-->
+<!--    </androidx.cardview.widget.CardView>-->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/incomingbtn"
