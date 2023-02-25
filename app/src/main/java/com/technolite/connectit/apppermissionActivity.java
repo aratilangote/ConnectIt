@@ -108,10 +108,10 @@ public class apppermissionActivity extends AppCompatActivity {
                 }
             }
         });
-        other_per.setOnClickListener(new View.OnClickListener() {
+        otherapps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName())));
+                startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName())));
 
 //                if (!Settings.canDrawOverlays(apppermissionActivity.this)) {
 //                    Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
