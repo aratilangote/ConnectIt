@@ -76,7 +76,8 @@ public class AllButtonsActivity extends AppCompatActivity {
         BtnEazypost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AllButtonsActivity.this, EazypostActivity.class));
+                startActivity(new Intent(AllButtonsActivity.this, EazypostWebviewActivity.class)
+                        .putExtra("LinkToOpen", "https://linkconnect.in/panel/login"));
             }
         });
 

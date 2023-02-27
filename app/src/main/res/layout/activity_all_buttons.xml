@@ -272,13 +272,14 @@
                         android:layout_height="100dp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/eazypost" />
+
                     <Button
                         android:id="@+id/btn_eazypost"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Eazy Post"
+                        android:layout_below="@id/img_eazypost"
                         android:layout_centerInParent="true"
-                        android:layout_below="@id/img_eazypost" />
+                        android:text="Eazy Post" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 

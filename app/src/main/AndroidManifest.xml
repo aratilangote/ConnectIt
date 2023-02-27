@@ -29,6 +29,9 @@
         android:theme="@style/Theme.ConnectIt"
         tools:targetApi="31">
         <activity
+            android:name=".EazypostWebviewActivity"
+            android:exported="false" />
+        <activity
             android:name=".DownloadedImageViewerActivity"
             android:exported="false" />
         <activity

@@ -3,6 +3,7 @@ package com.technolite.connectit;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -34,8 +35,15 @@ public class SettingsActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked) {
                     SharedPreferences.Editor editor = preferences.edit();
-                    editor.putBoolean("isWpMessageEnabled", isChecked);
+                    editor.putBoolean("isAppServiceEnabled", isChecked);
                     editor.apply();
+
+//                    startService(new Intent(SettingsActivity.this, SettingsActivity.class));
+
+
+                }else{
+//                    stopService(new Intent(SettingsActivity.this, SettingsActivity.class));
+                    finishAffinity();
                 }
             }
         });
