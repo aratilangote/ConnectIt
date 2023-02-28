@@ -34,7 +34,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -49,8 +51,8 @@ public class Birthday_Reminder_Activity extends AppCompatActivity implements Dat
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS =3 ;
     Spinner sim;
     int count=0;
-    EditText msg, phone;
-    TextView date, time,smscnt;
+    TextInputEditText date, time, phone, msg;
+    TextView smscnt;
     private SharedPreferences sharedPreferences;
 
     ListView mlistv;
@@ -59,7 +61,7 @@ public class Birthday_Reminder_Activity extends AppCompatActivity implements Dat
     private ContactsAdapter mAdapter;
     private CallReceiver callReceiver;
     private SmsReceiver smsReceiver;
-    Button submit;
+    MaterialButton submit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

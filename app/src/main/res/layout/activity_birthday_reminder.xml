@@ -4,108 +4,223 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".Birthday_Reminder_Activity">
 
-    <Spinner
-        android:id="@+id/simchooser"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
-        android:layout_height="56dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="19dp"
-        android:padding="15dp" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:text="Message Scheduler"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:textColor="@color/blue"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"/>
 
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="359dp"
-        android:layout_height="36dp"
-
-        android:layout_below="@+id/simchooser"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="22dp"
-        android:hint="Date" />
-
-    <TextView
-        android:id="@+id/time"
-        android:layout_width="358dp"
-        android:layout_height="48dp"
-        android:layout_below="@+id/date"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="21dp"
-        android:hint="Time" />
-
-    <EditText
-        android:id="@+id/contact"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/main_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/time"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="19dp"
-        android:hint="Enter number" />
+        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="5dp"
+        app:strokeColor="@color/green"
+        app:strokeWidth="1dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/title">
 
-    <ListView
-        android:id="@+id/mlist"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_below="@+id/contact"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="30dp" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/message"
-        android:layout_width="352dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/mlist"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="37dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Enter Message Here"
-        android:inputType="textMultiLine" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="10dp"
+                android:background="@color/white">
 
-    <Button
-        android:id="@+id/submit"
-        android:layout_width="wrap_content"
-        android:layout_height="38dp"
-        android:layout_below="@+id/smscount"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="23dp"
-        android:text="Submit" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/smscount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/message"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="16dp"
-        android:hint="SMS COUNT"
-        android:textColor="@color/black"
-        android:textSize="20dp" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Enter Details"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/green"
+                        android:gravity="center_horizontal"
+                        android:clickable="true"/>
 
+                    <Spinner
+                        android:id="@+id/simchooser"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="20dp"
+                        android:padding="15dp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/date_input_layout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="20dp"
+                        android:elevation="5dp"
+                        android:hint="Select Date"
+                        android:textColorHint="@color/green"
+                        app:boxStrokeColor="@color/blue"
+                        app:startIconTint="@color/blue"
+                        app:startIconDrawable="@drawable/datepicker_logo"
+                        app:endIconMode="custom"
+                        app:endIconDrawable="@drawable/dropdown_logo"
+                        app:endIconTint="@color/blue">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="date"
+                            android:textColor="@color/green" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/time_input_layout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="20dp"
+                        android:elevation="5dp"
+                        android:hint="Select time"
+                        android:textColorHint="@color/green"
+                        app:boxStrokeColor="@color/blue"
+                        app:startIconTint="@color/blue"
+                        app:startIconDrawable="@drawable/clockpicker_logo"
+                        app:endIconMode="custom"
+                        app:endIconDrawable="@drawable/dropdown_logo"
+                        app:endIconTint="@color/blue">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/time"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="time"
+                            android:textColor="@color/green" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/reciver_number_layout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="20dp"
+                        android:elevation="5dp"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="10"
+                        app:prefixText="+91"
+                        app:prefixTextColor="@color/green"
+                        android:hint="Enter receiver number"
+                        android:textColorHint="@color/green"
+                        app:boxStrokeColor="@color/blue"
+                        app:startIconTint="@color/blue"
+                        app:counterTextColor="@color/black"
+                        app:startIconDrawable="@drawable/mobile_logo">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/contact"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:maxLength="10"
+                            android:textColor="@color/green" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ListView
+                        android:id="@+id/mlist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:layout_below="@+id/contact"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginEnd="30dp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/message_layout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:elevation="5dp"
+                        android:hint="Enter message"
+                        android:textColorHint="@color/green"
+                        app:boxStrokeColor="@color/blue"
+                        app:startIconTint="@color/blue"
+                        app:startIconDrawable="@drawable/message_logo">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/message"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:inputType="textMultiLine"
+                            android:textColor="@color/green" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/smscount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/message"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="10dp"
+                        android:hint="SMS COUNT"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/submit"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="80dp"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="@color/blue"
+                        android:elevation="5dp"
+                        android:text="Schedule"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:cornerRadius="10dp"
+                        android:layout_marginBottom="10dp"
+                        app:elevation="5dp"
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/white" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </RelativeLayout>
