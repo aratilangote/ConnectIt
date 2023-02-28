@@ -29,6 +29,12 @@
         android:theme="@style/Theme.ConnectIt"
         tools:targetApi="31">
         <activity
+            android:name=".Keyverification"
+            android:exported="false" />
+        <activity
+            android:name=".UpgradePremiumActivity_2"
+            android:exported="false" />
+        <activity
             android:name=".UpgradePremiumActivity"
             android:exported="false" />
         <activity
