@@ -8,22 +8,32 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.textview.MaterialTextView;
+
 public class MainActivity extends AppCompatActivity {
 
-    private Button nextPage;
+    MaterialTextView signup_activity, signin_activity;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Intent for switch to home activity
-        nextPage = findViewById(R.id.next_page);
-        nextPage.setOnClickListener(new View.OnClickListener() {
+//        startActivity(new Intent(MainActivity.this, NetworkSMSOptions.class));
+
+        signin_activity = findViewById(R.id.signin_activity);
+        signup_activity = findViewById(R.id.signup_activity);
+
+        startActivity(new Intent(MainActivity.this, HomeActivity.class));
+
+        signup_activity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, HomeActivity.class));
+                Intent intent = new Intent(MainActivity.this, SignupActivity.class);
+                startActivity(intent);
             }
         });
+
     }
 }

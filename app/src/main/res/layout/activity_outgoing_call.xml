@@ -1,40 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".OutgoingCallActivity">
 
-    <Switch
-        android:id="@+id/my_switch_on"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="320dp"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+<!--    <Switch-->
+<!--        android:id="@+id/my_switch_on"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:checked="true"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:layout_marginStart="320dp"-->
+<!--        tools:ignore="UseSwitchCompatOrMaterialXml" />-->
 
-    <TextView
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginTop="-23dp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:text="switch on/off"/>-->
+<!--    <EditText-->
+<!--        android:id="@+id/entermsgET_ON"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="120dp"-->
+<!--        android:layout_margin="30dp"-->
+<!--        android:hint="Enter Message Here....!!!"/>-->
+<!--    <Button-->
+<!--        android:id="@+id/setbtn_ON"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:text="set"/>-->
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="-23dp"
-        android:textColor="@color/black"
-        android:text="switch on/off"/>
-    <EditText
-        android:id="@+id/entermsgET_ON"
+        android:layout_marginTop="34dp"
+        android:text="Outgoing Call SMS"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:textColor="@color/blue"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/main_input"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_margin="30dp"
-        android:hint="Enter Message Here....!!!"/>
-    <Button
-        android:id="@+id/setbtn_ON"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="set"/>
+        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="5dp"
+        app:strokeColor="@color/green"
+        app:strokeWidth="1dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/title">
 
-</LinearLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="10dp"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Enter Details"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/green"
+                        android:gravity="center_horizontal"
+                        android:clickable="true"/>
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/my_switch_on"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Message after call ended"
+                        android:layout_gravity="right"
+                        android:textColor="@color/blue"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/message_layout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:elevation="5dp"
+                        android:hint="Enter message"
+                        android:textColorHint="@color/green"
+                        app:boxStrokeColor="@color/blue">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/entermsgET_ON"
+                            android:layout_width="match_parent"
+                            android:layout_height="370dp"
+                            android:inputType="textMultiLine"
+                            android:textColor="@color/green"
+                            android:gravity="top" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/setbtn_ON"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="50dp"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="@color/blue"
+                        android:elevation="5dp"
+                        android:text="Set"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:cornerRadius="10dp"
+                        android:layout_marginBottom="10dp"
+                        app:elevation="5dp"
+                        app:iconGravity="textStart"
+                        app:iconTint="@color/white" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

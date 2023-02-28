@@ -18,6 +18,7 @@ public class AllButtonsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_buttons);
 
+        BtnPremium = findViewById(R.id.btn_premium);
         BtnNetworkSMS = findViewById(R.id.btn_network_sms);
         BtnBithday = findViewById(R.id.btn_birthday_remainder);
         BtnSettings = findViewById(R.id.btn_settings);
@@ -27,6 +28,12 @@ public class AllButtonsActivity extends AppCompatActivity {
         BtnEazypost = findViewById(R.id.btn_eazypost);
         BtnDownloads = findViewById(R.id.btn_downloads);
 
+        BtnPremium.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AllButtonsActivity.this, UpgradePremiumActivity.class));
+            }
+        });
         BtnNetworkSMS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,8 +44,7 @@ public class AllButtonsActivity extends AppCompatActivity {
         BtnBithday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(AllButtonsActivity.this,Birthday_Reminder_Activity.class);
-                startActivity(i);
+                startActivity(new Intent(AllButtonsActivity.this, Birthday_Reminder_Activity.class));
             }
         });
 
@@ -52,8 +58,7 @@ public class AllButtonsActivity extends AppCompatActivity {
         BtnPermission.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(AllButtonsActivity.this,apppermissionActivity.class);
-                startActivity(i);
+                startActivity(new Intent(AllButtonsActivity.this,apppermissionActivity.class));
             }
         });
 
@@ -68,8 +73,7 @@ public class AllButtonsActivity extends AppCompatActivity {
         BtnBulkWhatsapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(AllButtonsActivity.this,Bulk_whatsapp_msg_Activity.class);
-                startActivity(i);
+                startActivity(new Intent(AllButtonsActivity.this,Bulk_whatsapp_msg_Activity.class));
             }
         });
 

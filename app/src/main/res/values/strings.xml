@@ -5,4 +5,25 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="cardview_one">ACCESSIBILITY TO AUTO SEND WHATSAPP</string>
+    <string name="cardview_two">AUTO START AND BACKGROUND WORK</string>
+    <string name="cardview_three">DRAW OVER OTHER APPS</string>
+    <string name="cardview_four">NOTIFICATION LISTENER FOR AUTO PILOT</string>
+    <string name="cardview_five">APP PERMISSION WINDOW</string>
+    <string name="cardview_six">BATTERY PERMISSION</string>
+    <string name="cardview_seven">OTHER PERMISSION WINDOW</string>
+    <string name="missed_call">Missed Call</string>
+    <string name="incoming_call">Incoming Call</string>
+    <string name="outgoing_call">Outgoing Call</string>
+    <string name="message_temp1">Message templates you want to set for missed calls</string>
+    <string name="message_temp2">Message templates you want to set for incoming calls</string>
+    <string name="message_temp3">Message templates you want to set for outgoing calls</string>
 </resources>

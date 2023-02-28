@@ -2,6 +2,7 @@ package com.technolite.connectit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,10 +12,13 @@ import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.card.MaterialCardView;
+
 public class apppermissionActivity extends AppCompatActivity {
 
-    Button whatsappAccess, autobgWork, otherapps,notifyautopilot,app_per_window,battery_permission,other_per;
+    MaterialCardView whatsappAccess, autobgWork, otherapps,notifyautopilot,app_per_window,battery_permission,other_per;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

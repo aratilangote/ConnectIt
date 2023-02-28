@@ -12,9 +12,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.card.MaterialCardView;
+
 public class NetworkSMSActivity extends AppCompatActivity {
 
-    CardView missed,incoming,outgoing;
+    MaterialCardView missedcall,incomingcall,outgoingcall;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -22,19 +24,19 @@ public class NetworkSMSActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_network_smsactivity);
 
-        incoming=findViewById(R.id.incomingbtn);
-        outgoing=findViewById(R.id.outgoingbtn);
+        incomingcall=findViewById(R.id.incomingbtn);
+        outgoingcall=findViewById(R.id.outgoingbtn);
 
         //Getting required permission
         ActivityCompat.requestPermissions(this,new String[]{android.Manifest.permission.READ_PHONE_STATE, android.Manifest.permission.SEND_SMS, Manifest.permission.READ_CALL_LOG}, PackageManager.PERMISSION_GRANTED);
 
-        incoming.setOnClickListener(new View.OnClickListener() {
+        incomingcall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(NetworkSMSActivity.this, IncomingCallActivity.class));
             }
         });
-        outgoing.setOnClickListener(new View.OnClickListener() {
+        outgoingcall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(NetworkSMSActivity.this, OutgoingCallActivity.class));

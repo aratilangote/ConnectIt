@@ -3,6 +3,7 @@ package com.technolite.connectit;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -14,20 +15,23 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.google.android.material.switchmaterial.SwitchMaterial;
+
 public class IncomingCallActivity extends AppCompatActivity {
 
-    Switch aSwitch;
+    SwitchMaterial aSwitch;
     EditText message;
     Button setIN;
 
     private SharedPreferences preferences;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_incoming_call);
 
-        aSwitch=findViewById(R.id.my_switchin);
+        aSwitch= findViewById(R.id.my_switchin);
         message=findViewById(R.id.entermsgET_IN);
         setIN=findViewById(R.id.setbtn_IN);
 

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".OTPVerificationActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OTP Verification"
+            android:textSize="30sp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/blue"
+            android:textStyle="bold"/>
+
+<!--        <com.chaos.view.PinView-->
+<!--            android:id="@+id/otp"-->
+<!--            style="@style/PinWidget.PinView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:cursorVisible="true"-->
+<!--            android:inputType="number"-->
+<!--            android:textColor="@color/green"-->
+<!--            android:textSize="18sp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:cursorColor="@color/green"-->
+<!--            app:cursorWidth="2dp"-->
+<!--            app:itemCount="6"-->
+<!--            app:itemHeight="48dp"-->
+<!--            app:itemRadius="4dp"-->
+<!--            app:itemSpacing="5dp"-->
+<!--            app:itemWidth="48dp"-->
+<!--            app:lineColor="@color/blue"-->
+<!--            app:lineWidth="2dp"-->
+<!--            app:viewType="rectangle"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_marginVertical="20dp"-->
+<!--            tools:ignore="MissingClass" />-->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/verify"
+            android:cursorVisible="true"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="80dp"
+            android:backgroundTint="@color/blue"
+            android:elevation="5dp"
+            android:text="Verify"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:cornerRadius="10dp"
+            app:elevation="5dp"
+            app:icon="@drawable/verify_logo"
+            app:iconGravity="textStart"
+            app:iconTint="@color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:clickable="true"
+                android:gravity="center_horizontal"
+                android:text="Didn\'t get an OTP? "
+                android:textColor="@color/blue"
+                android:textSize="15sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:clickable="true"
+                android:gravity="center_horizontal"
+                android:layout_marginLeft="3dp"
+                android:text="Resend OTP"
+                android:textColor="@color/green"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/connectit_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/connectit_logo2" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CONNECT"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/blue"
+            android:gravity="center_horizontal"
+            android:clickable="true"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="it"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/green"
+            android:gravity="center_horizontal"
+            android:clickable="true"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -2,6 +2,7 @@ package com.technolite.connectit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,9 +13,11 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.google.android.material.switchmaterial.SwitchMaterial;
+
 public class OutgoingCallActivity extends AppCompatActivity {
 
-    Switch Oswitch;
+    SwitchMaterial Oswitch;
 
     EditText Omsg;
 
@@ -22,6 +25,7 @@ public class OutgoingCallActivity extends AppCompatActivity {
 
     private SharedPreferences preferences;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

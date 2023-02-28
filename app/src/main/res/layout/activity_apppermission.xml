@@ -6,62 +6,270 @@
     android:layout_height="match_parent"
     tools:context=".apppermissionActivity">
 
-    <RelativeLayout
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="590dp"-->
+<!--        android:padding="30dp"-->
+<!--        android:layout_marginTop="80dp"-->
+<!--        >-->
+
+<!--    <Button-->
+<!--        android:layout_width="360dp"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:id="@+id/acc_whatsapp"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:text="Accessibility to auto send whatsapp"/>-->
+
+<!--    <Button-->
+<!--        android:layout_width="360dp"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:id="@+id/autostartbackwork"-->
+<!--        android:layout_marginTop="100dp"-->
+<!--        android:text="auto start and background work"/>-->
+
+<!--        <Button-->
+<!--            android:id="@+id/otherapps"-->
+<!--            android:layout_width="360dp"-->
+<!--            android:layout_height="55dp"-->
+<!--            android:layout_marginTop="170dp"-->
+<!--            android:text="draw over other apps" />-->
+
+<!--        <Button-->
+<!--        android:layout_width="360dp"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:id="@+id/notifyautopilot"-->
+<!--        android:layout_marginTop="240dp"-->
+<!--        android:text="notification listener for auto pilot"/>-->
+
+<!--    <Button-->
+<!--        android:layout_width="360dp"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:id="@+id/app_per_window"-->
+<!--        android:layout_marginTop="310dp"-->
+<!--        android:text="App permission window"/>-->
+
+<!--    <Button-->
+<!--        android:layout_width="360dp"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:id="@+id/battery_permission"-->
+<!--        android:layout_marginTop="380dp"-->
+<!--        android:text="Battery permission"/>-->
+
+<!--    <Button-->
+<!--        android:layout_width="360dp"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:id="@+id/other_per"-->
+<!--        android:layout_marginTop="450dp"-->
+<!--        android:text="other permission window"/>-->
+
+<!--    </RelativeLayout>-->
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="590dp"
-        android:padding="30dp"
-        android:layout_marginTop="80dp"
-        >
+        android:layout_height="match_parent">
 
-    <Button
-        android:layout_width="360dp"
-        android:layout_height="55dp"
-        android:id="@+id/acc_whatsapp"
-        android:layout_marginTop="30dp"
-        android:text="Accessibility to auto send whatsapp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <Button
-        android:layout_width="360dp"
-        android:layout_height="55dp"
-        android:id="@+id/autostartbackwork"
-        android:layout_marginTop="100dp"
-        android:text="auto start and background work"/>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/acc_whatsapp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                app:cardCornerRadius="10dp"
+                android:layout_margin="15dp"
+                android:backgroundTint="@color/green"
+                app:strokeColor="@color/blue"
+                app:strokeWidth="2dp"
+                app:cardElevation="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cardview_one"
+                    android:textAlignment="center"
+                    android:textSize="15dp"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:textColor="@color/white"/>
 
-        <Button
-            android:id="@+id/otherapps"
-            android:layout_width="360dp"
-            android:layout_height="55dp"
-            android:layout_marginTop="170dp"
-            android:text="draw over other apps" />
 
-        <Button
-        android:layout_width="360dp"
-        android:layout_height="55dp"
-        android:id="@+id/notifyautopilot"
-        android:layout_marginTop="240dp"
-        android:text="notification listener for auto pilot"/>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/autostartbackwork"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                app:cardCornerRadius="10dp"
+                android:layout_margin="15dp"
+                android:backgroundTint="@color/green"
+                app:strokeColor="@color/blue"
+                app:strokeWidth="2dp"
+                app:cardElevation="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cardview_two"
+                    android:textAlignment="center"
+                    android:textSize="15dp"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:textColor="@color/white"/>
 
-    <Button
-        android:layout_width="360dp"
-        android:layout_height="55dp"
-        android:id="@+id/app_per_window"
-        android:layout_marginTop="310dp"
-        android:text="App permission window"/>
 
-    <Button
-        android:layout_width="360dp"
-        android:layout_height="55dp"
-        android:id="@+id/battery_permission"
-        android:layout_marginTop="380dp"
-        android:text="Battery permission"/>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/otherapps"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                app:cardCornerRadius="10dp"
+                android:layout_margin="15dp"
+                android:backgroundTint="@color/green"
+                app:strokeColor="@color/blue"
+                app:strokeWidth="2dp"
+                app:cardElevation="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cardview_three"
+                    android:textAlignment="center"
+                    android:textSize="15dp"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:textColor="@color/white"/>
 
-    <Button
-        android:layout_width="360dp"
-        android:layout_height="55dp"
-        android:id="@+id/other_per"
-        android:layout_marginTop="450dp"
-        android:text="other permission window"/>
 
-    </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/notifyautopilot"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                app:cardCornerRadius="10dp"
+                android:layout_margin="15dp"
+                android:backgroundTint="@color/green"
+                app:strokeColor="@color/blue"
+                app:strokeWidth="2dp"
+                app:cardElevation="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cardview_four"
+                    android:textAlignment="center"
+                    android:textSize="15dp"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:textColor="@color/white"/>
+
+
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/app_per_window"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                app:cardCornerRadius="10dp"
+                android:layout_margin="15dp"
+                android:backgroundTint="@color/green"
+                app:strokeColor="@color/blue"
+                app:strokeWidth="2dp"
+                app:cardElevation="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cardview_five"
+                    android:textAlignment="center"
+                    android:textSize="15dp"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:textColor="@color/white"/>
+
+
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/battery_permission"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                app:cardCornerRadius="10dp"
+                android:layout_margin="15dp"
+                android:backgroundTint="@color/green"
+                app:strokeColor="@color/blue"
+                app:strokeWidth="2dp"
+                app:cardElevation="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cardview_six"
+                    android:textAlignment="center"
+                    android:textSize="15dp"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:textColor="@color/white"/>
+
+
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/other_per"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                app:cardCornerRadius="10dp"
+                android:layout_margin="15dp"
+                android:backgroundTint="@color/green"
+                app:strokeColor="@color/blue"
+                app:strokeWidth="2dp"
+                app:cardElevation="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cardview_seven"
+                    android:textAlignment="center"
+                    android:textSize="15dp"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:textColor="@color/white"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:id="@+id/connectit_logo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/connectit_logo2" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CONNECT"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/blue"
+                    android:gravity="center_horizontal"
+                    android:clickable="true"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="it"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/green"
+                    android:gravity="center_horizontal"
+                    android:clickable="true"/>
+
+            </LinearLayout>
+
+<!--            <TextView-->
+<!--                android:id="@+id/settings"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="To Settings"-->
+<!--                android:textSize="30sp"-->
+<!--                android:clickable="true"-->
+<!--                android:layout_marginBottom="20dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:textColor="@color/black"/>-->
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>
