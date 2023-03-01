@@ -45,7 +45,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="You can enble or disable from above mention switch"
+                    android:text="You can enble or disable whole application from above mention switch"
                     android:textSize="15sp"
                     android:layout_marginHorizontal="10dp"/>
             </LinearLayout>

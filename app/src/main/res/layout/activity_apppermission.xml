@@ -5,65 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".apppermissionActivity">
-
-<!--    <RelativeLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="590dp"-->
-<!--        android:padding="30dp"-->
-<!--        android:layout_marginTop="80dp"-->
-<!--        >-->
-
-<!--    <Button-->
-<!--        android:layout_width="360dp"-->
-<!--        android:layout_height="55dp"-->
-<!--        android:id="@+id/acc_whatsapp"-->
-<!--        android:layout_marginTop="30dp"-->
-<!--        android:text="Accessibility to auto send whatsapp"/>-->
-
-<!--    <Button-->
-<!--        android:layout_width="360dp"-->
-<!--        android:layout_height="55dp"-->
-<!--        android:id="@+id/autostartbackwork"-->
-<!--        android:layout_marginTop="100dp"-->
-<!--        android:text="auto start and background work"/>-->
-
-<!--        <Button-->
-<!--            android:id="@+id/otherapps"-->
-<!--            android:layout_width="360dp"-->
-<!--            android:layout_height="55dp"-->
-<!--            android:layout_marginTop="170dp"-->
-<!--            android:text="draw over other apps" />-->
-
-<!--        <Button-->
-<!--        android:layout_width="360dp"-->
-<!--        android:layout_height="55dp"-->
-<!--        android:id="@+id/notifyautopilot"-->
-<!--        android:layout_marginTop="240dp"-->
-<!--        android:text="notification listener for auto pilot"/>-->
-
-<!--    <Button-->
-<!--        android:layout_width="360dp"-->
-<!--        android:layout_height="55dp"-->
-<!--        android:id="@+id/app_per_window"-->
-<!--        android:layout_marginTop="310dp"-->
-<!--        android:text="App permission window"/>-->
-
-<!--    <Button-->
-<!--        android:layout_width="360dp"-->
-<!--        android:layout_height="55dp"-->
-<!--        android:id="@+id/battery_permission"-->
-<!--        android:layout_marginTop="380dp"-->
-<!--        android:text="Battery permission"/>-->
-
-<!--    <Button-->
-<!--        android:layout_width="360dp"-->
-<!--        android:layout_height="55dp"-->
-<!--        android:id="@+id/other_per"-->
-<!--        android:layout_marginTop="450dp"-->
-<!--        android:text="other permission window"/>-->
-
-<!--    </RelativeLayout>-->
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -72,6 +13,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:text="\u2022 To set permission of accessibility to auto send whatsapp messages, Just click on below button and turn on accessibility menu shortcut."
+                android:textSize="17sp"
+                android:justificationMode="inter_word"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Below button -> Accessibility menu -> Allow switch"
+                android:layout_marginHorizontal="20dp"
+                android:justificationMode="inter_word"
+                android:textSize="16sp"/>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/acc_whatsapp"
@@ -94,6 +51,22 @@
 
 
             </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:text="\u2022 To set permission of auto start and background work, Just click on below button and turn on switch of ConnectIt application."
+                android:textSize="17sp"
+                android:justificationMode="inter_word"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Below button -> Autostart -> ConnectIt -> Allow Switch"
+                android:layout_marginHorizontal="20dp"
+                android:justificationMode="inter_word"
+                android:textSize="16sp"/>
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/autostartbackwork"
                 android:layout_width="match_parent"
@@ -115,6 +88,22 @@
 
 
             </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:text="\u2022 To set permission of draw over other apps, Just click on below button, click on ConnectIt application and turn on switch to allow display over other apps."
+                android:textSize="17sp"
+                android:justificationMode="inter_word"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Below button -> Display over other apps -> ConnectIt -> Allow"
+                android:layout_marginHorizontal="20dp"
+                android:justificationMode="inter_word"
+                android:textSize="16sp"/>
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/otherapps"
                 android:layout_width="match_parent"
@@ -136,6 +125,22 @@
 
 
             </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:text="\u2022 To set permission of notification listener for auto pilot, Just click on below button, click on ConnectIt application and turn on switch to allow notification access."
+                android:textSize="17sp"
+                android:justificationMode="inter_word"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Below button -> Notification Access -> ConnectIt -> Allow notification access"
+                android:layout_marginHorizontal="20dp"
+                android:justificationMode="inter_word"
+                android:textSize="16sp"/>
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/notifyautopilot"
                 android:layout_width="match_parent"
@@ -157,6 +162,22 @@
 
 
             </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:text="\u2022 To set application permissions, Just click on below button, click on App permission, click on every icon and then click on allow button to set permissions."
+                android:textSize="17sp"
+                android:justificationMode="inter_word"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Below button -> App permission -> Call logs -> Allow, Contacts -> Allow, Phone -> Allow, SMS -> Allow"
+                android:layout_marginHorizontal="20dp"
+                android:justificationMode="inter_word"
+                android:textSize="16sp"/>
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/app_per_window"
                 android:layout_width="match_parent"
@@ -178,6 +199,22 @@
 
 
             </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:text="\u2022 To set battery permissions, Just click on below button, click on Turn on now button."
+                android:textSize="17sp"
+                android:justificationMode="inter_word"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Below button -> Batter permission -> Turn on now"
+                android:layout_marginHorizontal="20dp"
+                android:justificationMode="inter_word"
+                android:textSize="16sp"/>
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/battery_permission"
                 android:layout_width="match_parent"
@@ -199,6 +236,22 @@
 
 
             </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:text="\u2022 To set other permissions, Just click on below button, click on CoonectIt App, click on other permissions, set other permission as you required."
+                android:textSize="17sp"
+                android:justificationMode="inter_word"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Below button -> ConnectIt App -> Other permissions -> Allow permanent notification, etc."
+                android:layout_marginHorizontal="20dp"
+                android:justificationMode="inter_word"
+                android:textSize="16sp"/>
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/other_per"
                 android:layout_width="match_parent"
@@ -256,17 +309,6 @@
                     android:clickable="true"/>
 
             </LinearLayout>
-
-<!--            <TextView-->
-<!--                android:id="@+id/settings"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="To Settings"-->
-<!--                android:textSize="30sp"-->
-<!--                android:clickable="true"-->
-<!--                android:layout_marginBottom="20dp"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:textColor="@color/black"/>-->
 
         </LinearLayout>
 
