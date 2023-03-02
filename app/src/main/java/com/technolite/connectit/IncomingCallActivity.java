@@ -64,6 +64,8 @@ public class IncomingCallActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("incomingMessage", msg);
                 editor.apply();
+                startActivity(new Intent(getApplicationContext(), AllButtonsActivity.class));
+                finish();
             }
         });
     }

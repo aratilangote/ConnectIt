@@ -12,31 +12,26 @@ import android.os.Bundle;
 import java.io.File;
 import java.util.ArrayList;
 
-public class DownloadsActivity extends AppCompatActivity {
+public class salman extends AppCompatActivity {
 
     RecyclerView recyclerView;
-//    ArrayList<Image> arrayList = new ArrayList<>();
-
     ArrayList<Image> arrayList = new ArrayList<>();
-
     private final ActivityResultLauncher<String> activityResultLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(),
             result -> {
                 if (result) {
                     getImages();
                 }
             });
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_downloads);
+        setContentView(R.layout.activity_image_main);
 
         recyclerView = findViewById(R.id.recycler);
-        recyclerView.setLayoutManager(new LinearLayoutManager(DownloadsActivity.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(salman.this));
         recyclerView.setHasFixedSize(true);
         getImages();
     }
-
 
     @Override
     protected void onResume() {
@@ -51,14 +46,15 @@ public class DownloadsActivity extends AppCompatActivity {
         File[] files = file.listFiles();
         if (files != null) {
             for (File file1 : files) {
-                if (file1.getPath().endsWith(".png") || file1.getPath().endsWith(".jpg") || file1.getPath().endsWith(".jepg")||file1.getPath().endsWith(".mp4")) {
+                if (file1.getPath().endsWith(".png") || file1.getPath().endsWith(".jpg")||file1.getPath().endsWith(".jepg")||file1.getPath().endsWith(".mp4")) {
                     arrayList.add(new Image(file1.getName(), file1.getPath(), file1.length()));
 
                 }
             }
         }
-        ImageAdapter adapter = new ImageAdapter(DownloadsActivity.this, arrayList);
+        ImageAdapter adapter = new ImageAdapter(salman.this, arrayList);
         recyclerView.setAdapter(adapter);
-        adapter.setOnItemClickListener((view, path) -> startActivity(new Intent(DownloadsActivity.this, DownloadedImageViewerActivity.class).putExtra("image", path)));
+        adapter.setOnItemClickListener((view, path) -> startActivity(new Intent(salman.this, ImageViewerActivity.class).putExtra("image", path)));
     }
+
 }

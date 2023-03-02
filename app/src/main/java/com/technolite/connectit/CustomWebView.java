@@ -38,7 +38,7 @@ import java.io.OutputStreamWriter;
 import java.util.Objects;
 import java.util.Random;
 
-public class EazypostWebviewActivity extends AppCompatActivity {
+public class CustomWebView extends AppCompatActivity {
 
     public static final int REQUEST_SELECT_FILE = 100;
     private final static int FILECHOOSER_RESULTCODE = 1;
@@ -51,10 +51,11 @@ public class EazypostWebviewActivity extends AppCompatActivity {
 
     private ValueCallback<Uri> mUploadMessage;
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_eazypost_webview);
+        setContentView(R.layout.activity_custom_web_view);
 
         // Init
         //refreshLayout = findViewById(R.id.refreshLayout);
@@ -75,32 +76,32 @@ public class EazypostWebviewActivity extends AppCompatActivity {
         webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
 
         // Web Client
-//        webView.setWebViewClient(new WebViewClient() {
-//            @Override
-//            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-//                if (url.startsWith("mailto:") || url.startsWith("tel:") || url.startsWith("whatsapp:")  ) {
-//
-//                    startActivity(new Intent(getApplicationContext(), Aboutus.class));
-//
-//                    return true;
-//
-//                }
-//                return false;
-//
-//            }
-//
-//            @Override
-//            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-//                super.onPageStarted(view, url, favicon);
-//                //if (!refreshLayout.isRefreshing()) refreshLayout.setRefreshing(true);
-//            }
-//
-//            @Override
-//            public void onPageFinished(WebView view, String url) {
-//                super.onPageFinished(view, url);
-//                //if (refreshLayout.isRefreshing()) refreshLayout.setRefreshing(false);
-//            }
-//        });
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                if (url.startsWith("mailto:") || url.startsWith("tel:") || url.startsWith("whatsapp:")  ) {
+
+                    //startActivity(new Intent(getApplicationContext(),Aboutus.class));
+
+                    return true;
+
+                }
+                return false;
+
+            }
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+                //if (!refreshLayout.isRefreshing()) refreshLayout.setRefreshing(true);
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                //if (refreshLayout.isRefreshing()) refreshLayout.setRefreshing(false);
+            }
+        });
 
         // Web Chrome Client
         webView.setWebChromeClient(new WebChromeClient() {
@@ -233,6 +234,10 @@ public class EazypostWebviewActivity extends AppCompatActivity {
 
                     }
 
+                    File folder = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "eazypost");
+                    if (!folder.exists()) {
+                        folder.mkdirs();
+                    }
                     File file = new File(Environment.getExternalStorageDirectory() + "/Download/eazypost/eazypost" + rndNumber + ".png");
                     FileOutputStream fileout = new FileOutputStream(file);
                     OutputStreamWriter outputWriter = new OutputStreamWriter(fileout);

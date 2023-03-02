@@ -7,6 +7,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -35,7 +37,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         btnAllbuttons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, AllButtonsActivity.class));
+                startActivity(new Intent(getApplicationContext(), AllButtonsActivity.class));
+                finish();
             }
         });
 
@@ -101,5 +104,20 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
         }
         return true;
+    }
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirm");
+        builder.setMessage("Are you sure you want to exit?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        builder.setNegativeButton("No", null);
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

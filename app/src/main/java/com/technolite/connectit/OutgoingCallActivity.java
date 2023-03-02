@@ -58,6 +58,8 @@ public class OutgoingCallActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("outgoingMessage", msg);
                 editor.apply();
+                startActivity(new Intent(getApplicationContext(),AllButtonsActivity.class));
+                finish();
             }
         });
     }

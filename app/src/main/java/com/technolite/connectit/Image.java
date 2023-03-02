@@ -21,5 +21,4 @@ public class Image {
     public long getSize() {
         return size;
     }
-
 }

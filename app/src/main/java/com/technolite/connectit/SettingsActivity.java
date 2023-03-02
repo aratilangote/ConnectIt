@@ -37,6 +37,8 @@ public class SettingsActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putBoolean("isAppServiceEnabled", isChecked);
                     editor.apply();
+                    startActivity(new Intent(getApplicationContext(), AllButtonsActivity.class));
+                    finish();
 
 //                    startService(new Intent(SettingsActivity.this, SettingsActivity.class));
 

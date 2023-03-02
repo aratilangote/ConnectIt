@@ -101,6 +101,7 @@
                         android:text="Message after call ended"
                         android:layout_gravity="right"
                         android:textColor="@color/blue"
+                        android:checked="true"
                         android:textSize="20dp"
                         android:textStyle="bold" />
 

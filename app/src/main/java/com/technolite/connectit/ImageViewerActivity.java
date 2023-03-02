@@ -22,30 +22,29 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.io.File;
 
-public class DownloadedImageViewerActivity extends AppCompatActivity {
+public class ImageViewerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_downloaded_image_viewer);
-
+        setContentView(R.layout.activity_image_viewer);
         String path = null;
         ImageView imageView = findViewById(R.id.imageView);
         Intent intent = getIntent();
         if (intent != null) {
-            Glide.with(DownloadedImageViewerActivity.this).load(intent.getStringExtra("image")).placeholder(R.drawable.ic_baseline_broken_image_24).into(imageView);
+            Glide.with(ImageViewerActivity.this).load(intent.getStringExtra("image")).placeholder(R.drawable.ic_baseline_broken_image_24).into(imageView);
             path = intent.getStringExtra("image");
         }
 
         ImageButton share = findViewById(R.id.shareImage);
         String finalPath = path;
-        share.setOnClickListener(v -> new ShareCompat.IntentBuilder(DownloadedImageViewerActivity.this).setStream(Uri.parse(finalPath)).setType("image/*").setChooserTitle("Share Image").startChooser());
+        share.setOnClickListener(v -> new ShareCompat.IntentBuilder(ImageViewerActivity.this).setStream(Uri.parse(finalPath)).setType("image/*").setChooserTitle("Share Image").startChooser());
 
         ImageButton delete = findViewById(R.id.deleteImage);
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MaterialAlertDialogBuilder alertDialogBuilder = new MaterialAlertDialogBuilder(DownloadedImageViewerActivity.this);
+                MaterialAlertDialogBuilder alertDialogBuilder = new MaterialAlertDialogBuilder(ImageViewerActivity.this);
                 alertDialogBuilder.setMessage("Are you sure you want to delete this image ?");
                 alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
@@ -63,14 +62,14 @@ public class DownloadedImageViewerActivity extends AppCompatActivity {
                                 contentResolver.delete(deleteUri, null, null);
                                 boolean delete1 = new File(finalPath).delete();
                                 Log.e("TAG", delete1 + "");
-                                Toast.makeText(DownloadedImageViewerActivity.this, "Deleted Successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ImageViewerActivity.this, "Deleted Successfully", Toast.LENGTH_SHORT).show();
                                 finish();
                             } catch (Exception e) {
                                 e.printStackTrace();
-                                Toast.makeText(DownloadedImageViewerActivity.this, "Error Deleting Video", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ImageViewerActivity.this, "Error Deleting Video", Toast.LENGTH_SHORT).show();
                             }
                         } else {
-                            Toast.makeText(DownloadedImageViewerActivity.this, "File Not Find", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ImageViewerActivity.this, "File Not Find", Toast.LENGTH_SHORT).show();
                         }
                         cursor.close();
                     }
@@ -84,6 +83,5 @@ public class DownloadedImageViewerActivity extends AppCompatActivity {
                 alertDialogBuilder.show();
             }
         });
-
     }
 }

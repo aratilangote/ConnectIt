@@ -1,6 +1,5 @@
 package com.technolite.connectit;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,30 +16,20 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> {
-//    ArrayList<Image> arrayList;
-
     ArrayList<Image> arrayList;
     Context context;
     OnItemClickListener onItemClickListener;
 
-//    public ImageAdapter(Context context, ArrayList<Image> arrayList) {
-//        this.arrayList = arrayList;
-//        this.context = context;
-//
-//    }
-
-    public ImageAdapter(Context context, ArrayList<Image> arrayList){
+    public ImageAdapter(Context context, ArrayList<Image> arrayList) {
         this.arrayList = arrayList;
         this.context = context;
-    }
 
-//    public ImageAdapter(DownloadsActivity context, ArrayList<android.media.Image> arrayList) {
-//    }
+    }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.downloads_list_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_list_image, parent, false);
         return new ViewHolder(view);
     }
 
@@ -48,8 +37,8 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final String videoUri = String.valueOf(arrayList.get(position));
 
-       // holder.title.setText(arrayList.get(position).getTitle());
-      //  holder.size.setText(getSize(arrayList.get(position).getSize()));
+        holder.title.setText(arrayList.get(position).getTitle());
+        //  holder.size.setText(getSize(arrayList.get(position).getSize()));
         Glide.with(context).load(arrayList.get(position).getPath()).placeholder(R.drawable.ic_baseline_broken_image_24).into(holder.imageView);
         holder.itemView.setOnClickListener(v -> onItemClickListener.onClick(v, arrayList.get(position).getPath()));
        /* holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -97,8 +86,8 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.list_item_image);
-            //title = itemView.findViewById(R.id.list_item_title);
-           // size = itemView.findViewById(R.id.list_item_size);
+            title = itemView.findViewById(R.id.list_item_title);
+            // size = itemView.findViewById(R.id.list_item_size);
         }
     }
 
