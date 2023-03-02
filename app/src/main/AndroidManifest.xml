@@ -45,7 +45,7 @@
             android:name=".SplashScreen"
             android:exported="false" />
         <activity
-            android:name=".Keyverification"
+            android:name=".SplashScreen"
             android:exported="false" />
         <activity
             android:name=".UpgradePremiumActivity_2"
@@ -117,15 +117,6 @@
         <activity
             android:name=".WhatsappActivity"
             android:exported="false" />
-        <activity
-            android:name=".AllButtonsActivity"
-            android:exported="true">
-           <!-- <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
-        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">

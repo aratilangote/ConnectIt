@@ -32,7 +32,7 @@ public class Bulk_whatsapp_msg_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(Bulk_whatsapp_msg_Activity.this, "Comming Soon", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(),AllButtonsActivity.class));
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                 finish();
             }
         });

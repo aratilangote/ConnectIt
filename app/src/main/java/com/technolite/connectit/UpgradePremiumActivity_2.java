@@ -38,8 +38,7 @@ public class UpgradePremiumActivity_2 extends AppCompatActivity {
         activateplan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(UpgradePremiumActivity_2.this, Keyverification.class);
-                startActivity(i);
+
             }
         });
     }

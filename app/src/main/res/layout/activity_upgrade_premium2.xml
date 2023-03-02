@@ -6,25 +6,190 @@
     android:layout_height="match_parent"
     tools:context=".UpgradePremiumActivity_2">
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:layout_marginHorizontal="50dp"
-        android:id="@+id/activateplan"
-        android:backgroundTint="@color/blue"
-        android:text="Activate My licence"
-        android:layout_marginTop="250dp"
-        android:layout_marginLeft="100dp"/>
-
-
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/generatekey"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="330dp"
-        android:text="I don't have key, Generate key!"
-        android:textSize="20dp"/>
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/incomingbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            app:strokeColor="@color/green"
+            app:strokeWidth="2dp"
+            app:cardElevation="5dp"
+            app:cardCornerRadius="10dp"
+            app:contentPadding="10dp"
+            android:clickable="true"
+            app:cardBackgroundColor="@color/white">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="50dp"
+                        android:id="@+id/activateplan"
+                        android:backgroundTint="@color/blue"
+                        android:text="Activate My licence"
+                        android:layout_marginTop="100dp" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/generatekey"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        android:text="I don't have key, Generate key!"
+                        android:textSize="20sp"/>
+
+
+                    <TextView
+                        android:id="@+id/dealer_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Activation licence key"
+                        android:layout_marginTop="50dp"
+                        android:textColor="@color/black"
+                        android:textSize="30sp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="15dp">
+                        <EditText
+                            android:id="@+id/vld1"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:background="@drawable/custome_edittext"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:textColor="@color/black"
+                            android:imeOptions="actionNext"/>
+                        <EditText
+                            android:id="@+id/vld2"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:background="@drawable/custome_edittext"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:layout_marginStart="10dp"
+                            android:textColor="@color/black"
+                            android:imeOptions="actionNext"/>
+                        <EditText
+                            android:id="@+id/vld3"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:background="@drawable/custome_edittext"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:layout_marginStart="10dp"
+                            android:textColor="@color/black"
+                            android:imeOptions="actionNext"/>
+                        <EditText
+                            android:id="@+id/vld4"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:background="@drawable/custome_edittext"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:layout_marginStart="10dp"
+                            android:textColor="@color/black"
+                            android:imeOptions="actionNext"/>
+                        <EditText
+                            android:id="@+id/vld5"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:background="@drawable/custome_edittext"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:layout_marginStart="10dp"
+                            android:textColor="@color/black"
+                            android:imeOptions="actionNext"/>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btn5"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="50dp"
+                        android:backgroundTint="@color/blue"
+                        android:text="Activate"
+                        android:layout_marginTop="20dp"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/connectit_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/connectit_logo2" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CONNECT"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/blue"
+            android:gravity="center_horizontal"
+            android:clickable="true"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="it"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/green"
+            android:gravity="center_horizontal"
+            android:clickable="true"/>
+
+    </LinearLayout>
+
 
 </RelativeLayout>

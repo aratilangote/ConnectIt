@@ -24,7 +24,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     Toolbar toolbar;
 
-    Button btnAllbuttons;
+    Button BtnPremium, BtnNetworkSMS, BtnBithday, BtnSettings, BtnPermission, BtnBulkWhatsapp, BtnWhatsapp, BtnEazypost, BtnDownloads;
 
     @SuppressLint({"ResourceAsColor", "MissingInflatedId"})
     @Override
@@ -32,15 +32,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        //All buttons activity
-        btnAllbuttons = findViewById(R.id.goto_allbuttons);
-        btnAllbuttons.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), AllButtonsActivity.class));
-                finish();
-            }
-        });
 
         //tootbar settings
         toolbar = findViewById(R.id.toolbar);
@@ -60,49 +51,87 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
 
+        //All buttons
+        BtnPremium = findViewById(R.id.btn_premium);
+        BtnNetworkSMS = findViewById(R.id.btn_network_sms);
+        BtnBithday = findViewById(R.id.btn_birthday_remainder);
+        BtnSettings = findViewById(R.id.btn_settings);
+        BtnPermission = findViewById(R.id.btn_permissions);
+        BtnWhatsapp = findViewById(R.id.btn_whatsapp);
+        BtnBulkWhatsapp = findViewById(R.id.btn_bulkwhatsapp);
+        BtnEazypost = findViewById(R.id.btn_eazypost);
+        BtnDownloads = findViewById(R.id.btn_downloads);
+
+        BtnPremium.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, UpgradePremiumActivity.class));
+            }
+        });
+        BtnNetworkSMS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, NetworkSMSActivity.class));
+            }
+        });
+
+        BtnBithday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, Birthday_Reminder_Activity.class));
+            }
+        });
+
+        BtnSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
+            }
+        });
+
+        BtnPermission.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this,apppermissionActivity.class));
+            }
+        });
+
+
+        BtnWhatsapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, WhatsappActivity.class));
+            }
+        });
+
+        BtnBulkWhatsapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this,Bulk_whatsapp_msg_Activity.class));
+            }
+        });
+
+        BtnEazypost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, CustomWebView.class)
+                        .putExtra("LinkToOpen", "https://linkconnect.in/panel/login"));
+            }
+        });
+
+        BtnDownloads.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, salman.class));
+            }
+        });
+
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()){
-            case R.id.nav_premium:
-                Toast.makeText(this, "Premium", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_home:
-                Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_business_info:
-                Toast.makeText(this, "Business Info", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_wp_msg:
-                Toast.makeText(this, "Whatsapp msgs", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_sms_schedule:
-                Toast.makeText(this, "Sms scheduler", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_bulk_sms:
-                Toast.makeText(this, "Bulk msgs", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_settings:
-                startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
-                break;
-            case R.id.nav_permission:
-                Toast.makeText(this, "Permission", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_aboutUs:
-                Toast.makeText(this, "About us", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_help:
-                Toast.makeText(this, "Help", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_referFriend:
-                Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_logout:
-                Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
-                break;
-        }
+
         return true;
     }
     @Override

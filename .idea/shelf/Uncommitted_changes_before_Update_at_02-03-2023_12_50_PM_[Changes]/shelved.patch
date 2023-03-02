@@ -1,0 +1,381 @@
+Index: app/src/main/java/com/technolite/connectit/AllButtonsActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.technolite.connectit;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.annotation.SuppressLint;\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\n\r\npublic class AllButtonsActivity extends AppCompatActivity {\r\n\r\n    Button BtnPremium, BtnHome, BtnNetworkSMS, BtnBithday, BtnSettings, BtnPermission, BtnBulkWhatsapp, BtnWhatsapp, BtnEazypost, BtnDownloads;\r\n\r\n    @SuppressLint(\"MissingInflatedId\")\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_all_buttons);\r\n\r\n        BtnPremium = findViewById(R.id.btn_premium);\r\n        BtnNetworkSMS = findViewById(R.id.btn_network_sms);\r\n        BtnBithday = findViewById(R.id.btn_birthday_remainder);\r\n        BtnSettings = findViewById(R.id.btn_settings);\r\n        BtnPermission = findViewById(R.id.btn_permissions);\r\n        BtnWhatsapp = findViewById(R.id.btn_whatsapp);\r\n        BtnBulkWhatsapp = findViewById(R.id.btn_bulkwhatsapp);\r\n        BtnEazypost = findViewById(R.id.btn_eazypost);\r\n        BtnDownloads = findViewById(R.id.btn_downloads);\r\n\r\n        BtnPremium.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                startActivity(new Intent(AllButtonsActivity.this, UpgradePremiumActivity.class));\r\n            }\r\n        });\r\n        BtnNetworkSMS.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                startActivity(new Intent(AllButtonsActivity.this, NetworkSMSActivity.class));\r\n            }\r\n        });\r\n\r\n        BtnBithday.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                startActivity(new Intent(AllButtonsActivity.this, Birthday_Reminder_Activity.class));\r\n            }\r\n        });\r\n\r\n        BtnSettings.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                startActivity(new Intent(AllButtonsActivity.this, SettingsActivity.class));\r\n            }\r\n        });\r\n\r\n        BtnPermission.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                startActivity(new Intent(AllButtonsActivity.this,apppermissionActivity.class));\r\n            }\r\n        });\r\n\r\n\r\n        BtnWhatsapp.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                startActivity(new Intent(AllButtonsActivity.this, WhatsappActivity.class));\r\n            }\r\n        });\r\n\r\n        BtnBulkWhatsapp.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                startActivity(new Intent(AllButtonsActivity.this,Bulk_whatsapp_msg_Activity.class));\r\n            }\r\n        });\r\n\r\n        BtnEazypost.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                startActivity(new Intent(AllButtonsActivity.this, EazypostWebviewActivity.class)\r\n                        .putExtra(\"LinkToOpen\", \"https://linkconnect.in/panel/login\"));\r\n            }\r\n        });\r\n\r\n        BtnDownloads.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                startActivity(new Intent(AllButtonsActivity.this, DownloadsActivity.class));\r\n            }\r\n        });\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/technolite/connectit/AllButtonsActivity.java b/app/src/main/java/com/technolite/connectit/AllButtonsActivity.java
+--- a/app/src/main/java/com/technolite/connectit/AllButtonsActivity.java	(revision 17c0062671d9db44145b411d2ebcf8ee0774be21)
++++ b/app/src/main/java/com/technolite/connectit/AllButtonsActivity.java	(date 1677663450848)
+@@ -10,7 +10,7 @@
+ 
+ public class AllButtonsActivity extends AppCompatActivity {
+ 
+-    Button BtnPremium, BtnHome, BtnNetworkSMS, BtnBithday, BtnSettings, BtnPermission, BtnBulkWhatsapp, BtnWhatsapp, BtnEazypost, BtnDownloads;
++    Button BtnPremium, BtnHome, BtnNetworkSMS, BtnBithday, BtnSettings, BtnPermission, BtnBulkWhatsapp, BtnWhatsapp, BtnEazypost, BtnDownloads, BtnBusiness;
+ 
+     @SuppressLint("MissingInflatedId")
+     @Override
+@@ -19,6 +19,7 @@
+         setContentView(R.layout.activity_all_buttons);
+ 
+         BtnPremium = findViewById(R.id.btn_premium);
++        BtnHome = findViewById(R.id.btn_home);
+         BtnNetworkSMS = findViewById(R.id.btn_network_sms);
+         BtnBithday = findViewById(R.id.btn_birthday_remainder);
+         BtnSettings = findViewById(R.id.btn_settings);
+@@ -27,6 +28,7 @@
+         BtnBulkWhatsapp = findViewById(R.id.btn_bulkwhatsapp);
+         BtnEazypost = findViewById(R.id.btn_eazypost);
+         BtnDownloads = findViewById(R.id.btn_downloads);
++        BtnBusiness = findViewById(R.id.btn_Business);
+ 
+         BtnPremium.setOnClickListener(new View.OnClickListener() {
+             @Override
+@@ -34,6 +36,13 @@
+                 startActivity(new Intent(AllButtonsActivity.this, UpgradePremiumActivity.class));
+             }
+         });
++
++        BtnHome.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                startActivity(new Intent(AllButtonsActivity.this, HomeActivity.class));
++            }
++        });
+         BtnNetworkSMS.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+@@ -91,5 +100,10 @@
+                 startActivity(new Intent(AllButtonsActivity.this, DownloadsActivity.class));
+             }
+         });
++
++        BtnBusiness.setOnClickListener(v ->
++                startActivity(new Intent(AllButtonsActivity.this, EazypostWebviewActivity.class)
++                        .putExtra("LinkToOpen", "https://linkconnect.in/panel/customer/cards"))
++        );
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/technolite/connectit/IncomingCallActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.technolite.connectit;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.core.app.ActivityCompat;\r\n\r\nimport android.annotation.SuppressLint;\r\nimport android.content.Intent;\r\nimport android.content.SharedPreferences;\r\nimport android.content.pm.PackageManager;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.CompoundButton;\r\nimport android.widget.EditText;\r\nimport android.widget.Switch;\r\nimport android.widget.Toast;\r\n\r\nimport com.google.android.material.switchmaterial.SwitchMaterial;\r\n\r\npublic class IncomingCallActivity extends AppCompatActivity {\r\n\r\n    SwitchMaterial aSwitch;\r\n    EditText message;\r\n    Button setIN;\r\n\r\n    private SharedPreferences preferences;\r\n\r\n    @SuppressLint(\"MissingInflatedId\")\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_incoming_call);\r\n\r\n        aSwitch= findViewById(R.id.my_switchin);\r\n        message=findViewById(R.id.entermsgET_IN);\r\n        setIN=findViewById(R.id.setbtn_IN);\r\n\r\n        preferences = getSharedPreferences(\"MyPrefs\", MODE_PRIVATE);\r\n\r\n        String incomingMessage = preferences.getString(\"incomingMessage\", \"\");\r\n        message.setText(incomingMessage);\r\n        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {\r\n            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.SEND_SMS}, 1);\r\n        }\r\n\r\n\r\n        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {\r\n            @Override\r\n            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {\r\n                if(isChecked) {\r\n                    SharedPreferences.Editor editor = preferences.edit();\r\n                    editor.putBoolean(\"isMessageEnabled\", isChecked);\r\n                    editor.apply();\r\n                }\r\n            }\r\n        });\r\n\r\n        setIN.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                String msg = message.getText().toString();\r\n\r\n                Toast.makeText(IncomingCallActivity.this, \"\"+msg, Toast.LENGTH_SHORT).show();\r\n                SharedPreferences.Editor editor = preferences.edit();\r\n                editor.putString(\"incomingMessage\", msg);\r\n                editor.apply();\r\n            }\r\n        });\r\n    }\r\n\r\n    @Override\r\n    protected void onStart() {\r\n        super.onStart();\r\n        Intent intent = new Intent(IncomingCallActivity.this, MyBackgroundService.class);\r\n        startService(intent);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/technolite/connectit/IncomingCallActivity.java b/app/src/main/java/com/technolite/connectit/IncomingCallActivity.java
+--- a/app/src/main/java/com/technolite/connectit/IncomingCallActivity.java	(revision 17c0062671d9db44145b411d2ebcf8ee0774be21)
++++ b/app/src/main/java/com/technolite/connectit/IncomingCallActivity.java	(date 1677661967273)
+@@ -64,6 +64,8 @@
+                 SharedPreferences.Editor editor = preferences.edit();
+                 editor.putString("incomingMessage", msg);
+                 editor.apply();
++                startActivity(new Intent(getApplicationContext(), AllButtonsActivity.class));
++                finish();
+             }
+         });
+     }
+Index: app/src/main/java/com/technolite/connectit/OutgoingCallActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.technolite.connectit;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.annotation.SuppressLint;\r\nimport android.content.Intent;\r\nimport android.content.SharedPreferences;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.CompoundButton;\r\nimport android.widget.EditText;\r\nimport android.widget.Switch;\r\nimport android.widget.Toast;\r\n\r\nimport com.google.android.material.switchmaterial.SwitchMaterial;\r\n\r\npublic class OutgoingCallActivity extends AppCompatActivity {\r\n\r\n    SwitchMaterial Oswitch;\r\n\r\n    EditText Omsg;\r\n\r\n    Button Osetbtn;\r\n\r\n    private SharedPreferences preferences;\r\n\r\n    @SuppressLint(\"MissingInflatedId\")\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_outgoing_call);\r\n\r\n        Oswitch=findViewById(R.id.my_switch_on);\r\n        Omsg=findViewById(R.id.entermsgET_ON);\r\n        Osetbtn=findViewById(R.id.setbtn_ON);\r\n\r\n        preferences = getSharedPreferences(\"myPrefs\", MODE_PRIVATE);\r\n        String incomingMessage = preferences.getString(\"outgoingMessage\", \"\");\r\n        Omsg.setText(incomingMessage);\r\n\r\n        Oswitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {\r\n            @Override\r\n            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {\r\n                if(isChecked) {\r\n                    SharedPreferences.Editor editor = preferences.edit();\r\n                    editor.putBoolean(\"isMessageEnabled\", isChecked);\r\n                    editor.apply();\r\n                }\r\n            }\r\n        });\r\n\r\n        Osetbtn.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                String msg = Omsg.getText().toString();\r\n                Toast.makeText(OutgoingCallActivity.this, \"\"+Omsg, Toast.LENGTH_SHORT).show();\r\n                SharedPreferences.Editor editor = preferences.edit();\r\n                editor.putString(\"outgoingMessage\", msg);\r\n                editor.apply();\r\n            }\r\n        });\r\n    }\r\n\r\n    @Override\r\n    protected void onStart() {\r\n        super.onStart();\r\n        Intent intent = new Intent(OutgoingCallActivity.this, MyBackgroundServiceOutgoing.class);\r\n        startService(intent);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/technolite/connectit/OutgoingCallActivity.java b/app/src/main/java/com/technolite/connectit/OutgoingCallActivity.java
+--- a/app/src/main/java/com/technolite/connectit/OutgoingCallActivity.java	(revision 17c0062671d9db44145b411d2ebcf8ee0774be21)
++++ b/app/src/main/java/com/technolite/connectit/OutgoingCallActivity.java	(date 1677662568607)
+@@ -58,6 +58,8 @@
+                 SharedPreferences.Editor editor = preferences.edit();
+                 editor.putString("outgoingMessage", msg);
+                 editor.apply();
++                startActivity(new Intent(getApplicationContext(),AllButtonsActivity.class));
++                finish();
+             }
+         });
+     }
+Index: app/src/main/java/com/technolite/connectit/SplashScreen.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/technolite/connectit/SplashScreen.java b/app/src/main/java/com/technolite/connectit/SplashScreen.java
+new file mode 100644
+--- /dev/null	(date 1677665601608)
++++ b/app/src/main/java/com/technolite/connectit/SplashScreen.java	(date 1677665601608)
+@@ -0,0 +1,35 @@
++package com.technolite.connectit;
++
++import androidx.appcompat.app.AppCompatActivity;
++
++import android.content.Intent;
++import android.os.Bundle;
++import android.view.Window;
++import android.view.WindowManager;
++
++public class SplashScreen extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++
++
++        requestWindowFeature(Window.FEATURE_NO_TITLE);
++        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
++                WindowManager.LayoutParams.FLAG_FULLSCREEN);
++        setContentView(R.layout.splash_screen);
++
++        Thread background = new Thread(){
++            public void run(){
++                try{
++                    sleep(4*1000);
++                    startActivity(new Intent(SplashScreen.this, MainActivity.class));
++                    finish();
++                }
++                catch (Exception e){}
++            }
++        };
++        background.start();
++
++    }
++}
+\ No newline at end of file
+Index: app/src/main/java/com/technolite/connectit/SettingsActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.technolite.connectit;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.annotation.SuppressLint;\r\nimport android.content.Intent;\r\nimport android.content.SharedPreferences;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.CompoundButton;\r\nimport android.widget.SeekBar;\r\nimport android.widget.Spinner;\r\nimport android.widget.Switch;\r\nimport android.widget.TextView;\r\n\r\npublic class SettingsActivity extends AppCompatActivity {\r\n\r\n    @SuppressLint(\"UseSwitchCompatOrMaterialCode\")\r\n    Switch turnonoffSwitch;\r\n\r\n    private SharedPreferences preferences;\r\n\r\n    @SuppressLint(\"MissingInflatedId\")\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_settings);\r\n\r\n        preferences = getSharedPreferences(\"SettingPrefs\", MODE_PRIVATE);\r\n\r\n        turnonoffSwitch = findViewById(R.id.switch_turnonoff);\r\n\r\n        turnonoffSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {\r\n            @Override\r\n            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {\r\n                if(isChecked) {\r\n                    SharedPreferences.Editor editor = preferences.edit();\r\n                    editor.putBoolean(\"isAppServiceEnabled\", isChecked);\r\n                    editor.apply();\r\n\r\n//                    startService(new Intent(SettingsActivity.this, SettingsActivity.class));\r\n\r\n\r\n                }else{\r\n//                    stopService(new Intent(SettingsActivity.this, SettingsActivity.class));\r\n                    finishAffinity();\r\n                }\r\n            }\r\n        });\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/technolite/connectit/SettingsActivity.java b/app/src/main/java/com/technolite/connectit/SettingsActivity.java
+--- a/app/src/main/java/com/technolite/connectit/SettingsActivity.java	(revision 17c0062671d9db44145b411d2ebcf8ee0774be21)
++++ b/app/src/main/java/com/technolite/connectit/SettingsActivity.java	(date 1677663450865)
+@@ -37,6 +37,8 @@
+                     SharedPreferences.Editor editor = preferences.edit();
+                     editor.putBoolean("isAppServiceEnabled", isChecked);
+                     editor.apply();
++                    startActivity(new Intent(getApplicationContext(), AllButtonsActivity.class));
++                    finish();
+ 
+ //                    startService(new Intent(SettingsActivity.this, SettingsActivity.class));
+ 
+Index: app/src/main/java/com/technolite/connectit/HomeActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.technolite.connectit;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.ActionBarDrawerToggle;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.appcompat.widget.Toolbar;\r\nimport androidx.drawerlayout.widget.DrawerLayout;\r\n\r\nimport android.annotation.SuppressLint;\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.MenuItem;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.Toast;\r\n\r\nimport com.google.android.material.navigation.NavigationView;\r\n\r\npublic class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {\r\n\r\n    NavigationView navigationView;\r\n    DrawerLayout drawerLayout;\r\n    Toolbar toolbar;\r\n\r\n    Button btnAllbuttons;\r\n\r\n    @SuppressLint({\"ResourceAsColor\", \"MissingInflatedId\"})\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_home);\r\n\r\n        //All buttons activity\r\n        btnAllbuttons = findViewById(R.id.goto_allbuttons);\r\n        btnAllbuttons.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                startActivity(new Intent(HomeActivity.this, AllButtonsActivity.class));\r\n            }\r\n        });\r\n\r\n        //tootbar settings\r\n        toolbar = findViewById(R.id.toolbar);\r\n        toolbar.setTitle(\"ConnectIt\");\r\n        setSupportActionBar(toolbar);\r\n\r\n        //drawerlayout setiings\r\n        drawerLayout = findViewById(R.id.drawer_layout);\r\n        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,\r\n                R.string.navigation_drawer_open, R.string.navigation_drawer_close);\r\n        drawerLayout.addDrawerListener(toggle);\r\n        toggle.syncState();\r\n\r\n\r\n        //navigationview settings\r\n        navigationView = findViewById(R.id.navigation);\r\n        navigationView.setNavigationItemSelectedListener(this);\r\n\r\n\r\n    }\r\n\r\n    @Override\r\n    public boolean onNavigationItemSelected(@NonNull MenuItem item) {\r\n\r\n        switch (item.getItemId()){\r\n            case R.id.nav_premium:\r\n                Toast.makeText(this, \"Premium\", Toast.LENGTH_SHORT).show();\r\n                break;\r\n            case R.id.nav_home:\r\n                Toast.makeText(this, \"Home\", Toast.LENGTH_SHORT).show();\r\n                break;\r\n            case R.id.nav_business_info:\r\n                Toast.makeText(this, \"Business Info\", Toast.LENGTH_SHORT).show();\r\n                break;\r\n            case R.id.nav_wp_msg:\r\n                Toast.makeText(this, \"Whatsapp msgs\", Toast.LENGTH_SHORT).show();\r\n                break;\r\n            case R.id.nav_sms_schedule:\r\n                Toast.makeText(this, \"Sms scheduler\", Toast.LENGTH_SHORT).show();\r\n                break;\r\n            case R.id.nav_bulk_sms:\r\n                Toast.makeText(this, \"Bulk msgs\", Toast.LENGTH_SHORT).show();\r\n                break;\r\n            case R.id.nav_settings:\r\n                startActivity(new Intent(HomeActivity.this, SettingsActivity.class));\r\n                break;\r\n            case R.id.nav_permission:\r\n                Toast.makeText(this, \"Permission\", Toast.LENGTH_SHORT).show();\r\n                break;\r\n            case R.id.nav_aboutUs:\r\n                Toast.makeText(this, \"About us\", Toast.LENGTH_SHORT).show();\r\n                break;\r\n            case R.id.nav_help:\r\n                Toast.makeText(this, \"Help\", Toast.LENGTH_SHORT).show();\r\n                break;\r\n            case R.id.nav_referFriend:\r\n                Toast.makeText(this, \"Share\", Toast.LENGTH_SHORT).show();\r\n                break;\r\n            case R.id.nav_logout:\r\n                Toast.makeText(this, \"Logout\", Toast.LENGTH_SHORT).show();\r\n                break;\r\n        }\r\n        return true;\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/technolite/connectit/HomeActivity.java b/app/src/main/java/com/technolite/connectit/HomeActivity.java
+--- a/app/src/main/java/com/technolite/connectit/HomeActivity.java	(revision 17c0062671d9db44145b411d2ebcf8ee0774be21)
++++ b/app/src/main/java/com/technolite/connectit/HomeActivity.java	(date 1677663450696)
+@@ -35,7 +35,8 @@
+         btnAllbuttons.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+-                startActivity(new Intent(HomeActivity.this, AllButtonsActivity.class));
++                startActivity(new Intent(getApplicationContext(), AllButtonsActivity.class));
++                finish();
+             }
+         });
+ 
+Index: app/src/main/java/com/technolite/connectit/Birthday_Reminder_Activity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.technolite.connectit;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.core.app.ActivityCompat;\r\n\r\nimport android.Manifest;\r\nimport android.annotation.SuppressLint;\r\nimport android.app.AlarmManager;\r\nimport android.app.DatePickerDialog;\r\nimport android.app.PendingIntent;\r\nimport android.app.TimePickerDialog;\r\nimport android.content.ContentResolver;\r\nimport android.content.Context;\r\nimport android.content.Intent;\r\nimport android.content.SharedPreferences;\r\nimport android.content.pm.PackageManager;\r\nimport android.database.Cursor;\r\nimport android.os.Build;\r\nimport android.os.Bundle;\r\nimport android.provider.ContactsContract;\r\nimport android.telephony.SubscriptionInfo;\r\nimport android.telephony.SubscriptionManager;\r\nimport android.text.Editable;\r\nimport android.text.TextWatcher;\r\nimport android.view.View;\r\nimport android.widget.AdapterView;\r\nimport android.widget.ArrayAdapter;\r\nimport android.widget.Button;\r\nimport android.widget.DatePicker;\r\nimport android.widget.EditText;\r\nimport android.widget.ListView;\r\nimport android.widget.Spinner;\r\nimport android.widget.TextView;\r\nimport android.widget.TimePicker;\r\nimport android.widget.Toast;\r\n\r\nimport com.google.android.material.button.MaterialButton;\r\nimport com.google.android.material.floatingactionbutton.FloatingActionButton;\r\nimport com.google.android.material.textfield.TextInputEditText;\r\n\r\nimport java.text.SimpleDateFormat;\r\nimport java.util.ArrayList;\r\nimport java.util.Calendar;\r\nimport java.util.Date;\r\nimport java.util.List;\r\n\r\npublic class Birthday_Reminder_Activity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {\r\n\r\n    private static final int REQUEST_READ_PHONE_STATE = 1;\r\n    private static final int REQUEST_CODE_READ_CONTACTS = 2;\r\n    private static final int MY_PERMISSIONS_REQUEST_SEND_SMS =3 ;\r\n    Spinner sim;\r\n    int count=0;\r\n    TextInputEditText date, time, phone, msg;\r\n    TextView smscnt;\r\n    private SharedPreferences sharedPreferences;\r\n\r\n    ListView mlistv;\r\n\r\n    private ArrayList<Contact> mContacts;\r\n    private ContactsAdapter mAdapter;\r\n    private CallReceiver callReceiver;\r\n    private SmsReceiver smsReceiver;\r\n    MaterialButton submit;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_birthday_reminder);\r\n\r\n        sim = findViewById(R.id.simchooser);\r\n        msg = findViewById(R.id.message);\r\n        phone = findViewById(R.id.contact);\r\n        date = findViewById(R.id.date);\r\n        time = findViewById(R.id.time);\r\n        submit = findViewById(R.id.submit);\r\n        smscnt=findViewById(R.id.smscount);\r\n\r\n        sharedPreferences = getPreferences(Context.MODE_PRIVATE);\r\n        count = sharedPreferences.getInt(\"count\", 0);\r\n        smscnt.setText(\" SMS count: \" + count);\r\n\r\n        mlistv=findViewById(R.id.mlist);\r\n        mContacts = new ArrayList<>();\r\n        mAdapter = new ContactsAdapter(this, mContacts);\r\n        mlistv.setAdapter(mAdapter);\r\n       /* TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);\r\n        String simOperatorName = telephonyManager.getSimOperatorName();\r\n        List<String> list = new ArrayList<>();\r\n        list.add(simOperatorName);\r\n        ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item, list);\r\n        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);\r\n        sim.setAdapter(adapter);*/\r\n        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_PHONE_STATE,Manifest.permission.SEND_SMS,Manifest.permission.READ_CONTACTS}, PackageManager.PERMISSION_GRANTED);\r\n\r\n\r\n\r\n        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP_MR1) {\r\n            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {\r\n                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.READ_PHONE_STATE}, REQUEST_READ_PHONE_STATE);\r\n\r\n            }\r\n            try {\r\n                SubscriptionManager subscriptionManager = (SubscriptionManager) getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE);\r\n                List<SubscriptionInfo> subscriptionInfoList = subscriptionManager.getActiveSubscriptionInfoList();\r\n\r\n                List<String> list = new ArrayList<>();\r\n                for (SubscriptionInfo subscriptionInfo : subscriptionInfoList) {\r\n                    CharSequence name = subscriptionInfo.getCarrierName();\r\n                    String number = subscriptionInfo.getNumber();\r\n                    list.add(name + \" \" + number);\r\n                }\r\n\r\n                try {\r\n                    ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, list);\r\n                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);\r\n                    sim.setAdapter(adapter);\r\n\r\n                } catch (Exception e) {\r\n                    Toast.makeText(this, \"\" + e.getMessage(), Toast.LENGTH_SHORT).show();\r\n                }\r\n            }catch (Exception e){\r\n                Toast.makeText(this, \"\"+e.getMessage(), Toast.LENGTH_SHORT).show();\r\n            }\r\n        }\r\n\r\n        final SubscriptionInfo[] selectedSubscription = new SubscriptionInfo[1];\r\n        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP_MR1) {\r\n            SubscriptionManager subscriptionManager = null;\r\n            subscriptionManager = (SubscriptionManager) getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE);\r\n            List<SubscriptionInfo> subscriptionInfoList = subscriptionManager.getActiveSubscriptionInfoList();\r\n            sim.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {\r\n                @Override\r\n                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {\r\n                    int selectedIndex = sim.getSelectedItemPosition();\r\n                    selectedSubscription[0] = subscriptionInfoList.get(selectedIndex);\r\n\r\n                }\r\n\r\n                @Override\r\n                public void onNothingSelected(AdapterView<?> adapterView) {\r\n                }\r\n            });\r\n        }\r\n\r\n       /* if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {\r\n            if (ActivityCompat.shouldShowRequestPermissionRationale(this,\r\n                    Manifest.permission.READ_CONTACTS)) {\r\n                // Show an explanation to the user *asynchronously* -- don't block\r\n                // this thread waiting for the user's response! After the user\r\n                // sees the explanation, try again to request the permission.\r\n            } else {\r\n                // No explanation needed; request the permission\r\n                ActivityCompat.requestPermissions(this,\r\n                        new String[]{Manifest.permission.READ_CONTACTS},\r\n                        REQUEST_CODE_READ_CONTACTS);\r\n            }\r\n\r\n        }else{\r\n\r\n        }*/\r\n        phone.addTextChangedListener(new TextWatcher() {\r\n            @Override\r\n            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {\r\n                // Do nothing\r\n            }\r\n\r\n            @Override\r\n            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {\r\n                // Do nothing\r\n            }\r\n\r\n            @Override\r\n            public void afterTextChanged(Editable editable) {\r\n                String keyword = editable.toString();\r\n                mContacts.clear();\r\n                mContacts.addAll(queryContacts(keyword));\r\n                mAdapter.notifyDataSetChanged();\r\n            }\r\n        });\r\n        mlistv.setOnItemClickListener(new AdapterView.OnItemClickListener() {\r\n            @Override\r\n            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {\r\n                Contact selectedContact = (Contact) parent.getItemAtPosition(position);\r\n                phone.setText(selectedContact.getNumber());\r\n                mlistv.setVisibility(View.GONE);\r\n            }\r\n        });\r\n\r\n        date.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                showDatePickerDialog();\r\n            }\r\n        });\r\n\r\n        time.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                Calendar mcurrentTime = Calendar.getInstance();\r\n                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);\r\n                int minute = mcurrentTime.get(Calendar.MINUTE);\r\n                TimePickerDialog mTimePicker;\r\n                mTimePicker = new TimePickerDialog(Birthday_Reminder_Activity.this, new TimePickerDialog.OnTimeSetListener() {\r\n                    @Override\r\n                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {\r\n                        String formattedHour = String.format(\"%02d\", selectedHour);\r\n                        String formattedMinute = String.format(\"%02d\", selectedMinute);\r\n                        time.setText(formattedHour + \":\" + formattedMinute );\r\n                        // time.setText(selectedHour + \":\" + selectedMinute);\r\n                    }\r\n                }, hour, minute, true);//Yes 24 hour time\r\n                mTimePicker.setTitle(\"Select Time\");\r\n                mTimePicker.show();\r\n            }\r\n        });\r\n\r\n\r\n\r\n        submit.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                String message = msg.getText().toString();\r\n                String dateString = date.getText().toString();\r\n                String timeString = time.getText().toString();\r\n                String number = phone.getText().toString();\r\n\r\n                if(date.getText().toString().isEmpty()){\r\n                    date.setError(\"Please Select Date\");\r\n                } else if (time.getText().toString().isEmpty()) {\r\n                    time.setError(\"Please Select Time\");\r\n                }else if(phone.getText().toString().isEmpty()){\r\n                    phone.setError(\"Please Enter Number\");\r\n\r\n                } else if (msg.getText().toString().isEmpty()) {\r\n                    msg.setError(\"Please Enter Massegge \");\r\n                }\r\n                // parse the date and time from the EditTexts\r\n\r\n                try {\r\n                    count++;\r\n                    smscnt.setText(\"SMS count: \" + count);\r\n                    SharedPreferences.Editor editor = sharedPreferences.edit();\r\n                    editor.putInt(\"count\", count);\r\n                    editor.apply();\r\n                    try {\r\n                        SimpleDateFormat dateFormat = new SimpleDateFormat(\"dd/MM/yyyy hh:mm\");\r\n                        Date dateTime = dateFormat.parse(dateString + \" \" + timeString);\r\n                        long triggerTime = dateTime.getTime();\r\n                        long requestCode = System.currentTimeMillis();\r\n\r\n                        Intent intent = new Intent(Birthday_Reminder_Activity.this, SmsReceiver.class);\r\n                        intent.putExtra(\"number\", number);\r\n                        intent.putExtra(\"message\", message);\r\n                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {\r\n                            intent.putExtra(\"subscriptionId\", selectedSubscription[0].getSubscriptionId());\r\n                        }\r\n\r\n                        PendingIntent pendingIntent = PendingIntent.getBroadcast(Birthday_Reminder_Activity.this, (int) requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);\r\n\r\n                        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);\r\n                        alarmManager.set(AlarmManager.RTC_WAKEUP, triggerTime, pendingIntent);\r\n                    }catch (Exception e){\r\n                        Toast.makeText(Birthday_Reminder_Activity.this, \"\"+e.getMessage(), Toast.LENGTH_SHORT).show();\r\n                    }\r\n                    // Toast.makeText(MainActivity.this, \"SMS Scheduled\", Toast.LENGTH_SHORT).show();\r\n\r\n                } catch (Exception e) {\r\n                    Toast.makeText(Birthday_Reminder_Activity.this, \"\"+e.getMessage(), Toast.LENGTH_SHORT).show();\r\n                }\r\n\r\n                /*Intent intent = new Intent(MainActivity.this, CallReceiver.class);\r\n                intent.putExtra(\"number\", number);\r\n                intent.putExtra(\"message\", message);*/\r\n\r\n                // create the Intent to send the SMS\r\n\r\n\r\n            }\r\n        });\r\n    }\r\n\r\n    public void showDatePickerDialog() {\r\n        DatePickerDialog datePickerDialog = new DatePickerDialog(\r\n                Birthday_Reminder_Activity.this,\r\n                this,\r\n                Calendar.getInstance().get(Calendar.YEAR),\r\n                Calendar.getInstance().get(Calendar.MONTH),\r\n                Calendar.getInstance().get(Calendar.DAY_OF_MONTH)\r\n        );\r\n        datePickerDialog.show();\r\n\r\n    }\r\n\r\n    @Override\r\n    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {\r\n        String selectedDate = dayOfMonth + \"/\" + (month + 1) + \"/\" + year;\r\n        date.setText(selectedDate);\r\n    }\r\n    private ArrayList<Contact> queryContacts(String keyword) {\r\n        ArrayList<Contact> contacts = new ArrayList<>();\r\n        ContentResolver resolver = getContentResolver();\r\n\r\n        Cursor cursor = resolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,\r\n                null,\r\n                ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME + \" LIKE ? OR \" +\r\n                        ContactsContract.CommonDataKinds.Phone.NUMBER + \" LIKE ?\",\r\n                new String[]{\"%\" + keyword + \"%\", \"%\" + keyword + \"%\"},\r\n                null);\r\n\r\n        if (cursor != null) {\r\n            while (cursor.moveToNext()) {\r\n                @SuppressLint(\"Range\") String name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));\r\n                @SuppressLint(\"Range\") String number = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));\r\n                contacts.add(new Contact(name, number));\r\n            }\r\n            cursor.close();\r\n        }\r\n        return contacts;\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/technolite/connectit/Birthday_Reminder_Activity.java b/app/src/main/java/com/technolite/connectit/Birthday_Reminder_Activity.java
+--- a/app/src/main/java/com/technolite/connectit/Birthday_Reminder_Activity.java	(revision 17c0062671d9db44145b411d2ebcf8ee0774be21)
++++ b/app/src/main/java/com/technolite/connectit/Birthday_Reminder_Activity.java	(date 1677662568624)
+@@ -274,7 +274,8 @@
+                 intent.putExtra("message", message);*/
+ 
+                 // create the Intent to send the SMS
+-
++                startActivity(new Intent(getApplicationContext(),AllButtonsActivity.class));
++                finish();
+ 
+             }
+         });
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <uses-permission android:name=\"android.permission.SEND_SMS\" />\r\n    <uses-permission android:name=\"android.permission.READ_PHONE_STATE\" />\r\n    <uses-permission android:name=\"android.permission.READ_CONTACTS\" />\r\n    <uses-permission android:name=\"android.permission.READ_CALL_LOG\" />\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\" />\r\n    <uses-permission\r\n        android:name=\"android.permission.BIND_ACCESSIBILITY_SERVICE\"\r\n        tools:ignore=\"ProtectedPermissions\" />\r\n    <uses-permission android:name=\"android.permission.FOREGROUND_SERVICE\" />\r\n    <uses-permission android:name=\"android.permission.SYSTEM_ALERT_WINDOW\" />\r\n    <uses-permission\r\n        android:name=\"android.permission.BIND_NOTIFICATION_LISTENER_SERVICE\"\r\n        tools:ignore=\"ProtectedPermissions\" />\r\n    <uses-permission android:name=\"android.permission.FOREGROUND_SERVICE\" />\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.ConnectIt\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".Keyverification\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".UpgradePremiumActivity_2\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".UpgradePremiumActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".OTPVerificationActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".SignupActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".EazypostWebviewActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".DownloadedImageViewerActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".DownloadsActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".EazypostActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".OutgoingCallActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MissedCallActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".IncomingCallActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".NetworkSMSActivity\"\r\n            android:exported=\"false\" />\r\n\r\n        <service\r\n            android:name=\".SMSBackgroundService\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.PHONE_STATE\" />\r\n            </intent-filter>\r\n        </service>\r\n\r\n        <receiver\r\n            android:name=\".SmsReceiver\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.provider.Telephony.SMS_RECEIVED\" />\r\n            </intent-filter>\r\n        </receiver>\r\n        <receiver\r\n            android:name=\".CallReceiver\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.PHONE_STATE\" />\r\n            </intent-filter>\r\n        </receiver>\r\n\r\n        <activity\r\n            android:name=\".CallLogs\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".Birthday_Reminder_Activity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".Bulk_whatsapp_msg_Activity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".apppermissionActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".SettingsActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".HomeActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".WhatsappActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".AllButtonsActivity\"\r\n            android:exported=\"false\" />\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 17c0062671d9db44145b411d2ebcf8ee0774be21)
++++ b/app/src/main/AndroidManifest.xml	(date 1677664539240)
+@@ -29,6 +29,9 @@
+         android:theme="@style/Theme.ConnectIt"
+         tools:targetApi="31">
+         <activity
++            android:name=".SplashScreen"
++            android:exported="false" />
++        <activity
+             android:name=".Keyverification"
+             android:exported="false" />
+         <activity
+@@ -124,6 +127,9 @@
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+         </activity>
++
++        <service android:name=".MyBackgroundService" />
++        <service android:name=".MyBackgroundServiceOutgoing" />
+     </application>
+ 
+ </manifest>
+\ No newline at end of file
+Index: app/src/main/res/layout/splash_screen.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/splash_screen.xml b/app/src/main/res/layout/splash_screen.xml
+new file mode 100644
+--- /dev/null	(date 1677665214721)
++++ b/app/src/main/res/layout/splash_screen.xml	(date 1677665214721)
+@@ -0,0 +1,29 @@
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:gravity="center"
++    tools:context=".SplashScreen">
++
++    <ImageView
++        android:id="@+id/splash_logo"
++        android:layout_width="250dp"
++        android:layout_height="250dp"
++        android:src="@drawable/connectit_logo2"
++        android:layout_centerInParent="true"
++        android:layout_marginHorizontal="20dp"/>
++
++    <TextView
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:text="ConnectIt"
++        android:textAlignment="center"
++        android:textSize="25sp"
++        android:layout_below="@id/splash_logo"/>
++
++
++
++</RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_all_buttons.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.core.widget.NestedScrollView\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:background=\"@color/teal_200\"\r\n    tools:context=\".AllButtonsActivity\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:orientation=\"vertical\"\r\n        android:layout_margin=\"20dp\">\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"horizontal\"\r\n            android:gravity=\"center\">\r\n            <androidx.cardview.widget.CardView\r\n                android:layout_width=\"170dp\"\r\n                android:layout_height=\"170dp\"\r\n                app:cardCornerRadius=\"10dp\"\r\n                android:padding=\"2dp\">\r\n                <RelativeLayout\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\"\r\n                    android:gravity=\"center\">\r\n                    <ImageView\r\n                        android:id=\"@+id/img_premium\"\r\n                        android:layout_width=\"100dp\"\r\n                        android:layout_height=\"100dp\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:src=\"@drawable/ic_premium\"/>\r\n                    <Button\r\n                        android:id=\"@+id/btn_premium\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:text=\"Upgrade to Premium\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:layout_below=\"@id/img_premium\"/>\r\n                </RelativeLayout>\r\n            </androidx.cardview.widget.CardView>\r\n\r\n            <androidx.cardview.widget.CardView\r\n                android:layout_width=\"170dp\"\r\n                android:layout_height=\"170dp\"\r\n                app:cardCornerRadius=\"10dp\"\r\n                android:padding=\"2dp\"\r\n                android:layout_marginStart=\"20dp\">\r\n                <RelativeLayout\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\"\r\n                    android:gravity=\"center\">\r\n                    <ImageView\r\n                        android:id=\"@+id/img_home\"\r\n                        android:layout_width=\"100dp\"\r\n                        android:layout_height=\"100dp\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:src=\"@drawable/ic_home\"/>\r\n                    <Button\r\n                        android:id=\"@+id/btn_home\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:text=\"Home\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:layout_below=\"@id/img_home\"/>\r\n                </RelativeLayout>\r\n            </androidx.cardview.widget.CardView>\r\n\r\n        </LinearLayout>\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"horizontal\"\r\n            android:layout_marginTop=\"30dp\"\r\n            android:gravity=\"center\">\r\n            <androidx.cardview.widget.CardView\r\n                android:layout_width=\"170dp\"\r\n                android:layout_height=\"170dp\"\r\n                app:cardCornerRadius=\"10dp\"\r\n                android:padding=\"2dp\">\r\n                <RelativeLayout\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\"\r\n                    android:gravity=\"center\">\r\n                    <ImageView\r\n                        android:id=\"@+id/img_network_sms\"\r\n                        android:layout_width=\"100dp\"\r\n                        android:layout_height=\"100dp\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:src=\"@drawable/ic_network_sms\"/>\r\n                    <Button\r\n                        android:id=\"@+id/btn_network_sms\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:text=\"Network SMS\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:layout_below=\"@id/img_network_sms\"/>\r\n                </RelativeLayout>\r\n            </androidx.cardview.widget.CardView>\r\n\r\n            <androidx.cardview.widget.CardView\r\n                android:layout_width=\"170dp\"\r\n                android:layout_height=\"170dp\"\r\n                app:cardCornerRadius=\"10dp\"\r\n                android:padding=\"2dp\"\r\n                android:layout_marginStart=\"20dp\">\r\n                <RelativeLayout\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\"\r\n                    android:gravity=\"center\">\r\n\r\n                    <ImageView\r\n                        android:id=\"@+id/img_whatsapp\"\r\n                        android:layout_width=\"100dp\"\r\n                        android:layout_height=\"100dp\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:src=\"@drawable/whatsapp\" />\r\n                    <Button\r\n                        android:id=\"@+id/btn_whatsapp\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:text=\"Whatsapp\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:layout_below=\"@id/img_whatsapp\"/>\r\n                </RelativeLayout>\r\n            </androidx.cardview.widget.CardView>\r\n\r\n        </LinearLayout>\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"horizontal\"\r\n            android:gravity=\"center\"\r\n            android:layout_marginTop=\"30dp\">\r\n            <androidx.cardview.widget.CardView\r\n                android:layout_width=\"170dp\"\r\n                android:layout_height=\"170dp\"\r\n                app:cardCornerRadius=\"10dp\"\r\n                android:padding=\"2dp\">\r\n                <RelativeLayout\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\"\r\n                    android:gravity=\"center\">\r\n                    <ImageView\r\n                        android:id=\"@+id/img_birthday_remainder\"\r\n                        android:layout_width=\"100dp\"\r\n                        android:layout_height=\"100dp\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:src=\"@drawable/ic_sms_schedule\"/>\r\n                    <Button\r\n                        android:id=\"@+id/btn_birthday_remainder\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:text=\"Set Bithday Remainder\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:layout_below=\"@id/img_birthday_remainder\" />\r\n                </RelativeLayout>\r\n            </androidx.cardview.widget.CardView>\r\n\r\n            <androidx.cardview.widget.CardView\r\n                android:layout_width=\"170dp\"\r\n                android:layout_height=\"170dp\"\r\n                app:cardCornerRadius=\"10dp\"\r\n                android:padding=\"2dp\"\r\n                android:layout_marginStart=\"20dp\">\r\n                <RelativeLayout\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\"\r\n                    android:gravity=\"center\">\r\n\r\n                    <ImageView\r\n                        android:id=\"@+id/img_bulk_msg\"\r\n                        android:layout_width=\"100dp\"\r\n                        android:layout_height=\"100dp\"\r\n                        android:layout_marginLeft=\"40dp\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:src=\"@drawable/ic_bulk_sms\" />\r\n\r\n                    <Button\r\n                        android:id=\"@+id/btn_bulkwhatsapp\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:text=\"Bulk whatsapp message\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:layout_below=\"@id/img_bulk_msg\"/>\r\n                </RelativeLayout>\r\n            </androidx.cardview.widget.CardView>\r\n        </LinearLayout>\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"horizontal\"\r\n            android:gravity=\"center\"\r\n            android:layout_marginTop=\"30dp\">\r\n            <androidx.cardview.widget.CardView\r\n                android:layout_width=\"170dp\"\r\n                android:layout_height=\"170dp\"\r\n                app:cardCornerRadius=\"10dp\"\r\n                android:padding=\"2dp\">\r\n                <RelativeLayout\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\"\r\n                    android:gravity=\"center\">\r\n                    <ImageView\r\n                        android:id=\"@+id/img_settings\"\r\n                        android:layout_width=\"100dp\"\r\n                        android:layout_height=\"100dp\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:src=\"@drawable/settings\"/>\r\n                    <Button\r\n                        android:id=\"@+id/btn_settings\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:text=\"Settings\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:layout_below=\"@id/img_settings\"/>\r\n                </RelativeLayout>\r\n            </androidx.cardview.widget.CardView>\r\n\r\n            <androidx.cardview.widget.CardView\r\n                android:layout_width=\"170dp\"\r\n                android:layout_height=\"170dp\"\r\n                app:cardCornerRadius=\"10dp\"\r\n                android:padding=\"2dp\"\r\n                android:layout_marginStart=\"20dp\">\r\n                <RelativeLayout\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\"\r\n                    android:gravity=\"center\">\r\n                    <ImageView\r\n                        android:id=\"@+id/img_set_permission\"\r\n                        android:layout_width=\"100dp\"\r\n                        android:layout_height=\"100dp\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:src=\"@drawable/permissions\" />\r\n                    <Button\r\n                        android:id=\"@+id/btn_permissions\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:text=\"Set Permissions\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:layout_below=\"@id/img_set_permission\" />\r\n                </RelativeLayout>\r\n            </androidx.cardview.widget.CardView>\r\n        </LinearLayout>\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"horizontal\"\r\n            android:gravity=\"center\"\r\n            android:layout_marginTop=\"30dp\">\r\n            <androidx.cardview.widget.CardView\r\n                android:layout_width=\"170dp\"\r\n                android:layout_height=\"170dp\"\r\n                app:cardCornerRadius=\"10dp\"\r\n                android:padding=\"2dp\">\r\n                <RelativeLayout\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\"\r\n                    android:gravity=\"center\">\r\n                    <ImageView\r\n                        android:id=\"@+id/img_eazypost\"\r\n                        android:layout_width=\"100dp\"\r\n                        android:layout_height=\"100dp\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:src=\"@drawable/eazypost\" />\r\n\r\n                    <Button\r\n                        android:id=\"@+id/btn_eazypost\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:layout_below=\"@id/img_eazypost\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:text=\"Eazy Post\" />\r\n                </RelativeLayout>\r\n            </androidx.cardview.widget.CardView>\r\n\r\n            <androidx.cardview.widget.CardView\r\n                android:layout_width=\"170dp\"\r\n                android:layout_height=\"170dp\"\r\n                app:cardCornerRadius=\"10dp\"\r\n                android:padding=\"2dp\"\r\n                android:layout_marginStart=\"20dp\">\r\n                <RelativeLayout\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\"\r\n                    android:gravity=\"center\">\r\n\r\n                    <ImageView\r\n                        android:id=\"@+id/img_downloads\"\r\n                        android:layout_width=\"100dp\"\r\n                        android:layout_height=\"100dp\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:src=\"@drawable/downloads\" />\r\n                    <Button\r\n                        android:id=\"@+id/btn_downloads\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:text=\"Downloads\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:layout_below=\"@id/img_downloads\" />\r\n                </RelativeLayout>\r\n            </androidx.cardview.widget.CardView>\r\n\r\n\r\n        </LinearLayout>\r\n\r\n    </LinearLayout>\r\n\r\n\r\n\r\n\r\n</androidx.core.widget.NestedScrollView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_all_buttons.xml b/app/src/main/res/layout/activity_all_buttons.xml
+--- a/app/src/main/res/layout/activity_all_buttons.xml	(revision 17c0062671d9db44145b411d2ebcf8ee0774be21)
++++ b/app/src/main/res/layout/activity_all_buttons.xml	(date 1677661967322)
+@@ -313,6 +313,44 @@
+ 
+         </LinearLayout>
+ 
++        <LinearLayout
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:orientation="horizontal"
++            android:gravity="center"
++            android:layout_marginTop="30dp">
++            <androidx.cardview.widget.CardView
++                android:layout_width="170dp"
++                android:layout_height="170dp"
++                app:cardCornerRadius="10dp"
++                android:padding="2dp">
++                <RelativeLayout
++                    android:layout_width="match_parent"
++                    android:layout_height="match_parent"
++                    android:gravity="center">
++                    <ImageView
++                        android:id="@+id/img_Business"
++                        android:layout_width="100dp"
++                        android:layout_height="100dp"
++                        android:layout_centerInParent="true"
++                        android:src="@drawable/eazypost" />
++
++                    <Button
++                        android:id="@+id/btn_Business"
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:layout_below="@id/img_Business"
++                        android:layout_centerInParent="true"
++                        android:text="Business" />
++                </RelativeLayout>
++            </androidx.cardview.widget.CardView>
++
++
++
++
++
++        </LinearLayout>
++
+     </LinearLayout>
+ 
+ 
+Index: app/src/main/java/com/technolite/connectit/Bulk_whatsapp_msg_Activity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.technolite.connectit;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.Toast;\r\n\r\nimport com.google.android.material.textfield.TextInputLayout;\r\n\r\npublic class Bulk_whatsapp_msg_Activity extends AppCompatActivity {\r\n\r\n    TextInputLayout mobileNumbers;\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_bulk_whatsapp_msg);\r\n\r\n        mobileNumbers = findViewById(R.id.mobileNumbersLayout);\r\n        mobileNumbers.setEndIconOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                Toast.makeText(Bulk_whatsapp_msg_Activity.this, \"To do when end icon is clicked upon\", Toast.LENGTH_SHORT).show();\r\n            }\r\n        });\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/technolite/connectit/Bulk_whatsapp_msg_Activity.java b/app/src/main/java/com/technolite/connectit/Bulk_whatsapp_msg_Activity.java
+--- a/app/src/main/java/com/technolite/connectit/Bulk_whatsapp_msg_Activity.java	(revision 17c0062671d9db44145b411d2ebcf8ee0774be21)
++++ b/app/src/main/java/com/technolite/connectit/Bulk_whatsapp_msg_Activity.java	(date 1677662568573)
+@@ -2,8 +2,10 @@
+ 
+ import androidx.appcompat.app.AppCompatActivity;
+ 
++import android.content.Intent;
+ import android.os.Bundle;
+ import android.view.View;
++import android.widget.Button;
+ import android.widget.Toast;
+ 
+ import com.google.android.material.textfield.TextInputLayout;
+@@ -11,17 +13,28 @@
+ public class Bulk_whatsapp_msg_Activity extends AppCompatActivity {
+ 
+     TextInputLayout mobileNumbers;
++    Button setwp;
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_bulk_whatsapp_msg);
+ 
+         mobileNumbers = findViewById(R.id.mobileNumbersLayout);
++        setwp = findViewById(R.id.schedule_btn);
+         mobileNumbers.setEndIconOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Toast.makeText(Bulk_whatsapp_msg_Activity.this, "To do when end icon is clicked upon", Toast.LENGTH_SHORT).show();
+             }
+         });
++
++        setwp.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                Toast.makeText(Bulk_whatsapp_msg_Activity.this, "Comming Soon", Toast.LENGTH_SHORT).show();
++                startActivity(new Intent(getApplicationContext(),AllButtonsActivity.class));
++                finish();
++            }
++        });
+     }
+ }
+\ No newline at end of file
