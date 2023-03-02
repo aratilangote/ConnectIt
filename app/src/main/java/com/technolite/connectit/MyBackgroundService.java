@@ -14,6 +14,7 @@ import android.telephony.PhoneStateListener;
 import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
@@ -118,8 +119,13 @@ public class MyBackgroundService extends Service {
         return null;
     }
     private void sendSMS(String phoneNumber, String message) {
-        SmsManager smsManager = SmsManager.getDefault();
-        smsManager.sendTextMessage(phoneNumber, null, message, null, null);
+        try {
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(phoneNumber, null, message, null, null);
+        }catch (Exception e){
+            Toast.makeText(this, "Oops service is not available right now.", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 }
