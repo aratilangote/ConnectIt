@@ -19,6 +19,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
+import java.util.HashMap;
+import java.util.HashSet;
+
 public class MyBackgroundService extends Service {
     private static final String TAG = "MyBackgroundService";
     private static final String CHANNEL_ID = "MyBackgroundServiceChannel";
@@ -28,6 +31,7 @@ public class MyBackgroundService extends Service {
     private TelephonyManager telephonyManager;
     private PhoneStateListener phoneStateListener;
     private boolean smsSent = false;
+
 
 
     @Override
@@ -56,6 +60,8 @@ public class MyBackgroundService extends Service {
         mHandler = new Handler();
         preferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         mRunnable = new Runnable() {
+            private HashSet<String> sentNumbers = new HashSet<>();
+            private HashMap<String, Long> lastSentTimes = new HashMap<>();
             @Override
             public void run() {
                 Log.d(TAG, "Background service is running...");
@@ -70,16 +76,27 @@ public class MyBackgroundService extends Service {
 
                         switch (state) {
                             case TelephonyManager.CALL_STATE_RINGING:
-                                if (!smsSent) {
+                                if (!sentNumbers.contains(incomingNumber)) {
                                     String message = getSharedPreferences("MyPrefs", MODE_PRIVATE).getString("incomingMessage", "");
                                     if (!message.isEmpty()) {
                                         sendSMS(incomingNumber, message);
-                                        smsSent = true;
+                                        sentNumbers.add(incomingNumber);
+                                        lastSentTimes.put(incomingNumber, System.currentTimeMillis());
+                                    }
+                                } else {
+                                    Long lastSentTime = lastSentTimes.get(incomingNumber);
+                                    if (lastSentTime != null && System.currentTimeMillis() - lastSentTime > 24 * 60 * 60 * 1000) {
+                                        String message = getSharedPreferences("MyPrefs", MODE_PRIVATE).getString("incomingMessage", "");
+                                        if (!message.isEmpty()) {
+                                            sendSMS(incomingNumber, message);
+                                            lastSentTimes.put(incomingNumber, System.currentTimeMillis());
+                                        }
                                     }
                                 }
                                 break;
                             case TelephonyManager.CALL_STATE_OFFHOOK:
                             case TelephonyManager.CALL_STATE_IDLE:
+                                sentNumbers.remove(incomingNumber);
                                 smsSent = false;
                                 break;
                         }

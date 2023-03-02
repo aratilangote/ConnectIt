@@ -44,13 +44,18 @@ public class IncomingCallActivity extends AppCompatActivity {
         }
 
 
+        aSwitch.setChecked(preferences.getBoolean("isMessageEnabled", true));
         aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked) {
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putBoolean("isMessageEnabled", isChecked);
-                    editor.apply();
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putBoolean("isMessageEnabled", isChecked);
+                editor.apply();
+                if (isChecked) {
+                    Intent intent = new Intent(IncomingCallActivity.this, MyBackgroundService.class);
+                    startService(intent);
+                } else {
+                    stopService(new Intent(IncomingCallActivity.this, MyBackgroundService.class));
                 }
             }
         });
