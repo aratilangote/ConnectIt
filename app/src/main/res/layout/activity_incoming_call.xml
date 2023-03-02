@@ -114,6 +114,7 @@
                         android:layout_marginTop="10dp"
                         android:elevation="5dp"
                         android:hint="Enter message"
+
                         android:textColorHint="@color/green"
                         app:boxStrokeColor="@color/blue">
 
@@ -121,6 +122,7 @@
                             android:id="@+id/entermsgET_IN"
                             android:layout_width="match_parent"
                             android:layout_height="370dp"
+
                             android:inputType="textMultiLine"
                             android:textColor="@color/green"
                             android:gravity="top" />

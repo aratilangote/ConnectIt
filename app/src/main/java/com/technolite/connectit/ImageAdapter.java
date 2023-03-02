@@ -1,11 +1,13 @@
 package com.technolite.connectit;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,10 +38,33 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final String videoUri = String.valueOf(arrayList.get(position));
-
+        Image image = arrayList.get(position);
         holder.title.setText(arrayList.get(position).getTitle());
         //  holder.size.setText(getSize(arrayList.get(position).getSize()));
-        Glide.with(context).load(arrayList.get(position).getPath()).placeholder(R.drawable.ic_baseline_broken_image_24).into(holder.imageView);
+
+
+        if (image.getPath().endsWith(".mp4")) {
+            // If the current item is a video, show the VideoView and hide the ImageView
+            holder.imageView.setVisibility(View.GONE);
+            holder.videoView.setVisibility(View.VISIBLE);
+
+            Uri videouri = Uri.parse(image.getPath());
+            holder.videoView.setVideoURI(videouri);
+            holder.videoView.setOnPreparedListener(mp -> {
+                // Set the video to loop indefinitely
+                mp.setLooping(true);
+                // Start the video playback
+                mp.start();
+            });
+        } else {
+            // If the current item is an image, show the ImageView and hide the VideoView
+            holder.imageView.setVisibility(View.VISIBLE);
+            holder.videoView.setVisibility(View.GONE);
+
+            Glide.with(context).load(image.getPath()).placeholder(R.drawable.ic_baseline_broken_image_24).into(holder.imageView);
+        }
+
+        //Glide.with(context).load(arrayList.get(position).getPath()).placeholder(R.drawable.ic_baseline_broken_image_24).into(holder.imageView);
         holder.itemView.setOnClickListener(v -> onItemClickListener.onClick(v, arrayList.get(position).getPath()));
        /* holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,11 +107,14 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView title, size;
+        VideoView videoView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.list_item_image);
             title = itemView.findViewById(R.id.list_item_title);
+            videoView = itemView.findViewById(R.id.list_item_video);
+
             // size = itemView.findViewById(R.id.list_item_size);
         }
     }

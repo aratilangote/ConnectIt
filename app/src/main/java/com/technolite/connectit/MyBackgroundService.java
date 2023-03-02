@@ -138,7 +138,7 @@ public class MyBackgroundService extends Service {
     private void sendSMS(String phoneNumber, String message) {
         try {
             SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(phoneNumber, null, message, null, null);
+            smsManager.sendTextMessage(phoneNumber, null, message+"\n"+"https://technolitesolutions.com/", null, null);
         }catch (Exception e){
             Toast.makeText(this, "Oops service is not available right now.", Toast.LENGTH_SHORT).show();
         }

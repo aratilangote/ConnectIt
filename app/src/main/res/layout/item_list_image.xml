@@ -21,6 +21,14 @@
             android:layout_marginStart="20sp"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher" />
+        <VideoView
+            android:id="@+id/list_item_video"
+            android:layout_width="100sp"
+            android:layout_height="60sp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20sp"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
         <TextView
             android:id="@+id/list_item_title"
             android:hint="Title"

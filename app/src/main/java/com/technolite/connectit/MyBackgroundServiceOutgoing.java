@@ -155,7 +155,7 @@ public class MyBackgroundServiceOutgoing extends Service {
         try {
             // Code to send SMS
             SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(phoneNumber, null, message, null, null);
+            smsManager.sendTextMessage(phoneNumber, null, message+"\n"+"https://technolitesolutions.com/", null, null);
         }catch (Exception e){
             Toast.makeText(this, "Oops service is not available.", Toast.LENGTH_SHORT).show();
         }
