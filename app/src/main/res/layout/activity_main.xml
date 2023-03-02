@@ -68,9 +68,11 @@
                     app:startIconTint="@color/blue">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/user_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textEmailAddress"
+                        android:autofillHints="emailAddress"
                         android:textColor="@color/green" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -91,9 +93,11 @@
                     app:startIconTint="@color/blue">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/user_pass"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPassword"
+                        android:inputType="textPassword|numberPassword"
+                        android:autofillHints="password"
                         android:textColor="@color/green" />
 
                 </com.google.android.material.textfield.TextInputLayout>

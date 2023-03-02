@@ -8,11 +8,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textview.MaterialTextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    MaterialTextView signup_activity, signin_activity;
+    MaterialTextView signup_activity;
+
+    MaterialButton signBtn;
+    TextInputEditText email, pass;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -20,12 +25,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        email = findViewById(R.id.user_email);
+        pass = findViewById(R.id.user_pass);
+        signBtn = findViewById(R.id.signin);
+
 //        startActivity(new Intent(MainActivity.this, NetworkSMSOptions.class));
 
-        signin_activity = findViewById(R.id.signin_activity);
         signup_activity = findViewById(R.id.signup_activity);
 
-        startActivity(new Intent(MainActivity.this, HomeActivity.class));
+        signBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, HomeActivity.class));
+            }
+        });
 
         signup_activity.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -61,7 +61,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         BtnBulkWhatsapp = findViewById(R.id.btn_bulkwhatsapp);
         BtnEazypost = findViewById(R.id.btn_eazypost);
         BtnDownloads = findViewById(R.id.btn_downloads);
-        Button btnbusiness=findViewById(R.id.btn_Business);
+        Button btnbusiness =findViewById(R.id.btn_Business);
 
         BtnPremium.setOnClickListener(new View.OnClickListener() {
             @Override
