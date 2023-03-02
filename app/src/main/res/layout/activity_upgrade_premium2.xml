@@ -4,25 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".UpgradePremiumActivity_2">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/incomingbtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
             app:strokeColor="@color/green"
             app:strokeWidth="2dp"
             app:cardElevation="5dp"
             app:cardCornerRadius="10dp"
             app:contentPadding="10dp"
             android:clickable="true"
+            android:layout_gravity="center"
             app:cardBackgroundColor="@color/white">
 
             <RelativeLayout
@@ -51,7 +53,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/generatekey"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:layout_gravity="center"
                         android:text="I don't have key, Generate key!"
                         android:textSize="20sp"/>
@@ -63,7 +65,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Activation licence key"
-                        android:layout_marginTop="50dp"
+                        android:layout_marginTop="70dp"
                         android:textColor="@color/black"
                         android:textSize="30sp"/>
 
@@ -142,6 +144,7 @@
                         android:layout_marginHorizontal="50dp"
                         android:backgroundTint="@color/blue"
                         android:text="Activate"
+                        android:layout_marginBottom="50dp"
                         android:layout_marginTop="20dp"/>
 
                 </LinearLayout>
