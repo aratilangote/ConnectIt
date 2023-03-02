@@ -61,6 +61,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         BtnBulkWhatsapp = findViewById(R.id.btn_bulkwhatsapp);
         BtnEazypost = findViewById(R.id.btn_eazypost);
         BtnDownloads = findViewById(R.id.btn_downloads);
+        Button btnbusiness=findViewById(R.id.btn_Business);
 
         BtnPremium.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,6 +124,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HomeActivity.this, salman.class));
+            }
+        });
+
+        btnbusiness.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, CustomWebView.class)
+                        .putExtra("LinkToOpen", "https://linkconnect.in/panel/customer/cards"));
             }
         });
 
