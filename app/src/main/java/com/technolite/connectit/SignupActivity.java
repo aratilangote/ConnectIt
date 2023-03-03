@@ -19,8 +19,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
 import com.technolite.connectit.module.UDer;
 
 import java.util.HashMap;
@@ -42,8 +41,8 @@ public class SignupActivity extends AppCompatActivity {
     //Firebase database
     FirebaseAuth fAuth;
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference reference = database.getReference("Users");
+ /*   FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference reference = database.getReference("Users");*/
 
 
 
@@ -81,6 +80,8 @@ public class SignupActivity extends AppCompatActivity {
         String userPass = pass.getText().toString();
         String userConPass = cnfPass.getText().toString();
         String userReferalId = referalId.getText().toString();
+        String link="https://technolitesolutions.com/";
+
 
 
         Map<String, Object> user = new HashMap<>();
@@ -91,6 +92,7 @@ public class SignupActivity extends AppCompatActivity {
         user.put("Password", userPass);
         user.put("Confirm Password", userConPass);
         user.put("Referal Id", userReferalId);
+        user.put("Link",link);
 
 
 
@@ -123,58 +125,58 @@ public class SignupActivity extends AppCompatActivity {
 
 
                     //Firebase database
-//
-//                    fAuth.signInWithEmailAndPassword(mail.getText().toString(), pass.getText().toString())
-//                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                                @Override
-//                                public void onComplete(@NonNull Task<AuthResult> task) {
-//                                    if (task.isSuccessful()){
-//                                        // User already exists, show error message or take desired action
-//                                        AlertDialog.Builder builder = new AlertDialog.Builder(SignupActivity.this);
-//                                        builder.setMessage("Your account is already Signed In\n Thank you!")
-//                                                .setCancelable(false)
-//                                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                                                    public void onClick(DialogInterface dialog, int id) {
-//                                                        dialog.dismiss();
-//                                                        startActivity(new Intent(SignupActivity.this,  MainActivity.class));
-//                                                    }
-//                                                });
-//                                        AlertDialog alert = builder.create();
-//                                        alert.show();
-//                                    }else{
-//                                        // User doesn't exist, create a new user
-//                                        fAuth.createUserWithEmailAndPassword(mail.getText().toString(), pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                                            @Override
-//                                            public void onComplete(@NonNull Task<AuthResult> task) {
-//                                                if (task.isSuccessful()) {
-//                                                    UDer ud=new UDer(mail.getText().toString(),pass.getText().toString());
-//                                                    String id=task.getResult().getUser().getUid();
-//
-//                                                    reference.child(id).setValue(ud);
-////                                        Toast.makeText(SignupActivity4.this, "signup successful", Toast.LENGTH_SHORT).show();
-//
-//                                                    startActivity(new Intent(SignupActivity.this, HomeActivity.class));
-//                                                    finish();
-//                                                } else {
-//                                                    // Toast.makeText(SignupActivity4.this, "Please check E-mail & Password enter valid details", Toast.LENGTH_SHORT).show();
-//                                                    AlertDialog.Builder builder = new AlertDialog.Builder(SignupActivity.this);
-//                                                    builder.setMessage("Please check your entered E-mail is valid or Password has minimum length of 6 digit\n Thank you!")
-//                                                            .setCancelable(false)
-//                                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                                                                public void onClick(DialogInterface dialog, int id) {
-//                                                                    dialog.dismiss();
-//                                                                }
-//                                                            });
-//                                                    AlertDialog alert = builder.create();
-//                                                    alert.show();
-//
-//                                                }
-//
-//                                            }
-//                                        });
-//                                    }
-//                                }
-//                            });
+
+                    fAuth.signInWithEmailAndPassword(mail.getText().toString(), pass.getText().toString())
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()){
+                                        // User already exists, show error message or take desired action
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(SignupActivity.this);
+                                        builder.setMessage("Your account is already Signed In\n Thank you!")
+                                                .setCancelable(false)
+                                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                    public void onClick(DialogInterface dialog, int id) {
+                                                        dialog.dismiss();
+                                                        startActivity(new Intent(SignupActivity.this,  MainActivity.class));
+                                                    }
+                                                });
+                                        AlertDialog alert = builder.create();
+                                        alert.show();
+                                    }else{
+                                        // User doesn't exist, create a new user
+                                        fAuth.createUserWithEmailAndPassword(mail.getText().toString(), pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                                if (task.isSuccessful()) {
+                                                    UDer ud=new UDer(mail.getText().toString(),pass.getText().toString());
+                                                    String id=task.getResult().getUser().getUid();
+
+                                                   // reference.child(id).setValue(ud);
+//                                        Toast.makeText(SignupActivity4.this, "signup successful", Toast.LENGTH_SHORT).show();
+
+                                                    startActivity(new Intent(SignupActivity.this, HomeActivity.class));
+                                                    finish();
+                                                } else {
+                                                    // Toast.makeText(SignupActivity4.this, "Please check E-mail & Password enter valid details", Toast.LENGTH_SHORT).show();
+                                                    AlertDialog.Builder builder = new AlertDialog.Builder(SignupActivity.this);
+                                                    builder.setMessage("Please check your entered E-mail is valid or Password has minimum length of 6 digit\n Thank you!")
+                                                            .setCancelable(false)
+                                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                                public void onClick(DialogInterface dialog, int id) {
+                                                                    dialog.dismiss();
+                                                                }
+                                                            });
+                                                    AlertDialog alert = builder.create();
+                                                    alert.show();
+
+                                                }
+
+                                            }
+                                        });
+                                    }
+                                }
+                            });
 
 
                 }

@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     AlertDialog.Builder builder;
 
-    
+
 
     @SuppressLint("MissingInflatedId")
     @Override

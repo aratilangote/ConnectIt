@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "448150203171",
+    "project_id": "connectit-9abf3",
+    "storage_bucket": "connectit-9abf3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448150203171:android:cbda47a3a6b734581d7a96",
+        "android_client_info": {
+          "package_name": "com.technolite.connectit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448150203171-fgifb74ibllipulu5g564fr59dg63l01.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZWT5SVWYak9sKsMorSy7f2f7IkV6GrXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448150203171-fgifb74ibllipulu5g564fr59dg63l01.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

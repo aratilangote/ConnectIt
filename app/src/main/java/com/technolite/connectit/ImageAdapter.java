@@ -1,12 +1,15 @@
 package com.technolite.connectit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
@@ -37,8 +40,9 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final String videoUri = String.valueOf(arrayList.get(position));
+
         Image image = arrayList.get(position);
+        final Uri videoUri = Uri.parse(image.getPath());
         holder.title.setText(arrayList.get(position).getTitle());
         //  holder.size.setText(getSize(arrayList.get(position).getSize()));
 
@@ -66,18 +70,18 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> 
 
         //Glide.with(context).load(arrayList.get(position).getPath()).placeholder(R.drawable.ic_baseline_broken_image_24).into(holder.imageView);
         holder.itemView.setOnClickListener(v -> onItemClickListener.onClick(v, arrayList.get(position).getPath()));
-       /* holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(videoUri));
+                    Intent intent = new Intent(Intent.ACTION_VIEW, videoUri);
                     holder.itemView.getContext().startActivity(intent);
                 }catch (Exception e){
                     Toast.makeText(context.getApplicationContext(), "text"+e.getMessage(), Toast.LENGTH_SHORT).show();
                     Log.e("Tejas",e.getMessage());
                 }
             }
-        });*/
+        });
     }
 
     @Override

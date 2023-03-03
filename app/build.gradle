@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
+
 }
 
 android {
@@ -37,16 +38,18 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
     //firebase
-    implementation platform('com.google.firebase:firebase-bom:26.8.0')
-    implementation 'com.google.firebase:firebase-auth:21.1.0'
-    implementation 'com.google.firebase:firebase-database'
-    implementation 'com.google.firebase:firebase-database:20.1.0'
+
+ 
+
 
     //downlod image
     implementation 'com.github.bumptech.glide:glide:4.13.0'
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
+    implementation 'com.google.firebase:firebase-database:20.1.0'
+    implementation 'com.google.firebase:firebase-auth:21.1.0'
+
 
     testImplementation 'junit:junit:4.13.2'
     implementation 'com.google.android.material:material:1.8.0-alpha06'
@@ -54,5 +57,3 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
 
-apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
