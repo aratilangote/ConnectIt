@@ -67,20 +67,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (email.getText().toString().isEmpty()){
-                    email.setError("Enter email");
-                } else if (pass.getText().toString().isEmpty()) {
-                    pass.setError("Enter password");
-                } else if (!email.getText().toString().isEmpty() && !pass.getText().toString().isEmpty()) {
-                    String txt_email = email.getText().toString();
-                    String txt_pass = pass.getText().toString();
+                startActivity(new Intent(MainActivity.this, HomeActivity.class));
 
-
-                    //firebase login method
-                    loginuser(txt_email, txt_pass);
-                }else {
-                    Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
-                }
+//                if (email.getText().toString().isEmpty()){
+//                    email.setError("Enter email");
+//                } else if (pass.getText().toString().isEmpty()) {
+//                    pass.setError("Enter password");
+//                } else if (!email.getText().toString().isEmpty() && !pass.getText().toString().isEmpty()) {
+//                    String txt_email = email.getText().toString();
+//                    String txt_pass = pass.getText().toString();
+//
+//
+//                    //firebase login method
+//                    loginuser(txt_email, txt_pass);
+//                }else {
+//                    Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
 
@@ -119,10 +121,10 @@ public class MainActivity extends AppCompatActivity {
 
         super.onStart();
 
-        if (auth.getCurrentUser()!=null) {
-            startActivity( new Intent(MainActivity.this, HomeActivity.class));
-            finish();
-        }
+//        if (auth.getCurrentUser()!=null) {
+//            startActivity( new Intent(MainActivity.this, HomeActivity.class));
+//            finish();
+//        }
     }
 
     @Override
