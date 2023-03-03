@@ -14,11 +14,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.technolite.connectit.module.demo;
 
 import java.util.ArrayList;
 

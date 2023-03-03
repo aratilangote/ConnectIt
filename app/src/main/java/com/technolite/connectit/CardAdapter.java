@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.technolite.connectit.module.demo;
+
 import java.util.ArrayList;
 
 public class CardAdapter extends ArrayAdapter<demo> {
