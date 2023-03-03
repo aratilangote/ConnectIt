@@ -1,0 +1,151 @@
+Index: app/src/main/java/com/technolite/connectit/SignupActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.technolite.connectit;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.annotation.SuppressLint;\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\n\r\nimport com.google.android.material.button.MaterialButton;\r\nimport com.google.android.material.textfield.TextInputLayout;\r\nimport com.google.android.material.textview.MaterialTextView;\r\n\r\npublic class SignupActivity extends AppCompatActivity {\r\n\r\n    MaterialTextView signin_activity;\r\n    TextInputLayout verify_phoneno;\r\n\r\n    MaterialButton signupBtn;\r\n\r\n    @SuppressLint(\"MissingInflatedId\")\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_signup);\r\n\r\n        verify_phoneno = findViewById(R.id.phone_no);\r\n        signin_activity = findViewById(R.id.signin_activity);\r\n        signupBtn = findViewById(R.id.signup_btn);\r\n\r\n        signupBtn.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                startActivity(new Intent(SignupActivity.this, HomeActivity.class));\r\n            }\r\n        });\r\n        verify_phoneno.setEndIconOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n//                Intent intent = new Intent(SignupActivity.this, OTPVerificationActivity.class);\r\n//                startActivity(intent);\r\n            }\r\n        });\r\n\r\n        signin_activity.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                Intent intent = new Intent(SignupActivity.this, MainActivity.class);\r\n                startActivity(intent);\r\n            }\r\n        });\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/technolite/connectit/SignupActivity.java b/app/src/main/java/com/technolite/connectit/SignupActivity.java
+--- a/app/src/main/java/com/technolite/connectit/SignupActivity.java	(revision 9a1a19b0ba39382cfc6493647b94858840ea15a1)
++++ b/app/src/main/java/com/technolite/connectit/SignupActivity.java	(date 1677753768816)
+@@ -10,6 +10,9 @@
+ import com.google.android.material.button.MaterialButton;
+ import com.google.android.material.textfield.TextInputLayout;
+ import com.google.android.material.textview.MaterialTextView;
++import com.google.firebase.auth.FirebaseAuth;
++import com.google.firebase.database.DatabaseReference;
++import com.google.firebase.database.FirebaseDatabase;
+ 
+ public class SignupActivity extends AppCompatActivity {
+ 
+@@ -18,6 +21,11 @@
+ 
+     MaterialButton signupBtn;
+ 
++    FirebaseAuth sAuth;
++
++    FirebaseDatabase database = FirebaseDatabase.getInstance();
++    DatabaseReference reference = database.getReference("Users");
++
+     @SuppressLint("MissingInflatedId")
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+Index: app/src/main/java/com/technolite/connectit/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.technolite.connectit;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.annotation.SuppressLint;\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\n\r\nimport com.google.android.material.button.MaterialButton;\r\nimport com.google.android.material.textfield.TextInputEditText;\r\nimport com.google.android.material.textview.MaterialTextView;\r\n\r\npublic class MainActivity extends AppCompatActivity {\r\n\r\n    MaterialTextView signup_activity;\r\n\r\n    MaterialButton signBtn;\r\n    TextInputEditText email, pass;\r\n\r\n    @SuppressLint(\"MissingInflatedId\")\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_main);\r\n\r\n        email = findViewById(R.id.user_email);\r\n        pass = findViewById(R.id.user_pass);\r\n        signBtn = findViewById(R.id.signin);\r\n\r\n//        startActivity(new Intent(MainActivity.this, NetworkSMSOptions.class));\r\n\r\n        signup_activity = findViewById(R.id.signup_activity);\r\n\r\n        signBtn.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                startActivity(new Intent(MainActivity.this, HomeActivity.class));\r\n            }\r\n        });\r\n\r\n        signup_activity.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                Intent intent = new Intent(MainActivity.this, SignupActivity.class);\r\n                startActivity(intent);\r\n            }\r\n        });\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/technolite/connectit/MainActivity.java b/app/src/main/java/com/technolite/connectit/MainActivity.java
+--- a/app/src/main/java/com/technolite/connectit/MainActivity.java	(revision 9a1a19b0ba39382cfc6493647b94858840ea15a1)
++++ b/app/src/main/java/com/technolite/connectit/MainActivity.java	(date 1677753733054)
+@@ -11,6 +11,7 @@
+ import com.google.android.material.button.MaterialButton;
+ import com.google.android.material.textfield.TextInputEditText;
+ import com.google.android.material.textview.MaterialTextView;
++import com.google.firebase.auth.FirebaseAuth;
+ 
+ public class MainActivity extends AppCompatActivity {
+ 
+@@ -19,6 +20,8 @@
+     MaterialButton signBtn;
+     TextInputEditText email, pass;
+ 
++    private FirebaseAuth fAuth;
++
+     @SuppressLint("MissingInflatedId")
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+Index: app/src/main/java/com/technolite/connectit/module/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/technolite/connectit/module/User.java b/app/src/main/java/com/technolite/connectit/module/User.java
+new file mode 100644
+--- /dev/null	(date 1677753617076)
++++ b/app/src/main/java/com/technolite/connectit/module/User.java	(date 1677753617076)
+@@ -0,0 +1,82 @@
++package com.technolite.connectit.module;
++
++public class User {
++    String userName;
++    String userAddress;
++    String userEmail;
++    String userMobileNo;
++    String userPass;
++    String userConPass;
++
++    String userReferalId;
++
++    public User(){
++
++    }
++
++    public User(String userName, String userAddress, String userEmail, String userMobileNo, String userPass, String userConPass, String userReferalId) {
++        this.userName = userName;
++        this.userAddress = userAddress;
++        this.userEmail = userEmail;
++        this.userMobileNo = userMobileNo;
++        this.userPass = userPass;
++        this.userConPass = userConPass;
++        this.userReferalId = userReferalId;
++    }
++
++    public String getUserName() {
++        return userName;
++    }
++
++    public void setUserName(String userName) {
++        this.userName = userName;
++    }
++
++    public String getUserAddress() {
++        return userAddress;
++    }
++
++    public void setUserAddress(String userAddress) {
++        this.userAddress = userAddress;
++    }
++
++    public String getUserEmail() {
++        return userEmail;
++    }
++
++    public void setUserEmail(String userEmail) {
++        this.userEmail = userEmail;
++    }
++
++    public String getUserMobileNo() {
++        return userMobileNo;
++    }
++
++    public void setUserMobileNo(String userMobileNo) {
++        this.userMobileNo = userMobileNo;
++    }
++
++    public String getUserPass() {
++        return userPass;
++    }
++
++    public void setUserPass(String userPass) {
++        this.userPass = userPass;
++    }
++
++    public String getUserConPass() {
++        return userConPass;
++    }
++
++    public void setUserConPass(String userConPass) {
++        this.userConPass = userConPass;
++    }
++
++    public String getUserReferalId() {
++        return userReferalId;
++    }
++
++    public void setUserReferalId(String userReferalId) {
++        this.userReferalId = userReferalId;
++    }
++}

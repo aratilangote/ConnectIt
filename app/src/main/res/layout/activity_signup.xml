@@ -72,6 +72,7 @@
                         app:startIconTint="@color/blue">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/user_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textPersonName"
@@ -94,6 +95,7 @@
                         app:startIconTint="@color/blue">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/user_address"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textPostalAddress"
@@ -116,6 +118,7 @@
                         app:startIconTint="@color/blue">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/user_email"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textEmailAddress"
@@ -146,6 +149,7 @@
                         app:endIconTint="@color/blue">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/user_mobile"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="number|phone"
@@ -170,6 +174,7 @@
                         app:startIconTint="@color/blue">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/user_pass"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textPassword|numberPassword"
@@ -194,6 +199,7 @@
                         app:startIconTint="@color/blue">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/user_cnfpass"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textPassword|numberPassword"
@@ -216,6 +222,7 @@
                         app:startIconTint="@color/blue">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/user_refId"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="number"
