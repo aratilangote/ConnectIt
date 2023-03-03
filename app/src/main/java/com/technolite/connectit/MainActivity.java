@@ -119,11 +119,10 @@ public class MainActivity extends AppCompatActivity {
 
         super.onStart();
 
-        if (auth != null && auth.getCurrentUser() != null) {
-            startActivity(new Intent(MainActivity.this, HomeActivity.class));
+        if (auth.getCurrentUser()!=null) {
+            startActivity( new Intent(MainActivity.this, HomeActivity.class));
             finish();
         }
-
     }
 
     @Override
