@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.user_email);
         pass = findViewById(R.id.user_pass);
         signBtn = findViewById(R.id.signin);
+        auth = FirebaseAuth.getInstance();
+
 
 //        startActivity(new Intent(MainActivity.this, NetworkSMSOptions.class));
 
