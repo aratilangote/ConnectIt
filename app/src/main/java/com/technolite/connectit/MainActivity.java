@@ -1,20 +1,27 @@
 package com.technolite.connectit;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textview.MaterialTextView;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -59,7 +66,21 @@ public class MainActivity extends AppCompatActivity {
         signBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, HomeActivity.class));
+
+                if (email.getText().toString().isEmpty()){
+                    email.setError("Enter email");
+                } else if (pass.getText().toString().isEmpty()) {
+                    pass.setError("Enter password");
+                } else if (!email.getText().toString().isEmpty() && !pass.getText().toString().isEmpty()) {
+                    String txt_email = email.getText().toString();
+                    String txt_pass = pass.getText().toString();
+
+
+                    //firebase login method
+                    loginuser(txt_email, txt_pass);
+                }else {
+                    Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -71,5 +92,41 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+
+
+
+    //Firebase login
+
+    private void loginuser(String email, String password){
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this, HomeActivity.class));
+                    finish();
+                }else {
+                    Toast.makeText(MainActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void onStart() {
+
+        super.onStart();
+
+        if (auth.getCurrentUser()!=null) {
+            startActivity( new Intent(MainActivity.this, HomeActivity.class));
+            finish();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 }
