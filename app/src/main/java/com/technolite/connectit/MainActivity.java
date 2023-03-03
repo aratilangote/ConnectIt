@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textview.MaterialTextView;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -47,7 +48,13 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.user_email);
         pass = findViewById(R.id.user_pass);
         signBtn = findViewById(R.id.signin);
+
+        // Initialize FirebaseApp
+        FirebaseApp.initializeApp(MainActivity.this);
+
+        // Initialize FirebaseAuth
         auth = FirebaseAuth.getInstance();
+
 
 
 //        startActivity(new Intent(MainActivity.this, NetworkSMSOptions.class));
