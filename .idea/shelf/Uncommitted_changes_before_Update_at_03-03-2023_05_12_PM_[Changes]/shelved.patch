@@ -1,0 +1,1103 @@
+Index: app/src/main/java/com/technolite/connectit/HomeActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.technolite.connectit;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.ActionBarDrawerToggle;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.appcompat.widget.Toolbar;\r\nimport androidx.drawerlayout.widget.DrawerLayout;\r\n\r\nimport android.annotation.SuppressLint;\r\nimport android.app.AlertDialog;\r\nimport android.content.DialogInterface;\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.view.MenuItem;\r\nimport android.view.View;\r\nimport android.widget.AdapterView;\r\nimport android.widget.GridView;\r\n\r\nimport com.google.android.material.navigation.NavigationView;\r\nimport com.technolite.connectit.module.demo;\r\n\r\nimport java.util.ArrayList;\r\n\r\npublic class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {\r\n\r\n    NavigationView navigationView;\r\n    DrawerLayout drawerLayout;\r\n    Toolbar toolbar;\r\n\r\n//    Button BtnPremium, BtnNetworkSMS, BtnBithday, BtnSettings, BtnPermission, BtnBulkWhatsapp, BtnWhatsapp, BtnEazypost, BtnDownloads;\r\n\r\n\r\n    //Gridview\r\n    GridView gridview;\r\n\r\n\r\n    @SuppressLint({\"ResourceAsColor\", \"MissingInflatedId\"})\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_home);\r\n\r\n\r\n        //tootbar settings\r\n        toolbar = findViewById(R.id.toolbar);\r\n       // toolbar.setTitle(\"ConnectIt\");\r\n        setSupportActionBar(toolbar);\r\n\r\n        //drawerlayout setiings\r\n        drawerLayout = findViewById(R.id.drawer_layout);\r\n        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,\r\n                R.string.navigation_drawer_open, R.string.navigation_drawer_close);\r\n        drawerLayout.addDrawerListener(toggle);\r\n        toggle.syncState();\r\n\r\n\r\n        //navigationview settings\r\n        navigationView = findViewById(R.id.navigation);\r\n        navigationView.setNavigationItemSelectedListener(this);\r\n\r\n\r\n        //Gridview\r\n        gridview = findViewById(R.id.grid);\r\n        ArrayList<demo> courseModelArrayList = new ArrayList<demo>();\r\n\r\n        courseModelArrayList.add(new demo(\"Upgrade to premium\", R.drawable.home));\r\n        courseModelArrayList.add(new demo(\"Network SMS\", R.drawable.sms_networking));\r\n        //  courseModelArrayList.add(new demo(\"Whatsapp\", R.drawable.whatsapp));\r\n        courseModelArrayList.add(new demo(\"Bulk whatsapp\", R.drawable.whatsapp_bulk));\r\n        courseModelArrayList.add(new demo(\"Set Bithday\", R.drawable.set_birthday));\r\n        courseModelArrayList.add(new demo(\"Settings\", R.drawable.settings));\r\n        courseModelArrayList.add(new demo(\"Set permissions\", R.drawable.permission));\r\n        courseModelArrayList.add(new demo(\"Eazy Post\", R.drawable.eazypost));\r\n        courseModelArrayList.add(new demo(\"Downloads\", R.drawable.download));\r\n        courseModelArrayList.add(new demo(\"Business\", R.drawable.business));\r\n\r\n        CardAdapter adapter = new CardAdapter(this, courseModelArrayList);\r\n        gridview.setAdapter(adapter);\r\n\r\n        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {\r\n            @Override\r\n            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {\r\n                if (position == 0){\r\n                    startActivity(new Intent(HomeActivity.this, UpgradePremiumActivity.class));\r\n                } else if (position == 1) {\r\n                    startActivity(new Intent(HomeActivity.this, NetworkSMSActivity.class));\r\n                } else if (position == 2) {\r\n                    startActivity(new Intent(HomeActivity.this,Bulk_whatsapp_msg_Activity.class));\r\n                } else if (position == 3) {\r\n                    startActivity(new Intent(HomeActivity.this, Birthday_Reminder_Activity.class));\r\n                } else if (position == 4) {\r\n                    startActivity(new Intent(HomeActivity.this, SettingsActivity.class));\r\n                } else if (position == 5) {\r\n                    startActivity(new Intent(HomeActivity.this,apppermissionActivity.class));\r\n                } else if (position == 6) {\r\n                    startActivity(new Intent(HomeActivity.this, CustomWebView.class)\r\n                        .putExtra(\"LinkToOpen\", \"https://linkconnect.in/panel/login\"));\r\n                } else if (position == 7) {\r\n                    startActivity(new Intent(HomeActivity.this, salman.class));\r\n                } else if (position == 8) {\r\n                    startActivity(new Intent(HomeActivity.this, CustomWebView.class)\r\n                        .putExtra(\"LinkToOpen\", \"https://linkconnect.in/panel/customer/cards\"));\r\n                }\r\n            }\r\n        });\r\n\r\n        //All buttons\r\n//        BtnPremium = findViewById(R.id.btn_premium);\r\n//        BtnNetworkSMS = findViewById(R.id.btn_network_sms);\r\n//        BtnBithday = findViewById(R.id.btn_birthday_remainder);\r\n//        BtnSettings = findViewById(R.id.btn_settings);\r\n//        BtnPermission = findViewById(R.id.btn_permissions);\r\n//        BtnWhatsapp = findViewById(R.id.btn_whatsapp);\r\n//        BtnBulkWhatsapp = findViewById(R.id.btn_bulkwhatsapp);\r\n//        BtnEazypost = findViewById(R.id.btn_eazypost);\r\n//        BtnDownloads = findViewById(R.id.btn_downloads);\r\n//        Button btnbusiness =findViewById(R.id.btn_Business);\r\n//\r\n//        BtnPremium.setOnClickListener(new View.OnClickListener() {\r\n//            @Override\r\n//            public void onClick(View v) {\r\n//                startActivity(new Intent(HomeActivity.this, UpgradePremiumActivity.class));\r\n//            }\r\n//        });\r\n//        BtnNetworkSMS.setOnClickListener(new View.OnClickListener() {\r\n//            @Override\r\n//            public void onClick(View v) {\r\n//                startActivity(new Intent(HomeActivity.this, NetworkSMSActivity.class));\r\n//            }\r\n//        });\r\n//\r\n//        BtnBithday.setOnClickListener(new View.OnClickListener() {\r\n//            @Override\r\n//            public void onClick(View v) {\r\n//                startActivity(new Intent(HomeActivity.this, Birthday_Reminder_Activity.class));\r\n//            }\r\n//        });\r\n//\r\n//        BtnSettings.setOnClickListener(new View.OnClickListener() {\r\n//            @Override\r\n//            public void onClick(View v) {\r\n//                startActivity(new Intent(HomeActivity.this, SettingsActivity.class));\r\n//            }\r\n//        });\r\n//\r\n//        BtnPermission.setOnClickListener(new View.OnClickListener() {\r\n//            @Override\r\n//            public void onClick(View v) {\r\n//                startActivity(new Intent(HomeActivity.this,apppermissionActivity.class));\r\n//            }\r\n//        });\r\n//\r\n//\r\n//        BtnWhatsapp.setOnClickListener(new View.OnClickListener() {\r\n//            @Override\r\n//            public void onClick(View v) {\r\n//                startActivity(new Intent(HomeActivity.this, WhatsappActivity.class));\r\n//            }\r\n//        });\r\n//\r\n//        BtnBulkWhatsapp.setOnClickListener(new View.OnClickListener() {\r\n//            @Override\r\n//            public void onClick(View v) {\r\n//                startActivity(new Intent(HomeActivity.this,Bulk_whatsapp_msg_Activity.class));\r\n//            }\r\n//        });\r\n//\r\n//        BtnEazypost.setOnClickListener(new View.OnClickListener() {\r\n//            @Override\r\n//            public void onClick(View v) {\r\n//                startActivity(new Intent(HomeActivity.this, CustomWebView.class)\r\n//                        .putExtra(\"LinkToOpen\", \"https://linkconnect.in/panel/login\"));\r\n//            }\r\n//        });\r\n//\r\n//        BtnDownloads.setOnClickListener(new View.OnClickListener() {\r\n//            @Override\r\n//            public void onClick(View v) {\r\n//                startActivity(new Intent(HomeActivity.this, salman.class));\r\n//            }\r\n//        });\r\n//\r\n//        btnbusiness.setOnClickListener(new View.OnClickListener() {\r\n//            @Override\r\n//            public void onClick(View view) {\r\n//                startActivity(new Intent(HomeActivity.this, CustomWebView.class)\r\n//                        .putExtra(\"LinkToOpen\", \"https://linkconnect.in/panel/customer/cards\"));\r\n//            }\r\n//        });\r\n\r\n    }\r\n\r\n    @Override\r\n    public boolean onNavigationItemSelected(@NonNull MenuItem item) {\r\n\r\n\r\n        return true;\r\n    }\r\n    @Override\r\n    public void onBackPressed() {\r\n        AlertDialog.Builder builder = new AlertDialog.Builder(this);\r\n        builder.setTitle(\"Confirm\");\r\n        builder.setMessage(\"Are you sure you want to exit?\");\r\n        builder.setPositiveButton(\"Yes\", new DialogInterface.OnClickListener() {\r\n            @Override\r\n            public void onClick(DialogInterface dialog, int which) {\r\n                finish();\r\n            }\r\n        });\r\n        builder.setNegativeButton(\"No\", null);\r\n        AlertDialog dialog = builder.create();\r\n        dialog.show();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/technolite/connectit/HomeActivity.java b/app/src/main/java/com/technolite/connectit/HomeActivity.java
+--- a/app/src/main/java/com/technolite/connectit/HomeActivity.java	(revision 0997181c3cfb88f3a55631c05c5922fa7bbbfc09)
++++ b/app/src/main/java/com/technolite/connectit/HomeActivity.java	(date 1677843700400)
+@@ -4,6 +4,7 @@
+ import androidx.appcompat.app.ActionBarDrawerToggle;
+ import androidx.appcompat.app.AppCompatActivity;
+ import androidx.appcompat.widget.Toolbar;
++import androidx.cardview.widget.CardView;
+ import androidx.drawerlayout.widget.DrawerLayout;
+ 
+ import android.annotation.SuppressLint;
+@@ -13,13 +14,11 @@
+ import android.os.Bundle;
+ import android.view.MenuItem;
+ import android.view.View;
+-import android.widget.AdapterView;
+ import android.widget.GridView;
+ 
+ import com.google.android.material.navigation.NavigationView;
+-import com.technolite.connectit.module.demo;
+ 
+-import java.util.ArrayList;
++import java.util.Set;
+ 
+ public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+ 
+@@ -27,11 +26,7 @@
+     DrawerLayout drawerLayout;
+     Toolbar toolbar;
+ 
+-//    Button BtnPremium, BtnNetworkSMS, BtnBithday, BtnSettings, BtnPermission, BtnBulkWhatsapp, BtnWhatsapp, BtnEazypost, BtnDownloads;
+-
+-
+-    //Gridview
+-    GridView gridview;
++    CardView BtnPremium, BtnNetworkSMS, BtnBithday, BtnSettings, BtnPermission, BtnBulkWhatsapp, BtnWhatsapp, BtnEazypost, BtnDownloads, btnbusiness;
+ 
+ 
+     @SuppressLint({"ResourceAsColor", "MissingInflatedId"})
+@@ -59,141 +54,120 @@
+         navigationView.setNavigationItemSelectedListener(this);
+ 
+ 
+-        //Gridview
+-        gridview = findViewById(R.id.grid);
+-        ArrayList<demo> courseModelArrayList = new ArrayList<demo>();
+ 
+-        courseModelArrayList.add(new demo("Upgrade to premium", R.drawable.home));
+-        courseModelArrayList.add(new demo("Network SMS", R.drawable.sms_networking));
+-        //  courseModelArrayList.add(new demo("Whatsapp", R.drawable.whatsapp));
+-        courseModelArrayList.add(new demo("Bulk whatsapp", R.drawable.whatsapp_bulk));
+-        courseModelArrayList.add(new demo("Set Bithday", R.drawable.set_birthday));
+-        courseModelArrayList.add(new demo("Settings", R.drawable.settings));
+-        courseModelArrayList.add(new demo("Set permissions", R.drawable.permission));
+-        courseModelArrayList.add(new demo("Eazy Post", R.drawable.eazypost));
+-        courseModelArrayList.add(new demo("Downloads", R.drawable.download));
+-        courseModelArrayList.add(new demo("Business", R.drawable.business));
++       // All buttons
++        BtnPremium = findViewById(R.id.btn_premium);
++        BtnNetworkSMS = findViewById(R.id.btn_network_sms);
++        BtnBithday = findViewById(R.id.btn_birthday_remainder);
++        BtnSettings = findViewById(R.id.btn_settings);
++        BtnPermission = findViewById(R.id.btn_permissions);
++     //   BtnWhatsapp = findViewById(R.id.btn_whatsapp);
++        BtnBulkWhatsapp = findViewById(R.id.btn_bulkwhatsapp);
++        BtnEazypost = findViewById(R.id.btn_eazypost);
++        BtnDownloads = findViewById(R.id.btn_downloads);
++        btnbusiness =findViewById(R.id.btn_Business);
+ 
+-        CardAdapter adapter = new CardAdapter(this, courseModelArrayList);
+-        gridview.setAdapter(adapter);
+-
+-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
++        BtnPremium.setOnClickListener(new View.OnClickListener() {
+             @Override
+-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+-                if (position == 0){
+-                    startActivity(new Intent(HomeActivity.this, UpgradePremiumActivity.class));
+-                } else if (position == 1) {
+-                    startActivity(new Intent(HomeActivity.this, NetworkSMSActivity.class));
+-                } else if (position == 2) {
+-                    startActivity(new Intent(HomeActivity.this,Bulk_whatsapp_msg_Activity.class));
+-                } else if (position == 3) {
+-                    startActivity(new Intent(HomeActivity.this, Birthday_Reminder_Activity.class));
+-                } else if (position == 4) {
+-                    startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
+-                } else if (position == 5) {
+-                    startActivity(new Intent(HomeActivity.this,apppermissionActivity.class));
+-                } else if (position == 6) {
+-                    startActivity(new Intent(HomeActivity.this, CustomWebView.class)
+-                        .putExtra("LinkToOpen", "https://linkconnect.in/panel/login"));
+-                } else if (position == 7) {
+-                    startActivity(new Intent(HomeActivity.this, salman.class));
+-                } else if (position == 8) {
+-                    startActivity(new Intent(HomeActivity.this, CustomWebView.class)
+-                        .putExtra("LinkToOpen", "https://linkconnect.in/panel/customer/cards"));
+-                }
++            public void onClick(View v) {
++                startActivity(new Intent(HomeActivity.this, UpgradePremiumActivity.class));
++            }
++        });
++        BtnNetworkSMS.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                startActivity(new Intent(HomeActivity.this, NetworkSMSActivity.class));
++            }
++        });
++
++        BtnBithday.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                startActivity(new Intent(HomeActivity.this, Birthday_Reminder_Activity.class));
++            }
++        });
++
++        BtnSettings.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
++            }
++        });
++
++        BtnPermission.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                startActivity(new Intent(HomeActivity.this,apppermissionActivity.class));
+             }
+         });
+ 
+-        //All buttons
+-//        BtnPremium = findViewById(R.id.btn_premium);
+-//        BtnNetworkSMS = findViewById(R.id.btn_network_sms);
+-//        BtnBithday = findViewById(R.id.btn_birthday_remainder);
+-//        BtnSettings = findViewById(R.id.btn_settings);
+-//        BtnPermission = findViewById(R.id.btn_permissions);
+-//        BtnWhatsapp = findViewById(R.id.btn_whatsapp);
+-//        BtnBulkWhatsapp = findViewById(R.id.btn_bulkwhatsapp);
+-//        BtnEazypost = findViewById(R.id.btn_eazypost);
+-//        BtnDownloads = findViewById(R.id.btn_downloads);
+-//        Button btnbusiness =findViewById(R.id.btn_Business);
+-//
+-//        BtnPremium.setOnClickListener(new View.OnClickListener() {
+-//            @Override
+-//            public void onClick(View v) {
+-//                startActivity(new Intent(HomeActivity.this, UpgradePremiumActivity.class));
+-//            }
+-//        });
+-//        BtnNetworkSMS.setOnClickListener(new View.OnClickListener() {
+-//            @Override
+-//            public void onClick(View v) {
+-//                startActivity(new Intent(HomeActivity.this, NetworkSMSActivity.class));
+-//            }
+-//        });
+-//
+-//        BtnBithday.setOnClickListener(new View.OnClickListener() {
+-//            @Override
+-//            public void onClick(View v) {
+-//                startActivity(new Intent(HomeActivity.this, Birthday_Reminder_Activity.class));
+-//            }
+-//        });
+-//
+-//        BtnSettings.setOnClickListener(new View.OnClickListener() {
+-//            @Override
+-//            public void onClick(View v) {
+-//                startActivity(new Intent(HomeActivity.this, SettingsActivity.class));
+-//            }
+-//        });
+-//
+-//        BtnPermission.setOnClickListener(new View.OnClickListener() {
+-//            @Override
+-//            public void onClick(View v) {
+-//                startActivity(new Intent(HomeActivity.this,apppermissionActivity.class));
+-//            }
+-//        });
+-//
+-//
++
+ //        BtnWhatsapp.setOnClickListener(new View.OnClickListener() {
+ //            @Override
+ //            public void onClick(View v) {
+ //                startActivity(new Intent(HomeActivity.this, WhatsappActivity.class));
+ //            }
+ //        });
+-//
+-//        BtnBulkWhatsapp.setOnClickListener(new View.OnClickListener() {
+-//            @Override
+-//            public void onClick(View v) {
+-//                startActivity(new Intent(HomeActivity.this,Bulk_whatsapp_msg_Activity.class));
+-//            }
+-//        });
+-//
+-//        BtnEazypost.setOnClickListener(new View.OnClickListener() {
+-//            @Override
+-//            public void onClick(View v) {
+-//                startActivity(new Intent(HomeActivity.this, CustomWebView.class)
+-//                        .putExtra("LinkToOpen", "https://linkconnect.in/panel/login"));
+-//            }
+-//        });
+-//
+-//        BtnDownloads.setOnClickListener(new View.OnClickListener() {
+-//            @Override
+-//            public void onClick(View v) {
+-//                startActivity(new Intent(HomeActivity.this, salman.class));
+-//            }
+-//        });
+-//
+-//        btnbusiness.setOnClickListener(new View.OnClickListener() {
+-//            @Override
+-//            public void onClick(View view) {
+-//                startActivity(new Intent(HomeActivity.this, CustomWebView.class)
+-//                        .putExtra("LinkToOpen", "https://linkconnect.in/panel/customer/cards"));
+-//            }
+-//        });
++
++        BtnBulkWhatsapp.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                startActivity(new Intent(HomeActivity.this,Bulk_whatsapp_msg_Activity.class));
++            }
++        });
++
++        BtnEazypost.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                startActivity(new Intent(HomeActivity.this, CustomWebView.class)
++                        .putExtra("LinkToOpen", "https://linkconnect.in/panel/login"));
++            }
++        });
++
++        BtnDownloads.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                startActivity(new Intent(HomeActivity.this, salman.class));
++            }
++        });
++
++        btnbusiness.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View view) {
++                startActivity(new Intent(HomeActivity.this, CustomWebView.class)
++                        .putExtra("LinkToOpen", "https://linkconnect.in/panel/customer/cards"));
++            }
++        });
++
++
++
+ 
+     }
+ 
+     @Override
+     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+-
+-
++        switch (item.getItemId()){
++            case R.id.settings:
++                Intent intent1 = new Intent(HomeActivity.this, SettingsActivity.class);
++                startActivity(intent1);
++                break;
++            case R.id.permission:
++                Intent intent2 = new Intent(HomeActivity.this, apppermissionActivity.class);
++                startActivity(intent2);
++                break;
++            case R.id.about_us:
++//                Intent intent3 = new Intent(HomeActivity.this, Aboutus.class);
++//                startActivity(intent3);
++                break;
++            case R.id.contact:
++                break;
++            case R.id.privacy:
++                break;
++            case R.id.share:
++                break;
++            case R.id.logout:
++                break;
++        }
+         return true;
+     }
+     @Override
+Index: app/src/main/res/layout/activity_home.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.drawerlayout.widget.DrawerLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:id=\"@+id/drawer_layout\"\r\n    android:fitsSystemWindows=\"true\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".HomeActivity\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:orientation=\"vertical\">\r\n        <androidx.appcompat.widget.Toolbar\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"?attr/actionBarSize\"\r\n            android:id=\"@+id/toolbar\"\r\n            android:elevation=\"5dp\"\r\n            android:background=\"@drawable/connectit_appbar\"\r\n            android:theme=\"@style/ThemeOverlay.AppCompat.Dark.ActionBar\"\r\n            app:popupTheme=\"@style/ThemeOverlay.AppCompat.Light\"/>\r\n\r\n        <androidx.core.widget.NestedScrollView\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:background=\"@color/white\">\r\n            <LinearLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"match_parent\"\r\n                android:orientation=\"vertical\">\r\n                <ImageView\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"200dp\"\r\n                    android:src=\"@drawable/home_group\"\r\n                    android:scaleType=\"fitXY\"/>\r\n\r\n                <FrameLayout\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\"\r\n                    android:background=\"@drawable/bg_second\"\r\n                    app:layout_behavior=\"com.google.android.material.bottomsheet.BottomSheetBehavior\">\r\n                    <View\r\n                        android:layout_width=\"60dp\"\r\n                        android:layout_height=\"8dp\"\r\n                        android:layout_gravity=\"center_horizontal\"\r\n                        android:layout_marginTop=\"10dp\"\r\n                        android:background=\"@drawable/bg_home\"\r\n                        />\r\n\r\n                    <LinearLayout\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"500dp\"\r\n                        android:orientation=\"vertical\"\r\n                        android:padding=\"10dp\"\r\n                        android:layout_marginTop=\"25dp\">\r\n\r\n                        <!-- Image Slider -->\r\n\r\n                        <!-- Grid view -->\r\n                        <GridView\r\n                            android:id=\"@+id/grid\"\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"match_parent\"\r\n                            android:horizontalSpacing=\"5dp\"\r\n                            android:numColumns=\"3\"\r\n                            android:verticalSpacing=\"6dp\"\r\n                            android:layout_marginTop=\"10dp\"/>\r\n\r\n                    </LinearLayout>\r\n\r\n\r\n\r\n                </FrameLayout>\r\n\r\n            </LinearLayout>\r\n\r\n<!--            <LinearLayout-->\r\n<!--                android:layout_width=\"match_parent\"-->\r\n<!--                android:layout_height=\"match_parent\"-->\r\n<!--                android:orientation=\"vertical\"-->\r\n<!--                android:layout_margin=\"20dp\">-->\r\n\r\n<!--                <LinearLayout-->\r\n<!--                    android:layout_width=\"wrap_content\"-->\r\n<!--                    android:layout_height=\"wrap_content\"-->\r\n<!--                    android:orientation=\"horizontal\"-->\r\n<!--                    android:gravity=\"center\">-->\r\n<!--                    <androidx.cardview.widget.CardView-->\r\n<!--                        android:layout_width=\"170dp\"-->\r\n<!--                        android:layout_height=\"170dp\"-->\r\n<!--                        app:cardCornerRadius=\"10dp\"-->\r\n<!--                        android:padding=\"2dp\">-->\r\n<!--                        <RelativeLayout-->\r\n<!--                            android:layout_width=\"match_parent\"-->\r\n<!--                            android:layout_height=\"match_parent\"-->\r\n<!--                            android:gravity=\"center\">-->\r\n<!--                            <ImageView-->\r\n<!--                                android:id=\"@+id/img_premium\"-->\r\n<!--                                android:layout_width=\"100dp\"-->\r\n<!--                                android:layout_height=\"100dp\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:src=\"@drawable/ic_premium\"/>-->\r\n<!--                            <Button-->\r\n<!--                                android:id=\"@+id/btn_premium\"-->\r\n<!--                                android:layout_width=\"wrap_content\"-->\r\n<!--                                android:layout_height=\"wrap_content\"-->\r\n<!--                                android:text=\"Upgrade to Premium\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:layout_below=\"@id/img_premium\"/>-->\r\n<!--                        </RelativeLayout>-->\r\n<!--                    </androidx.cardview.widget.CardView>-->\r\n\r\n<!--                    <androidx.cardview.widget.CardView-->\r\n<!--                        android:layout_width=\"170dp\"-->\r\n<!--                        android:layout_height=\"170dp\"-->\r\n<!--                        app:cardCornerRadius=\"10dp\"-->\r\n<!--                        android:layout_marginStart=\"20dp\"-->\r\n<!--                        android:padding=\"2dp\">-->\r\n<!--                        <RelativeLayout-->\r\n<!--                            android:layout_width=\"match_parent\"-->\r\n<!--                            android:layout_height=\"match_parent\"-->\r\n<!--                            android:gravity=\"center\">-->\r\n<!--                            <ImageView-->\r\n<!--                                android:id=\"@+id/img_network_sms\"-->\r\n<!--                                android:layout_width=\"100dp\"-->\r\n<!--                                android:layout_height=\"100dp\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:src=\"@drawable/ic_network_sms\"/>-->\r\n<!--                            <Button-->\r\n<!--                                android:id=\"@+id/btn_network_sms\"-->\r\n<!--                                android:layout_width=\"wrap_content\"-->\r\n<!--                                android:layout_height=\"wrap_content\"-->\r\n<!--                                android:text=\"Network SMS\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:layout_below=\"@id/img_network_sms\"/>-->\r\n<!--                        </RelativeLayout>-->\r\n<!--                    </androidx.cardview.widget.CardView>-->\r\n\r\n<!--                </LinearLayout>-->\r\n\r\n<!--                <LinearLayout-->\r\n<!--                    android:layout_width=\"wrap_content\"-->\r\n<!--                    android:layout_height=\"wrap_content\"-->\r\n<!--                    android:orientation=\"horizontal\"-->\r\n<!--                    android:layout_marginTop=\"30dp\"-->\r\n<!--                    android:gravity=\"center\">-->\r\n\r\n<!--                    <androidx.cardview.widget.CardView-->\r\n<!--                        android:layout_width=\"170dp\"-->\r\n<!--                        android:layout_height=\"170dp\"-->\r\n<!--                        app:cardCornerRadius=\"10dp\"-->\r\n<!--                        android:padding=\"2dp\">-->\r\n<!--                        <RelativeLayout-->\r\n<!--                            android:layout_width=\"match_parent\"-->\r\n<!--                            android:layout_height=\"match_parent\"-->\r\n<!--                            android:gravity=\"center\">-->\r\n\r\n<!--                            <ImageView-->\r\n<!--                                android:id=\"@+id/img_whatsapp\"-->\r\n<!--                                android:layout_width=\"100dp\"-->\r\n<!--                                android:layout_height=\"100dp\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:src=\"@drawable/whatsapp\" />-->\r\n<!--                            <Button-->\r\n<!--                                android:id=\"@+id/btn_whatsapp\"-->\r\n<!--                                android:layout_width=\"wrap_content\"-->\r\n<!--                                android:layout_height=\"wrap_content\"-->\r\n<!--                                android:text=\"Whatsapp\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:layout_below=\"@id/img_whatsapp\"/>-->\r\n<!--                        </RelativeLayout>-->\r\n<!--                    </androidx.cardview.widget.CardView>-->\r\n\r\n<!--                    <androidx.cardview.widget.CardView-->\r\n<!--                        android:layout_width=\"170dp\"-->\r\n<!--                        android:layout_height=\"170dp\"-->\r\n<!--                        app:cardCornerRadius=\"10dp\"-->\r\n<!--                        android:padding=\"2dp\"-->\r\n<!--                        android:layout_marginStart=\"20dp\">-->\r\n<!--                        <RelativeLayout-->\r\n<!--                            android:layout_width=\"match_parent\"-->\r\n<!--                            android:layout_height=\"match_parent\"-->\r\n<!--                            android:gravity=\"center\">-->\r\n\r\n<!--                            <ImageView-->\r\n<!--                                android:id=\"@+id/img_bulk_msg\"-->\r\n<!--                                android:layout_width=\"100dp\"-->\r\n<!--                                android:layout_height=\"100dp\"-->\r\n<!--                                android:layout_marginLeft=\"40dp\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:src=\"@drawable/ic_bulk_sms\" />-->\r\n\r\n<!--                            <Button-->\r\n<!--                                android:id=\"@+id/btn_bulkwhatsapp\"-->\r\n<!--                                android:layout_width=\"wrap_content\"-->\r\n<!--                                android:layout_height=\"wrap_content\"-->\r\n<!--                                android:text=\"Bulk whatsapp message\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:layout_below=\"@id/img_bulk_msg\"/>-->\r\n<!--                        </RelativeLayout>-->\r\n<!--                    </androidx.cardview.widget.CardView>-->\r\n\r\n<!--                </LinearLayout>-->\r\n\r\n<!--                <LinearLayout-->\r\n<!--                    android:layout_width=\"wrap_content\"-->\r\n<!--                    android:layout_height=\"wrap_content\"-->\r\n<!--                    android:orientation=\"horizontal\"-->\r\n<!--                    android:gravity=\"center\"-->\r\n<!--                    android:layout_marginTop=\"30dp\">-->\r\n<!--                    <androidx.cardview.widget.CardView-->\r\n<!--                        android:layout_width=\"170dp\"-->\r\n<!--                        android:layout_height=\"170dp\"-->\r\n<!--                        app:cardCornerRadius=\"10dp\"-->\r\n<!--                        android:padding=\"2dp\">-->\r\n<!--                        <RelativeLayout-->\r\n<!--                            android:layout_width=\"match_parent\"-->\r\n<!--                            android:layout_height=\"match_parent\"-->\r\n<!--                            android:gravity=\"center\">-->\r\n<!--                            <ImageView-->\r\n<!--                                android:id=\"@+id/img_birthday_remainder\"-->\r\n<!--                                android:layout_width=\"100dp\"-->\r\n<!--                                android:layout_height=\"100dp\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:src=\"@drawable/ic_sms_schedule\"/>-->\r\n<!--                            <Button-->\r\n<!--                                android:id=\"@+id/btn_birthday_remainder\"-->\r\n<!--                                android:layout_width=\"wrap_content\"-->\r\n<!--                                android:layout_height=\"wrap_content\"-->\r\n<!--                                android:text=\"Set Bithday Remainder\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:layout_below=\"@id/img_birthday_remainder\" />-->\r\n<!--                        </RelativeLayout>-->\r\n<!--                    </androidx.cardview.widget.CardView>-->\r\n\r\n<!--                    <androidx.cardview.widget.CardView-->\r\n<!--                        android:layout_width=\"170dp\"-->\r\n<!--                        android:layout_height=\"170dp\"-->\r\n<!--                        app:cardCornerRadius=\"10dp\"-->\r\n<!--                        android:padding=\"2dp\"-->\r\n<!--                        android:layout_marginStart=\"20dp\">-->\r\n<!--                        <RelativeLayout-->\r\n<!--                            android:layout_width=\"match_parent\"-->\r\n<!--                            android:layout_height=\"match_parent\"-->\r\n<!--                            android:gravity=\"center\">-->\r\n<!--                            <ImageView-->\r\n<!--                                android:id=\"@+id/img_settings\"-->\r\n<!--                                android:layout_width=\"100dp\"-->\r\n<!--                                android:layout_height=\"100dp\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:src=\"@drawable/settings\"/>-->\r\n<!--                            <Button-->\r\n<!--                                android:id=\"@+id/btn_settings\"-->\r\n<!--                                android:layout_width=\"wrap_content\"-->\r\n<!--                                android:layout_height=\"wrap_content\"-->\r\n<!--                                android:text=\"Settings\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:layout_below=\"@id/img_settings\"/>-->\r\n<!--                        </RelativeLayout>-->\r\n<!--                    </androidx.cardview.widget.CardView>-->\r\n<!--                </LinearLayout>-->\r\n\r\n<!--                <LinearLayout-->\r\n<!--                    android:layout_width=\"wrap_content\"-->\r\n<!--                    android:layout_height=\"wrap_content\"-->\r\n<!--                    android:orientation=\"horizontal\"-->\r\n<!--                    android:gravity=\"center\"-->\r\n<!--                    android:layout_marginTop=\"30dp\">-->\r\n\r\n<!--                    <androidx.cardview.widget.CardView-->\r\n<!--                        android:layout_width=\"170dp\"-->\r\n<!--                        android:layout_height=\"170dp\"-->\r\n<!--                        app:cardCornerRadius=\"10dp\"-->\r\n<!--                        android:padding=\"2dp\">-->\r\n<!--                        <RelativeLayout-->\r\n<!--                            android:layout_width=\"match_parent\"-->\r\n<!--                            android:layout_height=\"match_parent\"-->\r\n<!--                            android:gravity=\"center\">-->\r\n<!--                            <ImageView-->\r\n<!--                                android:id=\"@+id/img_set_permission\"-->\r\n<!--                                android:layout_width=\"100dp\"-->\r\n<!--                                android:layout_height=\"100dp\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:src=\"@drawable/permissions\" />-->\r\n<!--                            <Button-->\r\n<!--                                android:id=\"@+id/btn_permissions\"-->\r\n<!--                                android:layout_width=\"wrap_content\"-->\r\n<!--                                android:layout_height=\"wrap_content\"-->\r\n<!--                                android:text=\"Set Permissions\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:layout_below=\"@id/img_set_permission\" />-->\r\n<!--                        </RelativeLayout>-->\r\n<!--                    </androidx.cardview.widget.CardView>-->\r\n\r\n<!--                    <androidx.cardview.widget.CardView-->\r\n<!--                        android:layout_width=\"170dp\"-->\r\n<!--                        android:layout_height=\"170dp\"-->\r\n<!--                        app:cardCornerRadius=\"10dp\"-->\r\n<!--                        android:padding=\"2dp\"-->\r\n<!--                        android:layout_marginStart=\"20dp\">-->\r\n<!--                        <RelativeLayout-->\r\n<!--                            android:layout_width=\"match_parent\"-->\r\n<!--                            android:layout_height=\"match_parent\"-->\r\n<!--                            android:gravity=\"center\">-->\r\n<!--                            <ImageView-->\r\n<!--                                android:id=\"@+id/img_eazypost\"-->\r\n<!--                                android:layout_width=\"100dp\"-->\r\n<!--                                android:layout_height=\"100dp\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:src=\"@drawable/eazypost\" />-->\r\n\r\n<!--                            <Button-->\r\n<!--                                android:id=\"@+id/btn_eazypost\"-->\r\n<!--                                android:layout_width=\"wrap_content\"-->\r\n<!--                                android:layout_height=\"wrap_content\"-->\r\n<!--                                android:layout_below=\"@id/img_eazypost\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:text=\"Eazy Post\" />-->\r\n<!--                        </RelativeLayout>-->\r\n<!--                    </androidx.cardview.widget.CardView>-->\r\n<!--                </LinearLayout>-->\r\n\r\n<!--                <LinearLayout-->\r\n<!--                    android:layout_width=\"wrap_content\"-->\r\n<!--                    android:layout_height=\"wrap_content\"-->\r\n<!--                    android:orientation=\"horizontal\"-->\r\n<!--                    android:gravity=\"center\"-->\r\n<!--                    android:layout_marginTop=\"30dp\">-->\r\n\r\n\r\n<!--                    <androidx.cardview.widget.CardView-->\r\n<!--                        android:layout_width=\"170dp\"-->\r\n<!--                        android:layout_height=\"170dp\"-->\r\n<!--                        app:cardCornerRadius=\"10dp\"-->\r\n<!--                        android:padding=\"2dp\">-->\r\n<!--                        <RelativeLayout-->\r\n<!--                            android:layout_width=\"match_parent\"-->\r\n<!--                            android:layout_height=\"match_parent\"-->\r\n<!--                            android:gravity=\"center\">-->\r\n\r\n<!--                            <ImageView-->\r\n<!--                                android:id=\"@+id/img_downloads\"-->\r\n<!--                                android:layout_width=\"100dp\"-->\r\n<!--                                android:layout_height=\"100dp\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:src=\"@drawable/downloads\" />-->\r\n<!--                            <Button-->\r\n<!--                                android:id=\"@+id/btn_downloads\"-->\r\n<!--                                android:layout_width=\"wrap_content\"-->\r\n<!--                                android:layout_height=\"wrap_content\"-->\r\n<!--                                android:text=\"Downloads\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:layout_below=\"@id/img_downloads\" />-->\r\n<!--                        </RelativeLayout>-->\r\n<!--                    </androidx.cardview.widget.CardView>-->\r\n\r\n<!--                    <androidx.cardview.widget.CardView-->\r\n<!--                        android:layout_width=\"170dp\"-->\r\n<!--                        android:layout_height=\"170dp\"-->\r\n<!--                        app:cardCornerRadius=\"10dp\"-->\r\n<!--                        android:padding=\"2dp\"-->\r\n<!--                        android:layout_marginStart=\"20dp\">-->\r\n<!--                        <RelativeLayout-->\r\n<!--                            android:layout_width=\"match_parent\"-->\r\n<!--                            android:layout_height=\"match_parent\"-->\r\n<!--                            android:gravity=\"center\">-->\r\n\r\n<!--                            <ImageView-->\r\n<!--                                android:id=\"@+id/img_Business\"-->\r\n<!--                                android:layout_width=\"100dp\"-->\r\n<!--                                android:layout_height=\"100dp\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:src=\"@drawable/eazypost\" />-->\r\n\r\n<!--                            <Button-->\r\n<!--                                android:id=\"@+id/btn_Business\"-->\r\n<!--                                android:layout_width=\"wrap_content\"-->\r\n<!--                                android:layout_height=\"wrap_content\"-->\r\n<!--                                android:layout_below=\"@id/img_Business\"-->\r\n<!--                                android:layout_centerInParent=\"true\"-->\r\n<!--                                android:text=\"Business\" />-->\r\n<!--                        </RelativeLayout>-->\r\n<!--                    </androidx.cardview.widget.CardView>-->\r\n\r\n<!--                </LinearLayout>-->\r\n\r\n\r\n<!--            </LinearLayout>-->\r\n        </androidx.core.widget.NestedScrollView>\r\n\r\n\r\n\r\n    </LinearLayout>\r\n\r\n    <com.google.android.material.navigation.NavigationView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:id=\"@+id/navigation\"\r\n        android:layout_gravity=\"start\"\r\n        app:itemIconPadding=\"15dp\"\r\n        app:itemTextColor=\"@color/black\"\r\n        android:fitsSystemWindows=\"true\"\r\n        app:headerLayout=\"@layout/nav_header\"\r\n        app:menu=\"@menu/nav_items\">\r\n        <LinearLayout\r\n            android:orientation=\"vertical\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:background=\"@color/green\"\r\n            android:layout_gravity=\"bottom\">\r\n            <TextView\r\n                android:id=\"@+id/txt1\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:text=\"Technolite Info Solutions\"\r\n                android:layout_marginTop=\"10dp\"\r\n                android:textSize=\"13sp\"\r\n                android:textStyle=\"bold\"\r\n                android:textColor=\"@color/white\"\r\n                android:layout_gravity=\"center\"\r\n\r\n                />\r\n            <TextView\r\n                android:id=\"@+id/txt2\"\r\n                android:layout_below=\"@+id/txt1\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:text=\"All Rights Reserved\"\r\n                android:textSize=\"11sp\"\r\n                android:textColor=\"@color/white\"\r\n                android:layout_gravity=\"center\"\r\n                />\r\n            <TextView\r\n                android:id=\"@+id/txt3\"\r\n                android:layout_below=\"@+id/txt2\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:text=\"V 1.0.0.1\"\r\n                android:textSize=\"11sp\"\r\n                android:textColor=\"@color/white\"\r\n                android:layout_gravity=\"center\"\r\n                android:layout_marginBottom=\"5dp\"\r\n                />\r\n        </LinearLayout>\r\n    </com.google.android.material.navigation.NavigationView>\r\n</androidx.drawerlayout.widget.DrawerLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_home.xml b/app/src/main/res/layout/activity_home.xml
+--- a/app/src/main/res/layout/activity_home.xml	(revision 0997181c3cfb88f3a55631c05c5922fa7bbbfc09)
++++ b/app/src/main/res/layout/activity_home.xml	(date 1677843116333)
+@@ -51,22 +51,333 @@
+ 
+                     <LinearLayout
+                         android:layout_width="match_parent"
+-                        android:layout_height="500dp"
++                        android:layout_height="match_parent"
+                         android:orientation="vertical"
+-                        android:padding="10dp"
++                        android:padding="5dp"
+                         android:layout_marginTop="25dp">
+ 
+                         <!-- Image Slider -->
++                        <androidx.cardview.widget.CardView
++                            android:layout_width="match_parent"
++                            android:layout_height="150dp"
++                            app:cardCornerRadius="5dp"
++                            app:cardBackgroundColor="@color/purple_200"
++                            android:layout_marginHorizontal="8dp"/>
+ 
+                         <!-- Grid view -->
+-                        <GridView
+-                            android:id="@+id/grid"
++                        <LinearLayout
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent"
+-                            android:horizontalSpacing="5dp"
+-                            android:numColumns="3"
+-                            android:verticalSpacing="6dp"
+-                            android:layout_marginTop="10dp"/>
++                            android:orientation="vertical"
++                            android:layout_marginTop="15dp"
++                            android:layout_marginHorizontal="8dp"
++                            >
++                            <LinearLayout
++                                android:layout_width="wrap_content"
++                                android:layout_height="wrap_content"
++                                android:orientation="horizontal"
++                                android:gravity="center"
++                                android:layout_gravity="center">
++                                <androidx.cardview.widget.CardView
++                                    android:id="@+id/btn_premium"
++                                    android:layout_width="105dp"
++                                    android:layout_height="120dp"
++                                    app:cardCornerRadius="10dp"
++                                    app:cardBackgroundColor="@color/purple_200"
++                                    android:padding="1dp">
++                                    <RelativeLayout
++                                        android:layout_width="match_parent"
++                                        android:layout_height="match_parent"
++                                        android:gravity="center">
++
++                                        <ImageView
++                                            android:id="@+id/img_premium"
++                                            android:layout_width="60dp"
++                                            android:layout_height="60dp"
++                                            android:layout_centerInParent="true"
++                                            android:src="@drawable/premium" />
++                                        <TextView
++                                            android:layout_width="wrap_content"
++                                            android:layout_height="wrap_content"
++                                            android:text="Upgrade to Premium"
++                                            android:textColor="@color/black"
++                                            android:textSize="15sp"
++                                            android:layout_centerInParent="true"
++                                            android:textAlignment="center"
++                                            android:layout_below="@id/img_premium"
++                                            android:layout_marginHorizontal="2dp"/>
++                                    </RelativeLayout>
++                                </androidx.cardview.widget.CardView>
++                                <androidx.cardview.widget.CardView
++                                    android:id="@+id/btn_network_sms"
++                                    android:layout_width="105dp"
++                                    android:layout_height="120dp"
++                                    app:cardCornerRadius="10dp"
++                                    app:cardBackgroundColor="@color/purple_200"
++                                    android:padding="1dp"
++                                    android:layout_marginStart="25dp">
++                                    <RelativeLayout
++                                        android:layout_width="match_parent"
++                                        android:layout_height="match_parent"
++                                        android:gravity="center">
++                                        <ImageView
++                                            android:id="@+id/img_network_sms"
++                                            android:layout_width="60dp"
++                                            android:layout_height="60dp"
++                                            android:layout_centerInParent="true"
++                                            android:src="@drawable/sms_networking"/>
++                                        <TextView
++                                            android:layout_width="wrap_content"
++                                            android:layout_height="wrap_content"
++                                            android:text="Network SMS"
++                                            android:textColor="@color/black"
++                                            android:textSize="15sp"
++                                            android:layout_centerInParent="true"
++                                            android:textAlignment="center"
++                                            android:layout_below="@id/img_network_sms"
++                                            android:layout_marginHorizontal="2dp"/>
++                                    </RelativeLayout>
++                                </androidx.cardview.widget.CardView>
++                                <androidx.cardview.widget.CardView
++                                    android:id="@+id/btn_bulkwhatsapp"
++                                    android:layout_width="105dp"
++                                    android:layout_height="120dp"
++                                    app:cardCornerRadius="10dp"
++                                    app:cardBackgroundColor="@color/purple_200"
++                                    android:padding="1dp"
++                                    android:layout_marginStart="25dp">
++                                    <RelativeLayout
++                                        android:layout_width="match_parent"
++                                        android:layout_height="match_parent"
++                                        android:gravity="center">
++
++                                        <ImageView
++                                            android:id="@+id/img_bulk_msg"
++                                            android:layout_width="60dp"
++                                            android:layout_height="60dp"
++                                            android:layout_marginLeft="40dp"
++                                            android:layout_centerInParent="true"
++                                            android:src="@drawable/whatsapp_bulk" />
++                                        <TextView
++                                            android:layout_width="wrap_content"
++                                            android:layout_height="wrap_content"
++                                            android:text="Bulk whatsapp message"
++                                            android:textColor="@color/black"
++                                            android:textSize="15sp"
++                                            android:layout_centerInParent="true"
++                                            android:textAlignment="center"
++                                            android:layout_below="@id/img_bulk_msg"
++                                            android:layout_marginHorizontal="2dp"/>
++                                    </RelativeLayout>
++                                </androidx.cardview.widget.CardView>
++                            </LinearLayout>
++                            <LinearLayout
++                                android:layout_width="wrap_content"
++                                android:layout_height="wrap_content"
++                                android:orientation="horizontal"
++                                android:layout_marginTop="10dp"
++                                android:gravity="center"
++                                android:layout_gravity="center">
++
++                                <androidx.cardview.widget.CardView
++                                    android:id="@+id/btn_birthday_remainder"
++                                    android:layout_width="105dp"
++                                    android:layout_height="120dp"
++                                    app:cardCornerRadius="10dp"
++                                    app:cardBackgroundColor="@color/purple_200"
++                                    android:padding="1dp">
++                                    <RelativeLayout
++                                        android:layout_width="match_parent"
++                                        android:layout_height="match_parent"
++                                        android:gravity="center">
++                                        <ImageView
++                                            android:id="@+id/img_birthday_remainder"
++                                            android:layout_width="60dp"
++                                            android:layout_height="60dp"
++                                            android:layout_centerInParent="true"
++                                            android:src="@drawable/set_birthday"/>
++                                        <TextView
++                                            android:layout_width="wrap_content"
++                                            android:layout_height="wrap_content"
++                                            android:text="Set Bithday Remainder"
++                                            android:textColor="@color/black"
++                                            android:textSize="15sp"
++                                            android:layout_centerInParent="true"
++                                            android:textAlignment="center"
++                                            android:layout_below="@id/img_birthday_remainder"
++                                            android:layout_marginHorizontal="2dp"/>
++                                    </RelativeLayout>
++                                </androidx.cardview.widget.CardView>
++                                <androidx.cardview.widget.CardView
++                                    android:id="@+id/btn_settings"
++                                    android:layout_width="105dp"
++                                    android:layout_height="120dp"
++                                    app:cardCornerRadius="10dp"
++                                    app:cardBackgroundColor="@color/purple_200"
++                                    android:padding="1dp"
++                                    android:layout_marginStart="25dp">
++                                    <RelativeLayout
++                                        android:layout_width="match_parent"
++                                        android:layout_height="match_parent"
++                                        android:gravity="center">
++                                        <ImageView
++                                            android:id="@+id/img_settings"
++                                            android:layout_width="60dp"
++                                            android:layout_height="60dp"
++                                            android:layout_centerInParent="true"
++                                            android:src="@drawable/settings"/>
++                                        <TextView
++                                            android:layout_width="wrap_content"
++                                            android:layout_height="wrap_content"
++                                            android:text="Settings"
++                                            android:textColor="@color/black"
++                                            android:textSize="15sp"
++                                            android:textAlignment="center"
++                                            android:layout_centerInParent="true"
++                                            android:layout_below="@id/img_settings"
++                                            android:layout_marginHorizontal="2dp"/>
++                                    </RelativeLayout>
++                                </androidx.cardview.widget.CardView>
++                                <androidx.cardview.widget.CardView
++                                    android:id="@+id/btn_permissions"
++                                    android:layout_width="105dp"
++                                    android:layout_height="120dp"
++                                    app:cardCornerRadius="10dp"
++                                    app:cardBackgroundColor="@color/purple_200"
++                                    android:padding="1dp"
++                                    android:layout_marginStart="25dp">
++                                    <RelativeLayout
++                                        android:layout_width="match_parent"
++                                        android:layout_height="match_parent"
++                                        android:gravity="center">
++                                        <ImageView
++                                            android:id="@+id/img_set_permission"
++                                            android:layout_width="60dp"
++                                            android:layout_height="60dp"
++                                            android:layout_centerInParent="true"
++                                            android:src="@drawable/permission" />
++                                        <TextView
++                                            android:layout_width="wrap_content"
++                                            android:layout_height="wrap_content"
++                                            android:text="Set Permissions"
++                                            android:textColor="@color/black"
++                                            android:textSize="15sp"
++                                            android:textAlignment="center"
++                                            android:layout_centerInParent="true"
++                                            android:layout_below="@id/img_set_permission"
++                                            android:layout_marginHorizontal="2dp"/>
++                                    </RelativeLayout>
++                                </androidx.cardview.widget.CardView>
++
++                            </LinearLayout>
++
++                            <LinearLayout
++                                android:layout_width="wrap_content"
++                                android:layout_height="wrap_content"
++                                android:orientation="horizontal"
++                                android:gravity="center"
++                                android:layout_gravity="center"
++                                android:layout_marginTop="10dp">
++
++                                <androidx.cardview.widget.CardView
++                                    android:id="@+id/btn_eazypost"
++                                    android:layout_width="105dp"
++                                    android:layout_height="120dp"
++                                    app:cardCornerRadius="10dp"
++                                    app:cardBackgroundColor="@color/purple_200"
++                                    android:padding="1dp">
++                                    <RelativeLayout
++                                        android:layout_width="match_parent"
++                                        android:layout_height="match_parent"
++                                        android:gravity="center">
++                                        <ImageView
++                                            android:id="@+id/img_eazypost"
++                                            android:layout_width="60dp"
++                                            android:layout_height="60dp"
++                                            android:layout_centerInParent="true"
++                                            android:src="@drawable/eazypost" />
++                                        <TextView
++                                            android:layout_width="wrap_content"
++                                            android:layout_height="wrap_content"
++                                            android:layout_below="@id/img_eazypost"
++                                            android:layout_centerInParent="true"
++                                            android:text="Eazy Post"
++                                            android:textColor="@color/black"
++                                            android:textSize="15sp"
++                                            android:textAlignment="center"
++                                            android:layout_marginHorizontal="2dp"/>
++                                    </RelativeLayout>
++                                </androidx.cardview.widget.CardView>
++
++                                <androidx.cardview.widget.CardView
++                                    android:id="@+id/btn_downloads"
++                                    android:layout_width="105dp"
++                                    android:layout_height="120dp"
++                                    app:cardCornerRadius="10dp"
++                                    android:layout_marginStart="25dp"
++                                    app:cardBackgroundColor="@color/purple_200"
++                                    android:padding="1dp">
++                                    <RelativeLayout
++                                        android:layout_width="match_parent"
++                                        android:layout_height="match_parent"
++                                        android:gravity="center">
++
++                                        <ImageView
++                                            android:id="@+id/img_downloads"
++                                            android:layout_width="60dp"
++                                            android:layout_height="60dp"
++                                            android:layout_centerInParent="true"
++                                            android:src="@drawable/download" />
++                                        <TextView
++                                            android:layout_width="wrap_content"
++                                            android:layout_height="wrap_content"
++                                            android:text="Downloads"
++                                            android:textColor="@color/black"
++                                            android:textSize="15sp"
++                                            android:textAlignment="center"
++                                            android:layout_centerInParent="true"
++                                            android:layout_below="@id/img_downloads"
++                                            android:layout_marginHorizontal="2dp"/>
++                                    </RelativeLayout>
++                                </androidx.cardview.widget.CardView>
++
++                                <androidx.cardview.widget.CardView
++                                    android:id="@+id/btn_Business"
++                                    android:layout_width="105dp"
++                                    android:layout_height="120dp"
++                                    app:cardCornerRadius="10dp"
++                                    android:layout_marginStart="25dp"
++                                    app:cardBackgroundColor="@color/purple_200"
++                                    android:padding="1dp">
++                                    <RelativeLayout
++                                        android:layout_width="match_parent"
++                                        android:layout_height="match_parent"
++                                        android:gravity="center">
++
++                                        <ImageView
++                                            android:id="@+id/img_Business"
++                                            android:layout_width="60dp"
++                                            android:layout_height="60dp"
++                                            android:layout_centerInParent="true"
++                                            android:src="@drawable/business" />
++
++                                        <TextView
++                                            android:layout_width="wrap_content"
++                                            android:layout_height="wrap_content"
++                                            android:layout_below="@id/img_Business"
++                                            android:layout_centerInParent="true"
++                                            android:text="Business"
++                                            android:textColor="@color/black"
++                                            android:textSize="15sp"
++                                            android:textAlignment="center"
++                                            android:layout_marginHorizontal="2dp"/>
++                                    </RelativeLayout>
++                                </androidx.cardview.widget.CardView>
++                            </LinearLayout>
++
++                        </LinearLayout>
++
++
+ 
+                     </LinearLayout>
+ 
+@@ -76,318 +387,6 @@
+ 
+             </LinearLayout>
+ 
+-<!--            <LinearLayout-->
+-<!--                android:layout_width="match_parent"-->
+-<!--                android:layout_height="match_parent"-->
+-<!--                android:orientation="vertical"-->
+-<!--                android:layout_margin="20dp">-->
+-
+-<!--                <LinearLayout-->
+-<!--                    android:layout_width="wrap_content"-->
+-<!--                    android:layout_height="wrap_content"-->
+-<!--                    android:orientation="horizontal"-->
+-<!--                    android:gravity="center">-->
+-<!--                    <androidx.cardview.widget.CardView-->
+-<!--                        android:layout_width="170dp"-->
+-<!--                        android:layout_height="170dp"-->
+-<!--                        app:cardCornerRadius="10dp"-->
+-<!--                        android:padding="2dp">-->
+-<!--                        <RelativeLayout-->
+-<!--                            android:layout_width="match_parent"-->
+-<!--                            android:layout_height="match_parent"-->
+-<!--                            android:gravity="center">-->
+-<!--                            <ImageView-->
+-<!--                                android:id="@+id/img_premium"-->
+-<!--                                android:layout_width="100dp"-->
+-<!--                                android:layout_height="100dp"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:src="@drawable/ic_premium"/>-->
+-<!--                            <Button-->
+-<!--                                android:id="@+id/btn_premium"-->
+-<!--                                android:layout_width="wrap_content"-->
+-<!--                                android:layout_height="wrap_content"-->
+-<!--                                android:text="Upgrade to Premium"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:layout_below="@id/img_premium"/>-->
+-<!--                        </RelativeLayout>-->
+-<!--                    </androidx.cardview.widget.CardView>-->
+-
+-<!--                    <androidx.cardview.widget.CardView-->
+-<!--                        android:layout_width="170dp"-->
+-<!--                        android:layout_height="170dp"-->
+-<!--                        app:cardCornerRadius="10dp"-->
+-<!--                        android:layout_marginStart="20dp"-->
+-<!--                        android:padding="2dp">-->
+-<!--                        <RelativeLayout-->
+-<!--                            android:layout_width="match_parent"-->
+-<!--                            android:layout_height="match_parent"-->
+-<!--                            android:gravity="center">-->
+-<!--                            <ImageView-->
+-<!--                                android:id="@+id/img_network_sms"-->
+-<!--                                android:layout_width="100dp"-->
+-<!--                                android:layout_height="100dp"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:src="@drawable/ic_network_sms"/>-->
+-<!--                            <Button-->
+-<!--                                android:id="@+id/btn_network_sms"-->
+-<!--                                android:layout_width="wrap_content"-->
+-<!--                                android:layout_height="wrap_content"-->
+-<!--                                android:text="Network SMS"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:layout_below="@id/img_network_sms"/>-->
+-<!--                        </RelativeLayout>-->
+-<!--                    </androidx.cardview.widget.CardView>-->
+-
+-<!--                </LinearLayout>-->
+-
+-<!--                <LinearLayout-->
+-<!--                    android:layout_width="wrap_content"-->
+-<!--                    android:layout_height="wrap_content"-->
+-<!--                    android:orientation="horizontal"-->
+-<!--                    android:layout_marginTop="30dp"-->
+-<!--                    android:gravity="center">-->
+-
+-<!--                    <androidx.cardview.widget.CardView-->
+-<!--                        android:layout_width="170dp"-->
+-<!--                        android:layout_height="170dp"-->
+-<!--                        app:cardCornerRadius="10dp"-->
+-<!--                        android:padding="2dp">-->
+-<!--                        <RelativeLayout-->
+-<!--                            android:layout_width="match_parent"-->
+-<!--                            android:layout_height="match_parent"-->
+-<!--                            android:gravity="center">-->
+-
+-<!--                            <ImageView-->
+-<!--                                android:id="@+id/img_whatsapp"-->
+-<!--                                android:layout_width="100dp"-->
+-<!--                                android:layout_height="100dp"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:src="@drawable/whatsapp" />-->
+-<!--                            <Button-->
+-<!--                                android:id="@+id/btn_whatsapp"-->
+-<!--                                android:layout_width="wrap_content"-->
+-<!--                                android:layout_height="wrap_content"-->
+-<!--                                android:text="Whatsapp"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:layout_below="@id/img_whatsapp"/>-->
+-<!--                        </RelativeLayout>-->
+-<!--                    </androidx.cardview.widget.CardView>-->
+-
+-<!--                    <androidx.cardview.widget.CardView-->
+-<!--                        android:layout_width="170dp"-->
+-<!--                        android:layout_height="170dp"-->
+-<!--                        app:cardCornerRadius="10dp"-->
+-<!--                        android:padding="2dp"-->
+-<!--                        android:layout_marginStart="20dp">-->
+-<!--                        <RelativeLayout-->
+-<!--                            android:layout_width="match_parent"-->
+-<!--                            android:layout_height="match_parent"-->
+-<!--                            android:gravity="center">-->
+-
+-<!--                            <ImageView-->
+-<!--                                android:id="@+id/img_bulk_msg"-->
+-<!--                                android:layout_width="100dp"-->
+-<!--                                android:layout_height="100dp"-->
+-<!--                                android:layout_marginLeft="40dp"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:src="@drawable/ic_bulk_sms" />-->
+-
+-<!--                            <Button-->
+-<!--                                android:id="@+id/btn_bulkwhatsapp"-->
+-<!--                                android:layout_width="wrap_content"-->
+-<!--                                android:layout_height="wrap_content"-->
+-<!--                                android:text="Bulk whatsapp message"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:layout_below="@id/img_bulk_msg"/>-->
+-<!--                        </RelativeLayout>-->
+-<!--                    </androidx.cardview.widget.CardView>-->
+-
+-<!--                </LinearLayout>-->
+-
+-<!--                <LinearLayout-->
+-<!--                    android:layout_width="wrap_content"-->
+-<!--                    android:layout_height="wrap_content"-->
+-<!--                    android:orientation="horizontal"-->
+-<!--                    android:gravity="center"-->
+-<!--                    android:layout_marginTop="30dp">-->
+-<!--                    <androidx.cardview.widget.CardView-->
+-<!--                        android:layout_width="170dp"-->
+-<!--                        android:layout_height="170dp"-->
+-<!--                        app:cardCornerRadius="10dp"-->
+-<!--                        android:padding="2dp">-->
+-<!--                        <RelativeLayout-->
+-<!--                            android:layout_width="match_parent"-->
+-<!--                            android:layout_height="match_parent"-->
+-<!--                            android:gravity="center">-->
+-<!--                            <ImageView-->
+-<!--                                android:id="@+id/img_birthday_remainder"-->
+-<!--                                android:layout_width="100dp"-->
+-<!--                                android:layout_height="100dp"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:src="@drawable/ic_sms_schedule"/>-->
+-<!--                            <Button-->
+-<!--                                android:id="@+id/btn_birthday_remainder"-->
+-<!--                                android:layout_width="wrap_content"-->
+-<!--                                android:layout_height="wrap_content"-->
+-<!--                                android:text="Set Bithday Remainder"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:layout_below="@id/img_birthday_remainder" />-->
+-<!--                        </RelativeLayout>-->
+-<!--                    </androidx.cardview.widget.CardView>-->
+-
+-<!--                    <androidx.cardview.widget.CardView-->
+-<!--                        android:layout_width="170dp"-->
+-<!--                        android:layout_height="170dp"-->
+-<!--                        app:cardCornerRadius="10dp"-->
+-<!--                        android:padding="2dp"-->
+-<!--                        android:layout_marginStart="20dp">-->
+-<!--                        <RelativeLayout-->
+-<!--                            android:layout_width="match_parent"-->
+-<!--                            android:layout_height="match_parent"-->
+-<!--                            android:gravity="center">-->
+-<!--                            <ImageView-->
+-<!--                                android:id="@+id/img_settings"-->
+-<!--                                android:layout_width="100dp"-->
+-<!--                                android:layout_height="100dp"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:src="@drawable/settings"/>-->
+-<!--                            <Button-->
+-<!--                                android:id="@+id/btn_settings"-->
+-<!--                                android:layout_width="wrap_content"-->
+-<!--                                android:layout_height="wrap_content"-->
+-<!--                                android:text="Settings"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:layout_below="@id/img_settings"/>-->
+-<!--                        </RelativeLayout>-->
+-<!--                    </androidx.cardview.widget.CardView>-->
+-<!--                </LinearLayout>-->
+-
+-<!--                <LinearLayout-->
+-<!--                    android:layout_width="wrap_content"-->
+-<!--                    android:layout_height="wrap_content"-->
+-<!--                    android:orientation="horizontal"-->
+-<!--                    android:gravity="center"-->
+-<!--                    android:layout_marginTop="30dp">-->
+-
+-<!--                    <androidx.cardview.widget.CardView-->
+-<!--                        android:layout_width="170dp"-->
+-<!--                        android:layout_height="170dp"-->
+-<!--                        app:cardCornerRadius="10dp"-->
+-<!--                        android:padding="2dp">-->
+-<!--                        <RelativeLayout-->
+-<!--                            android:layout_width="match_parent"-->
+-<!--                            android:layout_height="match_parent"-->
+-<!--                            android:gravity="center">-->
+-<!--                            <ImageView-->
+-<!--                                android:id="@+id/img_set_permission"-->
+-<!--                                android:layout_width="100dp"-->
+-<!--                                android:layout_height="100dp"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:src="@drawable/permissions" />-->
+-<!--                            <Button-->
+-<!--                                android:id="@+id/btn_permissions"-->
+-<!--                                android:layout_width="wrap_content"-->
+-<!--                                android:layout_height="wrap_content"-->
+-<!--                                android:text="Set Permissions"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:layout_below="@id/img_set_permission" />-->
+-<!--                        </RelativeLayout>-->
+-<!--                    </androidx.cardview.widget.CardView>-->
+-
+-<!--                    <androidx.cardview.widget.CardView-->
+-<!--                        android:layout_width="170dp"-->
+-<!--                        android:layout_height="170dp"-->
+-<!--                        app:cardCornerRadius="10dp"-->
+-<!--                        android:padding="2dp"-->
+-<!--                        android:layout_marginStart="20dp">-->
+-<!--                        <RelativeLayout-->
+-<!--                            android:layout_width="match_parent"-->
+-<!--                            android:layout_height="match_parent"-->
+-<!--                            android:gravity="center">-->
+-<!--                            <ImageView-->
+-<!--                                android:id="@+id/img_eazypost"-->
+-<!--                                android:layout_width="100dp"-->
+-<!--                                android:layout_height="100dp"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:src="@drawable/eazypost" />-->
+-
+-<!--                            <Button-->
+-<!--                                android:id="@+id/btn_eazypost"-->
+-<!--                                android:layout_width="wrap_content"-->
+-<!--                                android:layout_height="wrap_content"-->
+-<!--                                android:layout_below="@id/img_eazypost"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:text="Eazy Post" />-->
+-<!--                        </RelativeLayout>-->
+-<!--                    </androidx.cardview.widget.CardView>-->
+-<!--                </LinearLayout>-->
+-
+-<!--                <LinearLayout-->
+-<!--                    android:layout_width="wrap_content"-->
+-<!--                    android:layout_height="wrap_content"-->
+-<!--                    android:orientation="horizontal"-->
+-<!--                    android:gravity="center"-->
+-<!--                    android:layout_marginTop="30dp">-->
+-
+-
+-<!--                    <androidx.cardview.widget.CardView-->
+-<!--                        android:layout_width="170dp"-->
+-<!--                        android:layout_height="170dp"-->
+-<!--                        app:cardCornerRadius="10dp"-->
+-<!--                        android:padding="2dp">-->
+-<!--                        <RelativeLayout-->
+-<!--                            android:layout_width="match_parent"-->
+-<!--                            android:layout_height="match_parent"-->
+-<!--                            android:gravity="center">-->
+-
+-<!--                            <ImageView-->
+-<!--                                android:id="@+id/img_downloads"-->
+-<!--                                android:layout_width="100dp"-->
+-<!--                                android:layout_height="100dp"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:src="@drawable/downloads" />-->
+-<!--                            <Button-->
+-<!--                                android:id="@+id/btn_downloads"-->
+-<!--                                android:layout_width="wrap_content"-->
+-<!--                                android:layout_height="wrap_content"-->
+-<!--                                android:text="Downloads"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:layout_below="@id/img_downloads" />-->
+-<!--                        </RelativeLayout>-->
+-<!--                    </androidx.cardview.widget.CardView>-->
+-
+-<!--                    <androidx.cardview.widget.CardView-->
+-<!--                        android:layout_width="170dp"-->
+-<!--                        android:layout_height="170dp"-->
+-<!--                        app:cardCornerRadius="10dp"-->
+-<!--                        android:padding="2dp"-->
+-<!--                        android:layout_marginStart="20dp">-->
+-<!--                        <RelativeLayout-->
+-<!--                            android:layout_width="match_parent"-->
+-<!--                            android:layout_height="match_parent"-->
+-<!--                            android:gravity="center">-->
+-
+-<!--                            <ImageView-->
+-<!--                                android:id="@+id/img_Business"-->
+-<!--                                android:layout_width="100dp"-->
+-<!--                                android:layout_height="100dp"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:src="@drawable/eazypost" />-->
+-
+-<!--                            <Button-->
+-<!--                                android:id="@+id/btn_Business"-->
+-<!--                                android:layout_width="wrap_content"-->
+-<!--                                android:layout_height="wrap_content"-->
+-<!--                                android:layout_below="@id/img_Business"-->
+-<!--                                android:layout_centerInParent="true"-->
+-<!--                                android:text="Business" />-->
+-<!--                        </RelativeLayout>-->
+-<!--                    </androidx.cardview.widget.CardView>-->
+-
+-<!--                </LinearLayout>-->
+-
+-
+-<!--            </LinearLayout>-->
+         </androidx.core.widget.NestedScrollView>
+ 
+ 
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n    <color name=\"purple_200\">#FFBB86FC</color>\r\n    <color name=\"purple_500\">#FF6200EE</color>\r\n    <color name=\"purple_700\">#FF3700B3</color>\r\n    <color name=\"teal_200\">#FF03DAC5</color>\r\n    <color name=\"teal_700\">#FF018786</color>\r\n    <color name=\"black\">#FF000000</color>\r\n    <color name=\"white\">#FFFFFFFF</color>\r\n    <color name=\"blue\">#008DFF</color>\r\n    <color name=\"green\">#28C89A</color>\r\n    <color name=\"red\">#FF0000</color>\r\n    <color name=\"gray\">#808080</color>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/colors.xml b/app/src/main/res/values/colors.xml
+--- a/app/src/main/res/values/colors.xml	(revision 0997181c3cfb88f3a55631c05c5922fa7bbbfc09)
++++ b/app/src/main/res/values/colors.xml	(date 1677842512839)
+@@ -11,4 +11,5 @@
+     <color name="green">#28C89A</color>
+     <color name="red">#FF0000</color>
+     <color name="gray">#808080</color>
++
+ </resources>
+\ No newline at end of file
+Index: app/src/main/java/com/technolite/connectit/module/demo.java
+===================================================================
+diff --git a/app/src/main/java/com/technolite/connectit/module/demo.java b/app/src/main/java/com/technolite/connectit/module/demo.java
+deleted file mode 100644
+--- a/app/src/main/java/com/technolite/connectit/module/demo.java	(revision 0997181c3cfb88f3a55631c05c5922fa7bbbfc09)
++++ /dev/null	(revision 0997181c3cfb88f3a55631c05c5922fa7bbbfc09)
+@@ -1,29 +0,0 @@
+-package com.technolite.connectit.module;
+-
+-public class demo {
+-    // string course_name for storing course_name
+-    // and imgid for storing image id.
+-    private String card_name;
+-    private int imgid;
+-
+-    public demo(String card_name, int imgid) {
+-        this.card_name = card_name;
+-        this.imgid = imgid;
+-    }
+-
+-    public String getCard_name() {
+-        return card_name;
+-    }
+-
+-    public void setCard_name(String card_name) {
+-        this.card_name = card_name;
+-    }
+-
+-    public int getImgid() {
+-        return imgid;
+-    }
+-
+-    public void setImgid(int imgid) {
+-        this.imgid = imgid;
+-    }
+-}
+Index: app/src/main/res/layout/card_item.xml
+===================================================================
+diff --git a/app/src/main/res/layout/card_item.xml b/app/src/main/res/layout/card_item.xml
+deleted file mode 100644
+--- a/app/src/main/res/layout/card_item.xml	(revision 0997181c3cfb88f3a55631c05c5922fa7bbbfc09)
++++ /dev/null	(revision 0997181c3cfb88f3a55631c05c5922fa7bbbfc09)
+@@ -1,35 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<androidx.cardview.widget.CardView
+-    xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:layout_width="match_parent"
+-    android:layout_height="120dp"
+-    xmlns:app="http://schemas.android.com/apk/res-auto"
+-    android:layout_gravity="center"
+-    android:layout_margin="5dp"
+-    app:cardCornerRadius="5dp"
+-    app:cardElevation="5dp">
+-
+-    <LinearLayout
+-        android:layout_width="150dp"
+-        android:layout_height="wrap_content"
+-        android:orientation="vertical"
+-        android:layout_gravity="center">
+-
+-        <ImageView
+-            android:id="@+id/idIVcourse"
+-            android:layout_width="100dp"
+-            android:layout_height="100dp"
+-            android:layout_gravity="center"
+-            android:src="@mipmap/ic_launcher" />
+-
+-        <TextView
+-            android:id="@+id/idTVCourse"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:text="demo"
+-            android:textAlignment="center" />
+-    </LinearLayout>
+-    
+-    
+-
+-</androidx.cardview.widget.CardView>
+\ No newline at end of file
+Index: app/src/main/java/com/technolite/connectit/CardAdapter.java
+===================================================================
+diff --git a/app/src/main/java/com/technolite/connectit/CardAdapter.java b/app/src/main/java/com/technolite/connectit/CardAdapter.java
+deleted file mode 100644
+--- a/app/src/main/java/com/technolite/connectit/CardAdapter.java	(revision 0997181c3cfb88f3a55631c05c5922fa7bbbfc09)
++++ /dev/null	(revision 0997181c3cfb88f3a55631c05c5922fa7bbbfc09)
+@@ -1,44 +0,0 @@
+-package com.technolite.connectit;
+-
+-import android.content.Context;
+-import android.view.LayoutInflater;
+-import android.view.View;
+-import android.view.ViewGroup;
+-import android.widget.ArrayAdapter;
+-import android.widget.ImageView;
+-import android.widget.TextView;
+-
+-import androidx.annotation.NonNull;
+-import androidx.annotation.Nullable;
+-
+-import com.technolite.connectit.module.demo;
+-
+-import java.util.ArrayList;
+-
+-public class CardAdapter extends ArrayAdapter<demo> {
+-
+-
+-    public CardAdapter(@NonNull Context context, ArrayList<demo> demoArrayList) {
+-        super(context, 0, demoArrayList);
+-    }
+-
+-    @NonNull
+-    @Override
+-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+-
+-        View listitemView = convertView;
+-        if (listitemView == null) {
+-            // Layout Inflater inflates each item to be displayed in GridView.
+-            listitemView = LayoutInflater.from(getContext()).inflate(R.layout.card_item, parent, false);
+-        }
+-
+-        demo demo = getItem(position);
+-        TextView courseTV = listitemView.findViewById(R.id.idTVCourse);
+-        ImageView courseIV = listitemView.findViewById(R.id.idIVcourse);
+-
+-        courseTV.setText(demo.getCard_name());
+-        courseIV.setImageResource(demo.getImgid());
+-        return listitemView;
+-    }
+-
+-}

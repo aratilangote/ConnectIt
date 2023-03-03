@@ -7,13 +7,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.IntentFilter;
+
 import android.content.pm.PackageManager;
-import android.net.ConnectivityManager;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.user_email);
         pass = findViewById(R.id.user_pass);
         signBtn = findViewById(R.id.signin);
+
         auth = FirebaseAuth.getInstance();
 
 
