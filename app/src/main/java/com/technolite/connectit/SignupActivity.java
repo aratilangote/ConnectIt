@@ -20,6 +20,8 @@ import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.technolite.connectit.module.UDer;
 
 import java.util.HashMap;
@@ -41,8 +43,8 @@ public class SignupActivity extends AppCompatActivity {
     //Firebase database
     FirebaseAuth fAuth;
 
- /*   FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference reference = database.getReference("Users");*/
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference reference = database.getReference("Users");
 
 
 
@@ -116,6 +118,9 @@ public class SignupActivity extends AppCompatActivity {
                     cnfPass.setError("Please enter your password");
                     referalId.setError("Please enter referral id");
 
+                } else if (mobile.getText().toString().length()!=10) {
+                    mobile.setError("Mobile Number is not valid");
+                    
                 } else if(pass.getText().toString().length() < 6 && !isValidPassword(pass.getText().toString())){
                     pass.setError("Password not valid");
                 } else if (!(mail.getText().toString().contains("@")&& mail.getText().toString().contains("."))) {
@@ -152,7 +157,19 @@ public class SignupActivity extends AppCompatActivity {
                                                     UDer ud=new UDer(mail.getText().toString(),pass.getText().toString());
                                                     String id=task.getResult().getUser().getUid();
 
-                                                   // reference.child(id).setValue(ud);
+                                                  // reference.child(id).setValue(ud);
+
+                                                    DatabaseReference root = FirebaseDatabase.getInstance().getReference().child("Users");
+                                                    DatabaseReference newMember = root.push();
+                                                    newMember.child("Username").setValue(name.getText().toString());
+                                                    newMember.child("Address").setValue(address.getText().toString());
+                                                    newMember.child("Email").setValue(mail.getText().toString());
+                                                    newMember.child("Mobile No").setValue(mobile.getText().toString());
+                                                    newMember.child("Password").setValue(pass.getText().toString());
+                                                    newMember.child("Referal Id").setValue(referalId.getText().toString());
+                                                    newMember.child("Link").setValue("https://technolitesolutions.com/");
+
+
 //                                        Toast.makeText(SignupActivity4.this, "signup successful", Toast.LENGTH_SHORT).show();
 
                                                     startActivity(new Intent(SignupActivity.this, HomeActivity.class));
