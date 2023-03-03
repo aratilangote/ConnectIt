@@ -1,4 +1,4 @@
-package com.technolite.connectit;
+package com.technolite.connectit.module;
 
 public class demo {
     // string course_name for storing course_name

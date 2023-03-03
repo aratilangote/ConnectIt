@@ -38,14 +38,11 @@ public class SignupActivity extends AppCompatActivity {
     MaterialButton signupBtn;
 
 
-
-
     //Firebase database
     FirebaseAuth fAuth;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference = database.getReference("Users");
-
 
 
 

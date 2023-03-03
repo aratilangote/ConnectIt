@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
+    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
@@ -394,10 +395,54 @@
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/navigation"
         android:layout_gravity="start"
+        app:itemIconPadding="15dp"
+        app:itemTextColor="@color/black"
+        android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header"
-        app:menu="@menu/nav_items"/>
+        app:menu="@menu/nav_items">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/green"
+            android:layout_gravity="bottom">
+            <TextView
+                android:id="@+id/txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Technolite Info Solutions"
+                android:layout_marginTop="10dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+
+                />
+            <TextView
+                android:id="@+id/txt2"
+                android:layout_below="@+id/txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Rights Reserved"
+                android:textSize="11sp"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:id="@+id/txt3"
+                android:layout_below="@+id/txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="V 1.0.0.1"
+                android:textSize="11sp"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                />
+        </LinearLayout>
+    </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>
