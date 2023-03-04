@@ -11,7 +11,8 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
     <uses-permission
         android:name="android.permission.BIND_ACCESSIBILITY_SERVICE"
@@ -33,6 +34,9 @@
         android:theme="@style/Theme.ConnectIt"
         tools:targetApi="31">
         <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".ImageViewerActivity"
             android:exported="false" />
         <activity
@@ -43,8 +47,12 @@
             android:exported="false" />
         <activity
             android:name=".SplashScreen"
-            android:exported="false" >
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".UpgradePremiumActivity_2"
@@ -58,7 +66,6 @@
         <activity
             android:name=".SignupActivity"
             android:exported="false" />
-
         <activity
             android:name=".OutgoingCallActivity"
             android:exported="false" />
@@ -87,14 +94,15 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-     <!--   <receiver
+        <!--
+   <receiver
             android:name=".CallReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE" />
             </intent-filter>
-        </receiver>-->
-
+        </receiver>
+        -->
         <activity
             android:name=".CallLogs"
             android:exported="false" />
@@ -111,22 +119,11 @@
             android:name=".SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".WhatsappActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
 
         <service android:name=".MyBackgroundService" />
         <service android:name=".MyBackgroundServiceOutgoing" />

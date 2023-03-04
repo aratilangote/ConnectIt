@@ -274,7 +274,7 @@ public class Birthday_Reminder_Activity extends AppCompatActivity implements Dat
                 intent.putExtra("message", message);*/
 
                 // create the Intent to send the SMS
-                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+         //       startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                 finish();
 
             }
