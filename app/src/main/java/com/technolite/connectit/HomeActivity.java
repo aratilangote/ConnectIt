@@ -29,7 +29,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     ImageSlider imageslider;
     ImageView tool;
 
-    MaterialCardView BtnPremium, BtnNetworkSMS, BtnBithday, BtnBulkWhatsapp, BtnEazypost, btnbusiness, BtnDownloads;
+    MaterialCardView BtnPremium, BtnNetworkSMS, BtnBithday, BtnWhatsapp, BtnEazypost, btnbusiness, BtnDownloads;
 
     NavigationView navigationView;
 
@@ -51,11 +51,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         });
 
 
+        //navigationview settings
+        navigationView = findViewById(R.id.navigationview);
+        navigationView.setNavigationItemSelectedListener(this);
+
+
+
         // All buttons
         BtnPremium = findViewById(R.id.btn_premium);
         BtnNetworkSMS = findViewById(R.id.btn_network_sms);
         BtnBithday = findViewById(R.id.btn_birthday_remainder);
-        BtnBulkWhatsapp = findViewById(R.id.btn_bulkwhatsapp);
+        BtnWhatsapp = findViewById(R.id.btn_whatsapp);
         BtnEazypost = findViewById(R.id.btn_eazypost);
         btnbusiness =findViewById(R.id.btn_Business);
         BtnDownloads = findViewById(R.id.btn_downloads);
@@ -81,10 +87,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         });
 
 
-        BtnBulkWhatsapp.setOnClickListener(new View.OnClickListener() {
+        BtnWhatsapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this,Bulk_whatsapp_msg_Activity.class));
+                startActivity(new Intent(HomeActivity.this, WhatsappActivity.class));
             }
         });
 
@@ -150,10 +156,19 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.share:
+//                Intent sendIntent = new Intent();
+//                sendIntent.setAction(Intent.ACTION_SEND);
+//                sendIntent.putExtra(Intent.EXTRA_TEXT, "https://technolitesolutions.com");
+//                sendIntent.setType("Download ConnectIt App!");
+//                startActivity(sendIntent);
+
+
+
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "YOUR_LINK");
-                sendIntent.setType("Download Samrudhi solar App!");
+                sendIntent.putExtra(Intent.EXTRA_TEXT,
+                        "Hey check out my app at: https://technolitesolutions.com" + BuildConfig.APPLICATION_ID);
+                sendIntent.setType("Download ConnectIt App!");
                 startActivity(sendIntent);
                 break;
 

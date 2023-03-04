@@ -15,12 +15,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 public class WhatsappActivity extends AppCompatActivity {
 
     private static final int RESULT_PICK_CONTACT =1;
 
     ImageView whatsappIcon;
-    private TextView phone;
+    private TextInputEditText phone;
     private Button pickContact;
 
     @Override
